@@ -16,7 +16,7 @@ if ( ! function_exists( 'alg_maybe_add_date_query' ) ) {
 	 * @version 1.1.0
 	 * @since   1.1.0
 	 */
-	function alg_maybe_add_date_query( $args ) {
+	function alg_maybe_add_date_query( $args, $section = '', $get_from_setting = false ) {
 		if ( ( isset( $_GET['start_date'] ) && '' != $_GET['start_date'] ) || ( isset( $_GET['end_date'] ) && '' != $_GET['end_date'] ) )  {
 			$date_query = array();
 			$date_query['inclusive'] = true;
@@ -27,6 +27,31 @@ if ( ! function_exists( 'alg_maybe_add_date_query' ) ) {
 				$date_query['before'] = $_GET['end_date'];
 			}
 			$args['date_query'] = array( $date_query );
+		}
+		if($get_from_setting){
+			if($section == 'product'){
+				$date_filter = get_option('alg_export_products_fields_date_filter', '');
+				if(!empty($date_filter)){
+					
+					if($date_filter == 'custom_date_range'){
+						$from_date = get_option('alg_export_products_fields_from_date', '');
+						$end_date = get_option('alg_export_products_fields_end_date', '');
+						if(!empty($from_date) && !empty($end_date)){
+							$date_query['after'] = $from_date;
+							$date_query['before'] = $end_date;
+							$args['date_query'] = array( $date_query );
+						}
+					}else{
+						foreach ( array_merge( alg_wc_export_get_reports_standard_ranges(), alg_wc_export_get_reports_custom_ranges() ) as $range_id => $range_data ) {
+							if($date_filter == $range_id){
+								$date_query['after'] = $range_data['start_date'];
+								$date_query['before'] = $range_data['end_date'];
+								$args['date_query'] = array( $date_query );
+							}
+						}
+					}
+				}
+			}
 		}
 		return $args;
 	}
@@ -282,5 +307,32 @@ if ( ! function_exists( 'alg_get_product_image_url' ) ) {
 			$image_url = '';
 		}
 		return $image_url;
+	}
+}
+
+if ( ! function_exists( 'alg_get_string_comma_replace' ) ) {
+ 	/**
+	 * alg_get_string_comma_replace.
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 * @todo    [dev] placeholder
+	 */
+	function alg_get_string_comma_replace( $string = '', $del=' | ' ) {
+		
+		$string = str_replace(",", $del, $string);
+		return $string;
+	}
+}
+if ( ! function_exists( 'sort_array_by_array' ) ) {
+	function sort_array_by_array(array $array, array $order_array) {
+		$ordered = array();
+		foreach ($order_array as $key) {
+			if( in_array( $key, $array ) ){
+				$ordered[] = $key;
+				unset($array[$key]);
+			}
+		}
+		return $ordered + $array;
 	}
 }

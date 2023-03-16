@@ -68,19 +68,45 @@ class Alg_Exporter_Products {
 	 * @since   1.0.0
 	 * @todo    [dev] export variations; `product-attributes` -> `( ! empty( $_product->get_attributes() ) ? serialize( $_product->get_attributes() ) : '' );`
 	 */
-	function export_products( $fields_helper ) {
+	function export_products( $fields_helper, $attach_html = false, $page = 1 ) {
 
 		// Time limit
 		if ( -1 != ( $time_limit = get_option( 'alg_wc_export_time_limit', -1 ) ) ) {
 			set_time_limit( $time_limit );
 		}
-
+		$is_prd_attr = false;
 		// Standard Fields
 		$all_fields = $fields_helper->get_product_export_fields();
 		$fields_ids = get_option( 'alg_export_products_fields', $fields_helper->get_product_export_default_fields_ids() );
+		$fields_ids_sorted = get_option( 'alg_export_products_fields_sorted', array() );
+		
+		if(!empty($fields_ids_sorted)){
+			if( strpos($fields_ids_sorted, ',') !== false ) {
+				// $fields_ids = sort_array_by_array($fields_ids, explode(',', $fields_ids_sorted));
+				$fields_ids = explode(',', $fields_ids_sorted);
+			}else{
+				// $fields_ids = sort_array_by_array($fields_ids, array($fields_ids_sorted));
+				$fields_ids = array($fields_ids_sorted);
+			}
+		}
+
 		$titles = array();
 		foreach( $fields_ids as $field_id ) {
-			$titles[] = $all_fields[ $field_id ];
+			if($field_id=='product-attributes'){
+				$is_prd_attr = true;
+				unset($fields_ids[$field_id]);
+			}else{
+				$titles[] = $all_fields[ $field_id ];
+			}
+		}
+		
+		// Product attributes
+		if($is_prd_attr){
+			$all_attributes = $fields_helper->get_product_export_attribute();
+			$attributes_ids = get_option( 'alg_export_products_attribute', array() );
+			foreach( $attributes_ids as $attribue_id ) {
+				$titles[] = $all_attributes[ $attribue_id ];
+			}
 		}
 
 		// Additional Fields
@@ -93,23 +119,36 @@ class Alg_Exporter_Products {
 
 		$data       = array();
 		$data[]     = $titles;
-		$offset     = 0;
-		$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
+		if($attach_html){
+			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
+			if($page <= 1){
+				$offset  = 0;
+			}else{
+				$offset  = ($page-1) * $block_size;
+			}
+		}else{
+			$offset     = 0;
+			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
+		}
 		while( true ) {
 			$args = array(
 				'post_type'      => 'product',
 				'post_status'    => 'any',
 				'posts_per_page' => $block_size,
-				'orderby'        => 'date',
+				'orderby'        => 'ID',
 				'order'          => 'DESC',
 				'offset'         => $offset,
 				'fields'         => 'ids',
 			);
-			$args = alg_maybe_add_date_query( $args );
+			$args = alg_maybe_add_date_query( $args, 'product', true );
 			$loop = new WP_Query( $args );
-			if ( ! $loop->have_posts() ) {
-				break;
+
+			if(!$attach_html){
+				if ( ! $loop->have_posts() ) {
+					break;
+				}
 			}
+
 			foreach ( $loop->posts as $product_id ) {
 				$_product = wc_get_product( $product_id );
 				$row = array();
@@ -145,7 +184,7 @@ class Alg_Exporter_Products {
 								$this->get_variable_or_grouped_product_info( $_product, 'price' ) : $_product->get_price() );
 							break;
 						case 'product-type':
-							$row[] = $_product->get_type();
+							$row[] = alg_get_string_comma_replace($_product->get_type(), '');
 							break;
 						case 'product-variation-attributes':
 							$row[] = ( $_product->is_type( 'variable' ) ?
@@ -155,10 +194,10 @@ class Alg_Exporter_Products {
 							$row[] = alg_get_product_image_url( $product_id, 'full' );
 							break;
 						case 'product-short-description':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->post->post_excerpt : $_product->get_short_description() );
+							$row[] = alg_get_string_comma_replace(( $this->is_wc_version_below_3 ? $_product->post->post_excerpt : $_product->get_short_description() ), '');
 							break;
 						case 'product-description':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->post->post_content : $_product->get_description() );
+							$row[] = alg_get_string_comma_replace(( $this->is_wc_version_below_3 ? $_product->post->post_content : $_product->get_description() ), '');
 							break;
 						case 'product-status':
 							$row[] = ( $this->is_wc_version_below_3 ? $_product->post->post_status : $_product->get_status() );
@@ -254,7 +293,17 @@ class Alg_Exporter_Products {
 							break;
 					}
 				}
-
+				
+				// Product Attributes
+				if($is_prd_attr){
+					foreach( $attributes_ids as $attribue_id ) {
+						$txnm = 'pa_'.$all_attributes[ $attribue_id ];
+						$pa_tax_name = apply_filters( 'sanitize_taxonomy_name', urldecode( sanitize_title( urldecode( $txnm ) ) ), $txnm );
+						$attr_val = $_product->get_attribute( $pa_tax_name );
+						$row[] = alg_get_string_comma_replace(((isset($attr_val) && !empty($attr_val)) ? $attr_val : '-'));
+					}
+				}
+				
 				// Additional Fields
 				$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_products' );
 				for ( $i = 1; $i <= $total_number; $i++ ) {
@@ -270,7 +319,23 @@ class Alg_Exporter_Products {
 				$data[] = $row;
 			}
 			$offset += $block_size;
+			if($attach_html){
+				break;
+			}
 		}
+		if($attach_html){
+			$output_html = '';
+			$output_html .= '<div class="paginate-ajax-alg-preview">';
+			$output_html .= paginate_links( array(
+				'total'        => $loop->max_num_pages,
+				'current'      => $page,
+				'base' => "#%#%" //will make hrefs like "#3"
+			) );
+			$output_html .= '</div>';
+			$output_html .= ( is_array( $data ) ) ? alg_get_table_html( $data, array( 'table_class' => 'widefat striped' ) ) : $data;
+			return $output_html;
+		}
+		
 		return $data;
 	}
 

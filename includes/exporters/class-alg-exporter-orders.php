@@ -33,6 +33,7 @@ class Alg_Exporter_Orders {
 	function get_export_orders_row( $fields_ids, $order_id, $order, $items, $item, $item_id ) {
 		$sep2 = get_option( 'alg_export_csv_separator_2_orders', ' / ' );
 		$row  = array();
+
 		foreach( $fields_ids as $field_id ) {
 			switch ( $field_id ) {
 				case 'item-debug':
@@ -90,7 +91,7 @@ class Alg_Exporter_Orders {
 					$row[] = $order->get_status();
 					break;
 				case 'order-date':
-					$row[] = get_the_date( get_option( 'date_format' ), $order_id );
+					$row[] = str_replace(',', ' ', get_the_date( get_option( 'date_format' ), $order_id ));
 					break;
 				case 'order-time':
 					$row[] = get_the_time( get_option( 'time_format' ), $order_id );
@@ -117,11 +118,26 @@ class Alg_Exporter_Orders {
 				case 'order-total-tax':
 					$row[] = $order->get_total_tax();
 					break;
+				case 'order-shipping-total':
+					$row[] = $order->get_shipping_total();
+					break;
 				case 'order-payment-method':
 					$row[] = ( $this->is_wc_version_below_3 ? $order->payment_method_title : $order->get_payment_method_title() );
 					break;
 				case 'order-notes':
 					$row[] = ( $this->is_wc_version_below_3 ? $order->customer_note : $order->get_customer_note() );
+					break;
+				case 'customer-id':
+					$row[] = (int) $order->get_user_id();
+					break;
+				case 'shipping-method':
+					$sresult = array();
+					foreach( $order->get_items( 'shipping' ) as $sitem_id => $sitem ){
+						// Get the data in an unprotected array
+						$sitem_data = $sitem->get_data();
+						$sresult[]  = $sitem_data['method_title'];
+					}
+					$row[] = implode( $sep2, $sresult );
 					break;
 				case 'backend-order-notes':
 					$row[] = apply_filters( 'alg_wc_export', '', 'order_export_backend_order_notes', array( 'order_id' => $order_id, 'sep2' => $sep2 ) );
@@ -151,6 +167,7 @@ class Alg_Exporter_Orders {
 					break;
 			}
 		}
+
 		return $row;
 	}
 
@@ -220,7 +237,6 @@ class Alg_Exporter_Orders {
 					$items = implode( $sep2, $items );
 				}
 				$row = $this->get_export_orders_row( $fields_ids, $order_id, $order, $items, null, null );
-
 				// Additional Fields
 				$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_orders' );
 				for ( $i = 1; $i <= $total_number; $i++ ) {
@@ -237,6 +253,7 @@ class Alg_Exporter_Orders {
 			}
 			$offset += $block_size;
 		}
+		
 		return $data;
 	}
 

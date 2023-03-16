@@ -161,6 +161,7 @@ class Alg_Export_Fields_Helper {
 			'order-currency'              => __( 'Order Currency', 'export-woocommerce' ),
 			'order-total'                 => __( 'Order Total', 'export-woocommerce' ),
 			'order-total-tax'             => __( 'Order Total Tax', 'export-woocommerce' ),
+			'order-shipping-total'        => __( 'Order Shipping Total', 'export-woocommerce' ),
 			'order-payment-method'        => __( 'Order Payment Method', 'export-woocommerce' ),
 			'order-notes'                 => __( 'Order Notes', 'export-woocommerce' ),
 			'billing-first-name'          => __( 'Billing First Name', 'export-woocommerce' ),
@@ -245,8 +246,11 @@ class Alg_Export_Fields_Helper {
 			'order-currency'                   => __( 'Order Currency', 'export-woocommerce' ),
 			'order-total'                      => __( 'Order Total', 'export-woocommerce' ),
 			'order-total-tax'                  => __( 'Order Total Tax', 'export-woocommerce' ),
+			'order-shipping-total'             => __( 'Order Shipping Total', 'export-woocommerce' ),
 			'order-payment-method'             => __( 'Order Payment Method', 'export-woocommerce' ),
 			'order-notes'                      => __( 'Order Notes', 'export-woocommerce' ),
+			'customer-id'                 	   => __( 'Customer ID', 'export-woocommerce' ),
+			'shipping-method'                  => __( 'Shipping Method', 'export-woocommerce' ),
 			'billing-first-name'               => __( 'Billing First Name', 'export-woocommerce' ),
 			'billing-last-name'                => __( 'Billing Last Name', 'export-woocommerce' ),
 			'billing-company'                  => __( 'Billing Company', 'export-woocommerce' ),
@@ -288,6 +292,7 @@ class Alg_Export_Fields_Helper {
 			'order-currency',
 			'order-total',
 			'order-total-tax',
+			'order-shipping-total',
 			'order-payment-method',
 			'order-notes',
 			'billing-first-name',
@@ -332,6 +337,7 @@ class Alg_Export_Fields_Helper {
 			'product-price'                      => __( 'Price', 'export-woocommerce' ),
 			'product-type'                       => __( 'Type', 'export-woocommerce' ),
 			'product-variation-attributes'       => __( 'Variation Attributes', 'export-woocommerce' ),
+			'product-attributes'       			 => __( 'Product Attributes', 'export-woocommerce' ),
 			'product-image-url'                  => __( 'Image URL', 'export-woocommerce' ),
 			'product-short-description'          => __( 'Short Description', 'export-woocommerce' ),
 			'product-description'                => __( 'Description', 'export-woocommerce' ),
@@ -367,7 +373,28 @@ class Alg_Export_Fields_Helper {
 			'product-availability-class'         => __( 'Availability Class', 'export-woocommerce' ),
 		);
 	}
+	
+	/**
+	 * get_product_export_attribute.
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 * @todo    [dev] `product-attributes`
+	 */
+	function get_product_export_attribute() {
+		global $wpdb;
+		$attr_taxonomies = array();
+		$raw_attr_taxonomies = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}woocommerce_attribute_taxonomies WHERE attribute_name != '' ORDER BY attribute_name ASC;" );
+		
+		// Index by ID for easer lookups.
+		$attr_taxonomies = array();
 
+		foreach ( $raw_attr_taxonomies as $result ) {
+			$attr_taxonomies[ $result->attribute_name ] = __( $result->attribute_label, 'export-woocommerce' );
+		}
+		return $attr_taxonomies;
+	}
+	
 	/**
 	 * get_product_export_default_fields_ids.
 	 *
@@ -388,6 +415,42 @@ class Alg_Export_Fields_Helper {
 			'product-short-description',
 			'product-status',
 			'product-url',
+		);
+	}
+	
+	/**
+	 * get_product_export_import_fields_ids.
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	function get_product_export_import_fields_ids() {
+		return array(
+			'product-id',
+			'product-name',
+			'product-sku',
+			'product-stock',
+			'product-stock-quantity',
+			'product-regular-price',
+			'product-sale-price',
+			'product-price',
+			'product-type',
+			'product-image-url',
+			'product-short-description',
+			'product-description',
+			'product-status',
+			'product-width',
+			'product-length',
+			'product-height',
+			'product-weight',
+			'product-downloadable',
+			'product-virtual',
+			'product-sold-individually',
+			'product-manage-stock',
+			'product-stock-status',
+			'product-backorders',
+			'product-featured',
+			'product-visibility'
 		);
 	}
 

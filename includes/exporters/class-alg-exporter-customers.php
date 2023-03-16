@@ -101,7 +101,11 @@ class Alg_Exporter_Customers {
 						$row[] = '<pre>' . print_r( $customer, true ) . '</pre>';
 						break;
 					case 'last-update':
-						$row[] = date( get_option( 'date_format' ), get_user_meta( $customer->ID, 'last_update', true ) );
+						$last_update = (int) get_user_meta( $customer->ID, 'last_update', true );
+						if($last_update <= 0 ){
+							$last_update = time();
+						}
+						$row[] = date( get_option( 'date_format' ), $last_update );
 						break;
 					case 'total-spent':
 						$row[] = apply_filters( 'alg_wc_export', '', 'customer_export_total_spent', array( 'wc_customer' => $wc_customer ) );

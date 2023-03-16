@@ -1,34 +1,53 @@
-=== Export WooCommerce ===
+=== Products, Order & Customers Export for WooCommerce ===
 Contributors: omardabbas
 Tags: woocommerce, export
 Requires at least: 4.4
-Tested up to: 5.3
-Stable tag: 1.5.4
+Tested up to: 6.1
+Stable tag: 2.0.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Export orders, products and customers from WooCommerce.
+Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click.
 
 == Description ==
 
-With **Export WooCommerce plugin** you can export:
+Export ALL your WooCommerce store data to CSV or XML using this free plugin, export Products, Orders, Order Items, Customers, and Customers from Orders in single click.
 
-* WooCommerce **products**,
-* WooCommerce **orders**,
-* WooCommerce **orders items**,
-* WooCommerce **customers** (from WordPress users table),
-* **customers extracted from** WooCommerce **orders**.
+The plugin will allow you to choose from more 100 fields to include in your exported report, more than 30 unique field in each report to select from.
 
-**General options** include:
+Export & Download your reports to either CSV (with a custom separator of your choice) or XML, and with an easy-to-use interface, the plugin will show each report in a separate tab to have a better control on your reports.
 
-* CSV separator,
-* CSV wrap,
-* UTF-8 BOM,
-* user capability.
+Once you export your data to CSV, you can use your favorite sheets program (Excel or Google Sheets) to rename fields, change order, filter based on categories, tags, and more.
 
-When exporting products and/or orders, you can add one additional product and/or order **meta field** to export. [Pro version](https://wpfactory.com/item/export-woocommerce/) allows adding unlimited number of additional meta fields.
+**Plugin Main Features:**
 
-= More =
+With this plugin, you can do the following:
+
+* Export WooCommerce **Products**: Choose fields like Product ID, Name, SKU, Reg. Price, Sale Price, Image URL, Status, and more than 40 fields to show in your report.
+* Export WooCommerce **Orders**: Order ID, Number, Status, Dated, Time, Currency, Payment method, you name it, and the plugin will include it in your report.
+* Export WooCommerce **Orders Items**: Customized report for order items (other than Order report) that includes +40 to select from.
+* Export WooCommerce **Customers** (from WordPress users table): Export all your customers details in one report, ID, Email, Name (First & Last), Billing & shipping info and more.
+* Export WooCommerce **Customers from Orders**: Retrieve customers information from your orders with this customized report.
+
+**General Options** of the plugin include:
+
+* CSV custom separator.
+* CSV wrap.
+* UTF-8 BOM.
+* User capability.
+* Secondary separators.
+
+= Do More with Premium Version =
+When exporting products and/or orders, you can add one additional product and/or order **meta field** to export. Our [Pro version](https://wpfactory.com/item/export-woocommerce/) allows adding unlimited number of additional meta fields.
+
+== Screenshots ==
+
+1. Main Page with General Settings
+2. Export Product Settings
+3. Dashboard Page
+4. Product Report Results Page
+
+= Feedback =
 * We are open to your suggestions and feedback.
 * Visit the [Export WooCommerce plugin page](https://wpfactory.com/item/export-woocommerce/).
 * Thank you for using or trying out one of our plugins!
@@ -40,6 +59,78 @@ When exporting products and/or orders, you can add one additional product and/or
 3. Start by visiting plugin settings at "WooCommerce > Settings > Export".
 
 == Changelog ==
+
+= 2.0.1 - 06/02/2023 =
+* Verified compatibility with WooCommerce 7.3
+
+= 2.0 - 06/12/2022 =
+* Revamped the Products exporting feature, new export options & filters, XML export available
+* Verified compatibility with WooCommerce 7.1
+
+= 1.9.4 - 04/11/2022 =
+* Verified compatibility with WordPress 6.1 & WooCommerce 7.0
+
+= 1.9.3 - 06/09/2022 =
+* Verified compatibility with WooCommerce 6.8
+
+= 1.9.2 - 12/06/2022 =
+* Verified compatibility with WordPress 6.0 & WooCommerce 6.5
+
+= 1.9.1 - 19/04/2022 =
+* Verified compatibily with WooCommerce 6.4
+* Bug fixed: Warning for "date() expects parameter"
+* Site health message related to PHP session creation was handled
+
+= 1.9 - 19/03/2022 =
+* Verified compatibility with WooCommerce 6.3
+* Added a new option to export Shipping Method in orders
+
+= 1.8.1 - 08/02/2022 =
+* Fixed error message related to session calling in PHP 8.0
+
+= 1.8 - 28/01/2022 =
+* Verified compatibily with WordPress 5.9 & WooCommerce 6.1
+* New feature: You can order fields in products table before exporting them
+
+= 1.7.8 - 30/08/2021 =
+* Checked compatibility with WooCommerce 5.6
+
+= 1.7.7 - 25/07/2021 =
+* Verified compatibility with WooCommerce 5.5 & WordPress 5.8
+
+= 1.7.6 - 17/05/2021 =
+* Verified compatibility with WooCommerce 5.3
+
+= 1.7.5 - 11/04/2021 =
+* Added a section to import products (exported by the plugin)
+* Tested compatibilty with WC 5.1 & WP 5.7
+
+= 1.7.4 - 28/02/2021 =
+* Tested compatibilty with WC 5.0
+
+= 1.7.3 - 27/01/2021 =
+* Tested compatibility with WC 4.9
+
+= 1.7.2 - 23/12/2020 =
+* Fixed a bug in handling comma between columns
+* Tested compatibility with WC 4.8 & WP 5.6
+
+= 1.7.1 - 21/11/2020 =
+* Tested compatibility with WC 4.7
+
+= 1.7 - 30/10/2020 =
+* Tested compatibility with WC 4.6
+* Added an option to export attributes
+
+= 1.6 - 16/08/2020 =
+* Tested compatibility with WP 5.5
+* Tested compatibility with WC 4.3
+* Added a new item to export Order Shipping Total in Orders report
+
+= 1.5.5 - 02/01/2020 =
+* Text updates over the plugin pages.
+* Copyrights Update
+* Added a section to review the plugin
 
 = 1.5.4 - 20/11/2019 =
 * Dev - Code refactoring.

@@ -38,7 +38,33 @@ class Alg_WC_Export_Core {
 	 * @since   1.1.0
 	 */
 	function enqueue_backend_scripts_and_styles() {
+		
+		if(isset($_GET['page']) && $_GET['page'] == 'wc-settings' && isset($_GET['tab']) && $_GET['tab'] == 'alg_wc_export' && isset($_GET['section']) && $_GET['section'] == 'products'){
+			$do_add_timepicker = ( 'yes' === get_option( 'alg_wc_export_add_timepicker', 'no' ) );
+			wp_enqueue_script( 'alg-wc-export-admin-own-js',
+				alg_wc_export()->plugin_url() . '/includes/js/alg-wc-export-admin-own.js',
+				array( 'jquery' ),
+				alg_wc_export()->version,
+				true
+			);
+			
+			wp_enqueue_script( 'jquery-ui-datepicker' );
+			wp_enqueue_script( 'alg-wc-export-datepicker',
+				alg_wc_export()->plugin_url() . '/includes/js/alg-wc-export-datepicker.js',
+				array( 'jquery' ),
+				alg_wc_export()->version,
+				true
+			);
+			wp_localize_script( 'alg-wc-export-datepicker', 'alg_wc_export_datepicker_options', array( 'do_add_timepicker' => $do_add_timepicker ) );
+			wp_enqueue_style( 'jquery-ui-style',
+				'//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css',
+				array(),
+				alg_wc_export()->version
+			);
+		}
+			
 		if ( isset( $_GET['page'] ) && 'alg-wc-export-tools' == $_GET['page'] && isset( $_GET['alg_wc_export_tool'] ) ) {
+			
 			$do_add_timepicker = ( 'yes' === get_option( 'alg_wc_export_add_timepicker', 'no' ) );
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			wp_enqueue_script( 'alg-wc-export-datepicker',
@@ -85,6 +111,30 @@ class Alg_WC_Export_Core {
 			text-shadow: 0 -1px 1px #009967,1px 0 1px #009967,0 1px 1px #009967,-1px 0 1px #009967 !important;
 		}';
 		echo '</style>';
+		
+		if(isset($_GET['page']) && $_GET['page'] == 'wc-settings' && isset($_GET['tab']) && $_GET['tab'] == 'alg_wc_export' && isset($_GET['section']) && $_GET['section'] == 'products'){
+			echo '<style>';
+			echo 'p.submit {
+					display: none !important;
+				}';
+			echo 'input#alg_export_products_fields_from_date{
+					float: left;
+					margin-right: 20px;
+					width: 12em;
+				}';
+			echo 'input#alg_export_products_fields_from_date + p.description{
+					float: left;
+					width: 12em;
+					margin-top: 0px!important;
+				}';
+			echo 'input#alg_export_products_fields_end_date_alternative{
+					width: 12em;
+				}';
+			echo 'body div#alg_wc_export_products_filter_options-description + table.form-table tbody tr:nth-child(3) {
+					display: none;
+				}';
+			echo '</style>';
+		}
 	}
 
 	/**
@@ -231,7 +281,7 @@ class Alg_WC_Export_Core {
 	 * @todo    [dev] when filtering now using strpos, but other options would be stripos (case-insensitive) or strict equality
 	 * @todo    [dev] `if ( 1 == count( $data ) ) { return '<em>' . __( 'No results found.', 'export-woocommerce' ) . '</em>'; }`
 	 */
-	function export( $tool_id ) {
+	function export( $tool_id, $attach_html = false, $page = 1 ) {
 		$data = array();
 		switch ( $tool_id ) {
 			case 'customers':
@@ -252,27 +302,30 @@ class Alg_WC_Export_Core {
 				break;
 			case 'products':
 				$exporter = require_once( 'exporters/class-alg-exporter-products.php' );
-				$data = $exporter->export_products( alg_wc_export()->fields_helper );
+				$data = $exporter->export_products( alg_wc_export()->fields_helper, $attach_html, $page );
 				break;
 		}
-		if ( isset( $_GET['alg_export_filter_all_columns'] ) && '' != $_GET['alg_export_filter_all_columns'] ) {
-			$filter_str = $_GET['alg_export_filter_all_columns'];
-			foreach ( $data as $row_id => $row ) {
-				if ( 0 == $row_id ) {
-					continue;
-				}
-				$is_filtered = false;
-				foreach ( $row as $cell ) {
-					if ( false !== strpos( $cell, $filter_str ) ) {
-						$is_filtered = true;
-						break;
+		if(!$attach_html){
+			if ( isset( $_GET['alg_export_filter_all_columns'] ) && '' != $_GET['alg_export_filter_all_columns'] ) {
+				$filter_str = $_GET['alg_export_filter_all_columns'];
+				foreach ( $data as $row_id => $row ) {
+					if ( 0 == $row_id ) {
+						continue;
 					}
-				}
-				if ( ! $is_filtered ) {
-					unset( $data[ $row_id ] );
+					$is_filtered = false;
+					foreach ( $row as $cell ) {
+						if ( false !== strpos( $cell, $filter_str ) ) {
+							$is_filtered = true;
+							break;
+						}
+					}
+					if ( ! $is_filtered ) {
+						unset( $data[ $row_id ] );
+					}
 				}
 			}
 		}
+		
 		return $data;
 	}
 
@@ -341,11 +394,13 @@ class Alg_WC_Export_Core {
 			}
 			$tool_id = $_GET['alg_export'];
 			$data = $this->export( $tool_id );
+			
 			if ( is_array( $data ) ) {
 				$csv  = '';
 				$wrap = get_option( 'alg_export_csv_wrap', '' );
 				$sep  = $wrap . get_option( 'alg_export_csv_separator', ',' ) . $wrap;
 				foreach ( $data as $row ) {
+					$row = array_map(array($this, 'removeComma'), $row);
 					$csv .= $wrap . implode( $sep, $row ) . $wrap . PHP_EOL;
 				}
 				if ( 'yes' === get_option( 'alg_export_csv_add_utf_8_bom', 'yes' ) ) {
@@ -362,6 +417,11 @@ class Alg_WC_Export_Core {
 				die();
 			}
 		}
+	}
+	
+	function removeComma($v)
+	{
+		return str_replace(',', ' ', $v);
 	}
 
 }

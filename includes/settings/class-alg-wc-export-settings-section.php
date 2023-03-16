@@ -23,6 +23,7 @@ class Alg_WC_Export_Settings_Section {
 		add_filter( 'woocommerce_get_sections_alg_wc_export',              array( $this, 'settings_section' ) );
 		add_filter( 'woocommerce_get_settings_alg_wc_export_' . $this->id, array( $this, 'get_settings' ), PHP_INT_MAX );
 	}
+	
 
 	/**
 	 * settings_section.

@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: Export WooCommerce
+Plugin Name: Products & Order Export for WooCommerce
 Plugin URI: https://wpfactory.com/item/export-woocommerce/
-Description: Export orders, products and customers from WooCommerce.
-Version: 1.5.4
+Description: Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click.
+Version: 2.0.1
 Author: WPWhale
 Author URI: https://wpwhale.com
 Text Domain: export-woocommerce
 Domain Path: /langs
-Copyright: © 2019 WPWhale
-WC tested up to: 3.8
+Copyright: © 2023 WPWhale
+WC tested up to: 7.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -118,8 +118,11 @@ final class Alg_WC_Export {
 		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_export' ) . '">' . __( 'Settings', 'woocommerce' )     . '</a>';
 		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=alg-wc-export-tools' )           . '">' . __( 'Tools', 'export-woocommerce' ) . '</a>';
 		if ( 'export-woocommerce.php' === basename( __FILE__ ) ) {
-			$custom_links[] = '<a href="https://wpfactory.com/item/export-woocommerce/">' . __( 'Unlock All', 'export-woocommerce' ) . '</a>';
+			$custom_links[] = '<a style="color: green; font-weight: bold;" target="_blank" href="' . esc_url( 'https://wpfactory.com/item/export-woocommerce/"' ) . '">' .
+				__( 'Go Pro', 'export-woocommerce' ) . '</a>';
 		}
+		$custom_links[] = '<a style=" font-weight: bold;" target="_blank" href="' . esc_url( 		'https://wordpress.org/support/plugin/export-woocommerce/reviews/#new-post"' ) . '">' .
+		__( 'Review Us', 'export-woocommerce' ) . '</a>';
 		return array_merge( $custom_links, $links );
 	}
 
@@ -135,6 +138,7 @@ final class Alg_WC_Export {
 		// Functions
 		require_once( 'includes/alg-wc-export-functions.php' );
 		require_once( 'includes/alg-wc-export-functions-ranges.php' );
+		require_once( 'includes/alg-wc-export-functions-ajax.php' );
 		// Core
 		$this->core = require_once( 'includes/class-alg-wc-export-core.php' );
 	}
@@ -151,6 +155,7 @@ final class Alg_WC_Export {
 		// Settings
 		add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
 		require_once( 'includes/settings/class-alg-wc-export-settings-section.php' );
+		require_once( 'includes/import/class-alg-wc-export-import-products.php' );
 		$this->settings = array();
 		$this->settings['general']               = require_once( 'includes/settings/class-alg-wc-export-settings-general.php' );
 		$this->settings['products']              = require_once( 'includes/settings/class-alg-wc-export-settings-products.php' );
@@ -225,3 +230,38 @@ if ( ! function_exists( 'alg_wc_export' ) ) {
 }
 
 alg_wc_export();
+
+
+add_action('admin_footer', 'alg_wc_export_admin_add_js');
+function alg_wc_export_admin_add_js() {
+    ?>
+	<script>
+	jQuery("select#alg_export_products_fields").change(function () {
+	  if (jQuery(this).val().indexOf("product-attributes") > 0) {
+		show_hide_attr(true);
+	  } else {
+		show_hide_attr();
+	  }
+	});
+	function show_hide_attr(flag = false){
+		if(flag){
+			if(jQuery("select#alg_export_products_attribute").length > 0){
+				jQuery("label[for='alg_export_products_attribute']").show();
+				jQuery("select#alg_export_products_attribute").show();
+			}
+		}else{
+			if(jQuery("select#alg_export_products_attribute").length > 0){
+				jQuery("label[for='alg_export_products_attribute']").hide();
+				jQuery("select#alg_export_products_attribute").hide();
+			}
+		}
+	}
+
+	jQuery( document ).ready(function() {
+		if(jQuery("select#alg_export_products_fields").length > 0){
+			jQuery("select#alg_export_products_fields").change();
+		}
+	});
+	</script>
+    <?php
+}
