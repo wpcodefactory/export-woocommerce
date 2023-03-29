@@ -186,6 +186,7 @@ class Alg_Export_Fields_Helper {
 			'shipping-country'            => __( 'Shipping Country', 'export-woocommerce' ),
 			// Items Fields
 			'item-name'                   => __( 'Item Name', 'export-woocommerce' ),
+			'item-sku'                    => __( 'Item SKU', 'export-woocommerce' ),
 			'item-product-input-fields'   => __( 'Item Product Input Fields', 'export-woocommerce' ),
 			'item-meta'                   => __( 'Item Meta', 'export-woocommerce' ),
 			'item-variation-meta'         => __( 'Item Variation Meta', 'export-woocommerce' ),

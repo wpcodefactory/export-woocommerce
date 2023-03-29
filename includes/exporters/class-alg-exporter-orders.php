@@ -42,6 +42,15 @@ class Alg_Exporter_Orders {
 				case 'item-name':
 					$row[] = $item['name'];
 					break;
+				case 'item-sku':
+					$sku = '';
+					if(isset($item['variation_id']) && $item['variation_id'] > 0){
+						$sku = get_post_meta( $item['variation_id'], '_sku', true );
+					} else if(isset($item['product_id']) && $item['product_id'] > 0){
+						$sku = get_post_meta( $item['product_id'], '_sku', true );
+					}
+					$row[] = $sku;
+					break;
 				case 'item-product-input-fields':
 					$row[] = alg_get_order_item_product_input_fields( $item_id, $item, $order );
 					break;

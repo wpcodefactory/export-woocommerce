@@ -3,7 +3,7 @@ Contributors: omardabbas
 Tags: woocommerce, export
 Requires at least: 4.4
 Tested up to: 6.1
-Stable tag: 2.0.1
+Stable tag: 2.0.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,14 @@ When exporting products and/or orders, you can add one additional product and/or
 3. Start by visiting plugin settings at "WooCommerce > Settings > Export".
 
 == Changelog ==
+
+= 2.0.3 - 18/03/2023 =
+* Added a new option to export SKU number on order items report
+* Verified compatibility with WooCommerce 7.5
+
+= 2.0.2 - 08/03/2023 =
+* Added new filters to get data before export (to add custom data), new filters are: alg_export_data, alg_export_data_csv, alg_export_data_xml
+* Verified compatibility with WooCommerce 7.4
 
 = 2.0.1 - 06/02/2023 =
 * Verified compatibility with WooCommerce 7.3

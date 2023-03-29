@@ -326,7 +326,9 @@ class Alg_WC_Export_Core {
 			}
 		}
 		
-		return $data;
+		/*return $data;*/
+		
+		return apply_filters('alg_export_data', $data, $tool_id);
 	}
 
 	/**
@@ -347,6 +349,9 @@ class Alg_WC_Export_Core {
 			}
 			$tool_id = $_GET['alg_export_xml'];
 			$data = $this->export( $tool_id );
+			
+			$data = apply_filters('alg_export_data_xml', $data, $tool_id);
+			
 			if ( is_array( $data ) ) {
 				$xml = '';
 				$xml .= '<?xml version = "1.0" encoding = "utf-8" ?>' . PHP_EOL . '<root>' . PHP_EOL;
@@ -394,6 +399,8 @@ class Alg_WC_Export_Core {
 			}
 			$tool_id = $_GET['alg_export'];
 			$data = $this->export( $tool_id );
+			
+			$data = apply_filters('alg_export_data_csv', $data, $tool_id);
 			
 			if ( is_array( $data ) ) {
 				$csv  = '';
