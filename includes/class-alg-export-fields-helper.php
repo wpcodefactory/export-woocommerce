@@ -6,7 +6,7 @@
  *
  * @version 1.5.1
  * @since   1.0.0
- * @author  WPWhale
+ * @author  WPFactory
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;

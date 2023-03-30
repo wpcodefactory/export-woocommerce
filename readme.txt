@@ -60,6 +60,9 @@ When exporting products and/or orders, you can add one additional product and/or
 
 == Changelog ==
 
+= 2.0.4 - 30/03/2023 =
+* Move to WPFactory.
+
 = 2.0.3 - 18/03/2023 =
 * Added a new option to export SKU number on order items report
 * Verified compatibility with WooCommerce 7.5
