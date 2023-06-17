@@ -1,9 +1,9 @@
 === Products, Order & Customers Export for WooCommerce ===
-Contributors: omardabbas
+Contributors: omardabbas, kousikmukherjeeli
 Tags: woocommerce, export
 Requires at least: 4.4
-Tested up to: 6.1
-Stable tag: 2.0.4
+Tested up to: 6.2
+Stable tag: 2.0.5
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,12 @@ When exporting products and/or orders, you can add one additional product and/or
 3. Start by visiting plugin settings at "WooCommerce > Settings > Export".
 
 == Changelog ==
+
+
+
+= 2.0.5 - 17/06/2023 =
+* WC tested up to: 7.8.
+* Tested up to: 6.2.
 
 = 2.0.4 - 31/03/2023 =
 * Move to WPFactory.
