@@ -2,7 +2,7 @@
 /**
  * WooCommerce Exporter Orders
  *
- * @version 1.5.3
+ * @version 2.0.7
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -183,7 +183,7 @@ class Alg_Exporter_Orders {
 	/**
 	 * export_orders.
 	 *
-	 * @version 1.5.3
+	 * @version 2.0.7
 	 * @since   1.0.0
 	 * @todo    [dev] (maybe) metainfo as separate column
 	 */
@@ -251,7 +251,8 @@ class Alg_Exporter_Orders {
 				for ( $i = 1; $i <= $total_number; $i++ ) {
 					if ( 'yes' === get_option( 'alg_export_orders_fields_additional_enabled_' . $i, 'no' ) ) {
 						if ( '' != ( $additional_field_value = get_option( 'alg_export_orders_fields_additional_value_' . $i, '' ) ) ) {
-							$row[] = get_post_meta( $order_id, $additional_field_value, true );
+							/* $row[] = get_post_meta( $order_id, $additional_field_value, true ); */
+							$row[] = $order->get_meta( $additional_field_value );
 						} else {
 							$row[] = '';
 						}
@@ -269,7 +270,7 @@ class Alg_Exporter_Orders {
 	/**
 	 * export_orders_items.
 	 *
-	 * @version 1.5.3
+	 * @version 2.0.7
 	 * @since   1.0.0
 	 */
 	function export_orders_items( $fields_helper ) {
@@ -328,7 +329,8 @@ class Alg_Exporter_Orders {
 						if ( 'yes' === get_option( 'alg_export_orders_items_fields_additional_enabled_' . $i, 'no' ) ) {
 							if ( '' != ( $additional_field_value = get_option( 'alg_export_orders_items_fields_additional_value_' . $i, '' ) ) ) {
 								if ( 'meta_order' === get_option( 'alg_export_orders_items_fields_additional_type_' . $i, 'meta' ) ) {
-									$row[] = get_post_meta( $order_id, $additional_field_value, true );
+									/* $row[] = get_post_meta( $order_id, $additional_field_value, true ); */
+									$row[] = $order->get_meta( $additional_field_value );
 								} elseif ( 'meta_product' === get_option( 'alg_export_orders_items_fields_additional_type_' . $i, 'meta' ) ) {
 									$product_id = ( 0 != $item['variation_id'] ) ? $item['variation_id'] : $item['product_id'];
 									$row[] = get_post_meta( $product_id, $additional_field_value, true );
