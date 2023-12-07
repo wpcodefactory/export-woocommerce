@@ -2,7 +2,7 @@
 /**
  * WooCommerce Exporter Orders
  *
- * @version 2.0.7
+ * @version 2.0.8
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -27,7 +27,7 @@ class Alg_Exporter_Orders {
 	/**
 	 * get_export_orders_row.
 	 *
-	 * @version 1.5.1
+	 * @version 2.0.8
 	 * @since   1.0.0
 	 */
 	function get_export_orders_row( $fields_ids, $order_id, $order, $items, $item, $item_id ) {
@@ -36,6 +36,9 @@ class Alg_Exporter_Orders {
 
 		foreach( $fields_ids as $field_id ) {
 			switch ( $field_id ) {
+				case 'item-id':
+					$row[] = $item_id;
+					break;
 				case 'item-debug':
 					$row[] = '<pre>' . print_r( $item, true ) . '</pre>';
 					break;

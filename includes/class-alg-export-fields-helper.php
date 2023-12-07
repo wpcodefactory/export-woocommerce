@@ -4,7 +4,7 @@
  *
  * The WooCommerce Export Fields Helper class.
  *
- * @version 1.5.1
+ * @version 2.0.8
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -146,7 +146,7 @@ class Alg_Export_Fields_Helper {
 	/**
 	 * get_order_items_export_fields.
 	 *
-	 * @version 1.5.1
+	 * @version 2.0.8
 	 * @since   1.0.0
 	 * @todo    [dev] (maybe) `item-debug`?
 	 */
@@ -185,6 +185,7 @@ class Alg_Export_Fields_Helper {
 			'shipping-postcode'           => __( 'Shipping Postcode', 'export-woocommerce' ),
 			'shipping-country'            => __( 'Shipping Country', 'export-woocommerce' ),
 			// Items Fields
+			'item-id'                     => __( 'Item Id', 'export-woocommerce' ),
 			'item-name'                   => __( 'Item Name', 'export-woocommerce' ),
 			'item-sku'                    => __( 'Item SKU', 'export-woocommerce' ),
 			'item-product-input-fields'   => __( 'Item Product Input Fields', 'export-woocommerce' ),

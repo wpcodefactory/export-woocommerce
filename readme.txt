@@ -2,8 +2,8 @@
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
 Tags: woocommerce, export
 Requires at least: 4.4
-Tested up to: 6.3
-Stable tag: 2.0.7
+Tested up to: 6.4
+Stable tag: 2.0.8
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,11 @@ When exporting products and/or orders, you can add one additional product and/or
 3. Start by visiting plugin settings at "WooCommerce > Settings > Export".
 
 == Changelog ==
+
+= 2.0.8 - 07/12/2023 =
+* WC tested up to: 8.3.
+* Tested up to: 6.4.
+* Add "Item Id" to order_items_export_fields().
 
 = 2.0.7 - 29/10/2023 =
 * WC tested up to: 8.2.
