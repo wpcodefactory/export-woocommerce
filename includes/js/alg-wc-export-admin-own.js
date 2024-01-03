@@ -1,7 +1,7 @@
 /**
  * alg-wc-export-admin-own-js.
  *
- * @version 1.5.2
+ * @version 2.0.9
  * @since   1.1.0
  */
 
@@ -15,7 +15,8 @@ jQuery( document ).ready( function() {
 	jQuery( 'button#alg-wc-export-preview-btn' ).click(function(){
 		var data = {
 			'action': 'alg_wc_export_admin_product_preview',
-			'page': '1'
+			'page': '1',
+			'nonce': alg_wc_export_admin_own_js.nonce
 		};
 		jQuery.ajax( {
 			type: "POST",
@@ -34,6 +35,7 @@ jQuery( document ).ready( function() {
 		var data = {
 			'action': 'alg_wc_export_admin_product_change_date_filter',
 			'value': jQuery(this).val(),
+			'nonce': alg_wc_export_admin_own_js.nonce
 		};
 		jQuery.ajax( {
 			type: "POST",

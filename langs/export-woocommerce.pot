@@ -677,40 +677,40 @@ msgstr ""
 msgid "Availability Class"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:149
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:150
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:151
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:152
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:65
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-settings-export.php:24
 msgid "Export"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:170
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:187
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:172
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:189
 msgid "Dashboard"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:216
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:218
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:166
 msgid "All time"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:231
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:233
 msgid "Custom:"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:236
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:238
 msgid "Go"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:265
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:267
 msgid "Download CSV"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:266
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:268
 msgid "Download XML"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:267
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:269
 msgid "Filter by All Fields"
 msgstr ""
 

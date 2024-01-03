@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Core Class
  *
- * @version 1.5.3
+ * @version 2.0.9
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -34,7 +34,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * enqueue_backend_scripts_and_styles.
 	 *
-	 * @version 1.5.2
+	 * @version 2.0.9
 	 * @since   1.1.0
 	 */
 	function enqueue_backend_scripts_and_styles() {
@@ -47,6 +47,8 @@ class Alg_WC_Export_Core {
 				alg_wc_export()->version,
 				true
 			);
+			$nonce = wp_create_nonce('alg-wc-export-ajax-nonce');
+			wp_localize_script( 'alg-wc-export-admin-own-js', 'alg_wc_export_admin_own_js', array( 'nonce' => $nonce ) );
 			
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			wp_enqueue_script( 'alg-wc-export-datepicker',

@@ -36,6 +36,11 @@ class Alg_WC_EXPORT_FUNCTIONS_AJAX {
 	 * @todo    [dev] (maybe) `if ( ! isset( $_POST['alg_wc_export_admin_product_preview'] ) ) return;`
 	 */
 	function alg_wc_export_admin_product_preview() {
+		
+		if ( ! current_user_can('manage_options') || ! wp_verify_nonce( $_POST['nonce'], 'alg-wc-export-ajax-nonce' ) ) {
+			exit;
+		}
+		
 		$tool_id = 'products';
 		$page = $_POST['page'];
 		$html = alg_wc_export()->core->export( $tool_id, true, $page );
@@ -53,6 +58,11 @@ class Alg_WC_EXPORT_FUNCTIONS_AJAX {
 	 * @todo    [dev] (maybe) `if ( ! isset( $_POST['alg_wc_export_admin_product_change_date_filter'] ) ) return;`
 	 */
 	function alg_wc_export_admin_product_change_date_filter() {
+		
+		if ( ! current_user_can('manage_options') || ! wp_verify_nonce( $_POST['nonce'], 'alg-wc-export-ajax-nonce' ) ) {
+			exit;
+		}
+		
 		$value = $_POST['value'];
 		$date_query = array();
 		$date_query['start_date'] = '';
