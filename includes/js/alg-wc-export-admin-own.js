@@ -56,7 +56,8 @@ jQuery( document ).ready( function() {
 function load_next_product_preview_page(pagenumber){
 		var data = {
 			'action': 'alg_wc_export_admin_product_preview',
-			'page': pagenumber
+			'page': pagenumber,
+			'nonce': alg_wc_export_admin_own_js.nonce
 		};
 		jQuery.ajax( {
 			type: "POST",

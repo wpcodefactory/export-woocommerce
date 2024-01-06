@@ -28,13 +28,19 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 			add_action( 'woocommerce_after_settings_alg_wc_export', 		  array( $this, 'after_settings' ), PHP_INT_MAX );
 		}
 		
+		add_action( 'wp_ajax_alg_wc_export_admin_product_ajax_download',        array( $this, 'alg_wc_export_admin_product_ajax_download' ) );
+		add_action( 'wp_ajax_nopriv_alg_wc_export_admin_product_ajax_download', array( $this, 'alg_wc_export_admin_product_ajax_download' ) );
+		
+		add_action( 'wp_ajax_alg_wc_export_admin_product_ajax_download_start',        array( $this, 'alg_wc_export_admin_product_ajax_download_start' ) );
+		add_action( 'wp_ajax_nopriv_alg_wc_export_admin_product_ajax_download_start', array( $this, 'alg_wc_export_admin_product_ajax_download_start' ) );
+		
 		parent::__construct();
 	}
 	
 	/**
 	 * after_settings.
 	 *
-	 * @version 1.3.0
+	 * @version 2.0.10
 	 * @since   1.0.0
 	 */
 	function after_settings() {
@@ -62,7 +68,12 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 			$download_url = home_url( '/?alg_export_xml='     . $this->id . $date_args . $filter_args );
 		}
 		
-		echo '<a type="button" id="alg-wc-export-export-btn" class="button-secondary" value="Export" style="margin-right:10px;" href="'.$download_url.'">'. esc_html( __( 'Export', 'woocommerce' ) ) .'</a>';
+		if( 'yes' == get_option('alg_wc_export_ajax_download', 'no') && $download_file_type == 'csv' ) {
+			echo '<a type="button" id="alg-wc-export-export-ajax-btn" class="button-secondary" value="Export" style="margin-right:10px;" href="javascript:;">'. esc_html( __( 'Export', 'woocommerce' ) ) .'</a>';
+		} else {
+			echo '<a type="button" id="alg-wc-export-export-btn" class="button-secondary" value="Export" style="margin-right:10px;" href="'.$download_url.'">'. esc_html( __( 'Export', 'woocommerce' ) ) .'</a>';
+		}
+		
 		echo '<div id="alg-wc-export-preview-content-area" style="margin-top:10px;overflow-y:scroll;"></div>';
 	}
 	
@@ -223,6 +234,12 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 		return $settings;
 	}
 	
+	/**
+	 * add_settings.
+	 *
+	 * @version 2.0.10
+	 * @since   1.0.0
+	 */
 	function alg_wc_export_admin_add_js_product_setting()
 	{
 		$sorted_html = '';
@@ -303,7 +320,10 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 				
 				var end_date_val = jQuery("input#alg_export_products_fields_end_date_alternative").val();
 				jQuery('input#alg_export_products_fields_end_date').val(end_date_val);
+				
+				
 			});
+			
 			function removeli(val){
 				jQuery("ul.sortable_list").find('[data-optionid='+val+']').remove();
 				get_ordered_value();
@@ -409,8 +429,319 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 			text-align: center;
 			margin-bottom: 12px;
 		}
+		
+		#alg-wc-overlay-id{
+			display: none;
+		}
+		
+		.alg-wc-overlay {
+			background-color: black;
+			background-color: rgba(0,0,0,.8);
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			/* opacity: 0.2; */
+			/* also -moz-opacity, etc. */
+			z-index: 100;
+		}
+		.alg-wc-progress {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width:400px;
+			height:20px;
+			margin:-10px 0 0 -150px;
+			z-index:101;
+			opacity:1.0;
+			border: 1px solid #149bdf;
+		}
+		
+		.alg-wc-progress-striped .alg-wc-bar {
+			background-color: #149bdf;
+			background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+			background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+			background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+			background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+			background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+			-webkit-background-size: 40px 40px;
+			-moz-background-size: 40px 40px;
+			-o-background-size: 40px 40px;
+			background-size: 40px 40px;
+			
+			-webkit-animation: progress-bar-stripes 2s linear infinite;
+			-moz-animation: progress-bar-stripes 2s linear infinite;
+			-ms-animation: progress-bar-stripes 2s linear infinite;
+			-o-animation: progress-bar-stripes 2s linear infinite;
+			animation: progress-bar-stripes 2s linear infinite;
+			
+
+		}
+		
+		.alg-wc-progress .alg-wc-bar {
+			float: left;
+			width: 0;
+			height: 100%;
+			font-size: 12px;
+			color: #ffffff;
+			text-align: center;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			background-color: #0e90d2;
+			background-image: -moz-linear-gradient(top, #149bdf, #0480be);
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#149bdf), to(#0480be));
+			background-image: -webkit-linear-gradient(top, #149bdf, #0480be);
+			background-image: -o-linear-gradient(top, #149bdf, #0480be);
+			background-image: linear-gradient(to bottom, #149bdf, #0480be);
+			background-repeat: repeat-x;
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff149bdf', endColorstr='#ff0480be', GradientType=0);
+			-webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+			-moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+			box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			-webkit-transition: width 0.6s ease;
+			-moz-transition: width 0.6s ease;
+			-o-transition: width 0.6s ease;
+			transition: width 0.6s ease;
+			
+		}
+		.alg-wc-overlay .alg-wc-file-download-per-text{
+			color: #fff;
+			font-size: 24px;
+			position: absolute;
+			top: 53%;
+			left: 50%;
+			width: 400px;
+			
+			margin: -10px 0 0 -150px;
+			z-index: 101;
+			opacity: 1.0;
+			text-align: center;
+			line-height: 1.5;
+		}
+		.alg-wc-overlay .alg-wc-file-download-text{
+			color: #fff;
+			font-size: 20px;
+			position: absolute;
+			top: 56%;
+			left: 50%;
+			width: 400px;
+			
+			margin: -10px 0 0 -150px;
+			z-index: 101;
+			opacity: 1.0;
+			text-align: center;
+			line-height: 1.5;
+		}
+		
+	
+	
 		</style>
+		<script>
+			jQuery( document ).ready(function() {
+				jQuery('body').on('click', 'a#alg-wc-export-export-ajax-btn', function(e) {
+					jQuery('#alg-wc-overlay-id').show();
+					jQuery('#alg-wc-bar-percentage').width('0%');
+					jQuery('.alg-wc-file-download-per-text').html('0%');
+					var downloaddata = {
+						'action'	: 'alg_wc_export_admin_product_ajax_download_start',
+						'nonce'		: alg_wc_export_admin_own_js.nonce
+					};
+					jQuery.ajax( {
+						type: "POST",
+						url: woocommerce_admin.ajax_url,
+						data: downloaddata,
+						success: function( response ) {
+							response = response.trim();
+							response = jQuery.parseJSON( response );
+							if ( response.success ) {
+								
+								recursive_ajax_download( response.total_page, 1 , response.file_path, response.file_url );
+								jQuery('#alg-wc-bar-percentage').width(response.progress + '%');
+								jQuery('.alg-wc-file-download-per-text').html(parseInt(response.progress) + '%');
+							}
+							
+						},
+					} );
+				});
+			});
+			
+			function recursive_ajax_download( totalpage, currentpage, filepath, file_url ) {
+					var filepath = filepath.replace(/\/\//g, "/");
+					var downloaddata = {
+						'action'		: 	'alg_wc_export_admin_product_ajax_download',
+						'file_path'		: 	filepath,
+						'file_url'		: 	file_url,
+						'total_page'	: 	totalpage,
+						'current_page'	: 	currentpage,
+						'nonce'			: 	alg_wc_export_admin_own_js.nonce
+					};
+					jQuery.ajax( {
+						type: "POST",
+						url: woocommerce_admin.ajax_url,
+						data: downloaddata,
+						success: function( response ) {
+							response = response.trim();
+							response = jQuery.parseJSON( response );
+							if(response.is_end) {
+								location.href = response.file_url;
+								// window.open(response.file_url, '_blank');
+								jQuery('#alg-wc-overlay-id').hide();
+							} else {
+								var crpage = parseInt(response.current_page) + 1;
+								recursive_ajax_download(response.total_page, crpage, response.file_path, response.file_url);
+							}
+							if(response.success) {
+								jQuery('#alg-wc-bar-percentage').width(response.progress + '%');
+								jQuery('.alg-wc-file-download-per-text').html(parseInt(response.progress) + '%');
+							}
+							
+						},
+					} );
+			}
+		</script>
+		
+		<div class="alg-wc-overlay mouse-events-off" id="alg-wc-overlay-id">
+			<div class="alg-wc-progress alg-wc-progress-striped alg-wc-active">
+				<div class="alg-wc-bar" id="alg-wc-bar-percentage" style="width: 0%;"></div>
+			</div>
+			<div class="alg-wc-file-download-per-text">0%</div>
+			<div class="alg-wc-file-download-text"> Export is in progress. Please don't close window till file download. </div>
+		</div>
 		<?php
+		
+	}
+	
+	/**
+	 * alg_wc_export_admin_product_ajax_download_start.
+	 *
+	 * @version 2.0.10
+	 * @since   2.0.10
+	 */
+	function alg_wc_export_admin_product_ajax_download_start() {
+		
+		if ( ! current_user_can('manage_options') || ! wp_verify_nonce( $_POST['nonce'], 'alg-wc-export-ajax-nonce' ) ) {
+			exit;
+		}
+		
+		$totalpage = 1;
+		$nonce = $_POST['nonce'];
+		$dest = $this->create_temp_folder();
+		$file_name = $dest['path'] . 'product_csv-' . time() . '-'. $nonce . '.csv';
+		$file_url = $dest['url'] . 'product_csv-' . time() . '-'. $nonce . '.csv';
+		$count_pages = wp_count_posts( $post_type = 'product' );
+		
+		if ( !empty( $count_pages ) ) {
+			$block_size = (int) get_option( 'alg_wc_export_wp_query_block_size', 1024 );
+			$total = $count_pages->publish;
+			if( $total > 0 ){
+				if( $block_size >= $total ){
+					$totalpage = 1;
+				} else {
+					$totalpage = ceil( $total / $block_size);
+				}
+			}
+		}
+		
+		$progress_completed = ( 1 / ($totalpage + 1) ) * 100;
+		
+		$file_name = preg_replace('/\\\\/', '/', $file_name);
+		
+		echo json_encode( array( 'success' => true,'total_page' => $totalpage, 'file_path' => $file_name, 'file_url' => $file_url, 'progress' => $progress_completed ), JSON_UNESCAPED_SLASHES );
+		die;
+	}
+	
+	/**
+	 * alg_wc_export_admin_product_ajax_download.
+	 *
+	 * @version 2.0.10
+	 * @since   2.0.10
+	 */
+	function alg_wc_export_admin_product_ajax_download() {
+		
+		if ( ! current_user_can('manage_options') || ! wp_verify_nonce( $_POST['nonce'], 'alg-wc-export-ajax-nonce' ) ) {
+			exit;
+		}
+		
+		$progress_completed = 0;
+		$block_size = (int) get_option( 'alg_wc_export_wp_query_block_size', 1024 );
+		$current_page 	= $_POST['current_page'];
+		$total_page = $_POST['total_page'];
+		$isend = false;
+		
+		if( $current_page >= $total_page ){
+			$isend = true;
+		}
+		if( $current_page == 1 ) {
+			$start = 0;
+		}
+		
+		if( $current_page > 1 ) {
+			$start  = ($current_page - 1) * $block_size;
+		}
+		
+		$progress_completed = ( ( $current_page + 1 ) / ( $total_page + 1 ) ) * 100;
+		
+		$tool_id = 'products';
+		$data = alg_wc_export()->core->export( $tool_id, false, $current_page, $start, true );
+		$file_name = $_POST['file_path'];
+		$file_url = $_POST['file_url'];
+		
+		$data = apply_filters('alg_export_data_csv', $data, $tool_id);
+
+		$csv  = '';
+		if ( is_array( $data ) ) {
+			
+			$wrap = get_option( 'alg_export_csv_wrap', '' );
+			$sep  = $wrap . get_option( 'alg_export_csv_separator', ',' ) . $wrap;
+			foreach ( $data as $row ) {
+				$row = array_map(array($this, 'removeComma'), $row);
+				$csv .= $wrap . implode( $sep, $row ) . $wrap . PHP_EOL;
+			}
+			if ( 'yes' === get_option( 'alg_export_csv_add_utf_8_bom', 'yes' ) ) {
+				$csv = "\xEF\xBB\xBF" . $csv; // UTF-8 BOM
+			}
+		}
+				
+		$fp = fopen( $file_name , 'a' );
+		fwrite( $fp, $csv ); // Write information to the file
+		fclose( $fp );
+		
+		$file_name = preg_replace('/\\\\/', '', $file_name);
+		
+		echo json_encode( array( 'success' => true,'total_page' => $total_page, 'current_page' => $current_page, 'file_path' => $file_name, 'file_url' => $file_url, 'is_end' => $isend, 'progress' => $progress_completed ), JSON_UNESCAPED_SLASHES );
+		die;
+	}
+	
+	/**
+	 * create_temp_folder.
+	 *
+	 * @version 2.0.10
+	 * @since   2.0.10
+	 */
+	function create_temp_folder() {
+		
+		$upload_dir = wp_upload_dir();
+		$destination  = $upload_dir['basedir'] . '/alg_wc_export_temp/';
+		$url  = $upload_dir['baseurl'] . '/alg_wc_export_temp/';
+		
+		if ( !file_exists( $destination ) ) {
+			mkdir($destination , 0775, true);
+		}
+		return array( 'path' => $destination, 'url' => $url );
+	}
+	
+	/**
+	 * removeComma.
+	 *
+	 * @version 2.0.10
+	 * @since   2.0.10
+	 */
+	function removeComma($v)
+	{
+		return str_replace(',', ' ', $v);
 	}
 
 }

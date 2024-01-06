@@ -64,11 +64,11 @@ class Alg_Exporter_Products {
 	/**
 	 * export_products.
 	 *
-	 * @version 1.5.3
+	 * @version 2.0.10
 	 * @since   1.0.0
 	 * @todo    [dev] export variations; `product-attributes` -> `( ! empty( $_product->get_attributes() ) ? serialize( $_product->get_attributes() ) : '' );`
 	 */
-	function export_products( $fields_helper, $attach_html = false, $page = 1 ) {
+	function export_products( $fields_helper, $attach_html = false, $page = 1, $start = 0, $is_ajax = false ) {
 
 		// Time limit
 		if ( -1 != ( $time_limit = get_option( 'alg_wc_export_time_limit', -1 ) ) ) {
@@ -119,6 +119,9 @@ class Alg_Exporter_Products {
 
 		$data       = array();
 		$data[]     = $titles;
+		if($page > 1 && $is_ajax){
+			$data       = array();
+		}
 		if($attach_html){
 			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
 			if($page <= 1){
@@ -130,6 +133,11 @@ class Alg_Exporter_Products {
 			$offset     = 0;
 			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
 		}
+		
+		if($is_ajax) {
+			$offset = $start;
+		}
+		
 		while( true ) {
 			$args = array(
 				'post_type'      => 'product',
@@ -142,7 +150,13 @@ class Alg_Exporter_Products {
 			);
 			$args = alg_maybe_add_date_query( $args, 'product', true );
 			$loop = new WP_Query( $args );
-
+			
+			if( $is_ajax ) {
+				if ( ! $loop->have_posts() ) {
+					break;
+				}
+			}
+			
 			if(!$attach_html){
 				if ( ! $loop->have_posts() ) {
 					break;
@@ -319,7 +333,7 @@ class Alg_Exporter_Products {
 				$data[] = $row;
 			}
 			$offset += $block_size;
-			if($attach_html){
+			if($attach_html || $is_ajax){
 				break;
 			}
 		}

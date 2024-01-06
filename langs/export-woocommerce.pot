@@ -3,77 +3,77 @@ msgid "Year"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:27
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:168
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:179
 msgid "Last month"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:32
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:169
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:180
 msgid "This month"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:37
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:170
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:181
 msgid "Last 7 days"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:55
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:171
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:182
 msgid "Last 14 days"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:60
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:172
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:183
 msgid "Last 30 days"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:65
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:173
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:184
 msgid "Last 3 months"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:70
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:174
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:185
 msgid "Last 6 months"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:75
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:175
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:186
 msgid "Last 12 months"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:80
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:176
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:187
 msgid "Last 24 months"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:85
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:177
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:188
 msgid "Last 36 months"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:90
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:178
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:189
 msgid "Same days last month"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:95
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:179
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:190
 msgid "Same days last year"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:100
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:180
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:191
 msgid "Last year"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:105
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:181
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:192
 msgid "Yesterday"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:110
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:182
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:193
 msgid "Today"
 msgstr ""
 
@@ -679,7 +679,8 @@ msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:151
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:152
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:65
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:72
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:74
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-settings-export.php:24
 msgid "Export"
 msgstr ""
@@ -690,7 +691,7 @@ msgid "Dashboard"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:218
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:166
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:177
 msgid "All time"
 msgstr ""
 
@@ -802,8 +803,8 @@ msgstr ""
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers.php:52
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:44
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:44
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:86
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:95
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:97
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:106
 msgid ""
 "Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to "
 "select all fields."
@@ -975,6 +976,18 @@ msgstr ""
 msgid "If set to zero, no time limit is imposed."
 msgstr ""
 
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:179
+msgid "Ajax Download"
+msgstr ""
+
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:180
+msgid "Please use for heavy volume data. ( For now only Product CSV )"
+msgstr ""
+
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:181
+msgid "Enable"
+msgstr ""
+
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:24
 msgid "Orders Items"
 msgstr ""
@@ -993,25 +1006,25 @@ msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:56
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:56
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:111
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:122
 msgid "Save changes after you change this number."
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:68
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:68
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:123
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:134
 msgid "Meta Field"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:70
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:70
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:125
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:136
 msgid "Enabled"
 msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:75
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:75
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:130
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:141
 msgid "Title"
 msgstr ""
 
@@ -1025,7 +1038,7 @@ msgstr ""
 
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:92
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:81
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:136
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:147
 msgid "Value"
 msgstr ""
 
@@ -1049,22 +1062,22 @@ msgstr ""
 msgid "Enter order meta key to retrieve (can be custom field name)."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:41
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:42
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:47
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:48
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-section.php:46
 #: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-section.php:47
 msgid "Save changes"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:47
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:53
 msgid "Preview"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:78
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:89
 msgid "Export Products Options"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:80
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:91
 msgid ""
 "From the left table, select the fields you want to export, to change the "
 "order, simply add fields to the right table and order using drag & drop, "
@@ -1072,82 +1085,82 @@ msgid ""
 "preview or export directly"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:85
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:96
 msgid "Export Products Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:94
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:105
 msgid "Export Products Sorted Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:101
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:112
 msgid "Export Product Attribute"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:102
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:113
 msgid ""
 "Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to "
 "select all attributes."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:110
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:121
 msgid "Additional Export Products Meta Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:137
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:148
 msgid "Enter product meta key to retrieve (can be custom field name)."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:152
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:163
 msgid "Export Products Filter Options"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:158
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:169
 msgid "Date Filter"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:159
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:170
 msgid "Select any date filter."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:167
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:178
 msgid "This Year"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:183
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:187
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:194
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:198
 msgid "Custom Date Range"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:189
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:200
 msgid "Enter from date and end date."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:198
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:209
 msgid "Custom date range"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:199
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:210
 msgid "End Date"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:200
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:211
 msgid "Enter end date."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:206
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:217
 msgid "Download File Type"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:207
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:218
 msgid "Select file type."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:214
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:225
 msgid "CSV"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:215
+#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:226
 msgid "XML"
 msgstr ""
 

@@ -28,7 +28,7 @@ class Alg_WC_Export_Settings_General extends Alg_WC_Export_Settings_Section {
 	/**
 	 * add_settings.
 	 *
-	 * @version 1.5.3
+	 * @version 2.0.10
 	 * @since   1.0.0
 	 * @todo    [dev] add link to tools Dashboard
 	 * @todo    [dev] add more info (e.g. Wrap)
@@ -174,6 +174,14 @@ class Alg_WC_Export_Settings_General extends Alg_WC_Export_Settings_Section {
 				'id'        => 'alg_wc_export_time_limit',
 				'default'   => -1,
 				'custom_attributes' => array( 'min' => -1 ),
+			),
+			array(
+				'title'     => __( 'Ajax Download', 'export-woocommerce' ),
+				'desc_tip'  => __( 'Please use for heavy volume data. ( For now only Product CSV )', 'export-woocommerce' ),
+				'desc'  	=> __( 'Enable', 'export-woocommerce' ),
+				'type'      => 'checkbox',
+				'id'        => 'alg_wc_export_ajax_download',
+				'default'   => 'no',
 			),
 			array(
 				'type'      => 'sectionend',

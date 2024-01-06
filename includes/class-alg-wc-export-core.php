@@ -278,12 +278,12 @@ class Alg_WC_Export_Core {
 	/**
 	 * export.
 	 *
-	 * @version 1.0.0
+	 * @version 2.0.10
 	 * @since   1.0.0
 	 * @todo    [dev] when filtering now using strpos, but other options would be stripos (case-insensitive) or strict equality
 	 * @todo    [dev] `if ( 1 == count( $data ) ) { return '<em>' . __( 'No results found.', 'export-woocommerce' ) . '</em>'; }`
 	 */
-	function export( $tool_id, $attach_html = false, $page = 1 ) {
+	function export( $tool_id, $attach_html = false, $page = 1, $start = 0, $is_ajax = false ) {
 		$data = array();
 		switch ( $tool_id ) {
 			case 'customers':
@@ -304,7 +304,7 @@ class Alg_WC_Export_Core {
 				break;
 			case 'products':
 				$exporter = require_once( 'exporters/class-alg-exporter-products.php' );
-				$data = $exporter->export_products( alg_wc_export()->fields_helper, $attach_html, $page );
+				$data = $exporter->export_products( alg_wc_export()->fields_helper, $attach_html, $page, $start, $is_ajax );
 				break;
 		}
 		if(!$attach_html){

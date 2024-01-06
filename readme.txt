@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, export
 Requires at least: 4.4
 Tested up to: 6.4
-Stable tag: 2.0.9
+Stable tag: 2.0.10
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,9 @@ When exporting products and/or orders, you can add one additional product and/or
 3. Start by visiting plugin settings at "WooCommerce > Settings > Export".
 
 == Changelog ==
+
+= 2.0.10 - 07/01/2024 =
+* Export product data by ajax (High Volume data).
 
 = 2.0.9 - 03/01/2024 =
 * WC tested up to: 8.4.
