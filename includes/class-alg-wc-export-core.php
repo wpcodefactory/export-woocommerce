@@ -34,7 +34,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * enqueue_backend_scripts_and_styles.
 	 *
-	 * @version 2.0.9
+	 * @version 2.0.11
 	 * @since   1.1.0
 	 */
 	function enqueue_backend_scripts_and_styles() {
@@ -159,7 +159,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * create_export_tools_page.
 	 *
-	 * @version 1.0.0
+	 * @version 2.0.11
 	 * @since   1.0.0
 	 * @todo    [dev] add link to General settings
 	 */
@@ -171,7 +171,7 @@ class Alg_WC_Export_Core {
 		$menu .= '<nav class="nav-tab-wrapper woo-nav-tab-wrapper">';
 		$menu .= '<a href="' . admin_url( 'admin.php?page=alg-wc-export-tools' ) . '" class="nav-tab' . $this->is_tab_active( 'dashboard' ) . '">' . __( 'Dashboard', 'export-woocommerce' ) . '</a>';
 		foreach ( $tools as $tool_id => $tool_desc ) {
-			$menu .= '<a href="' . admin_url( 'admin.php?page=alg-wc-export-tools&alg_wc_export_tool=' ) . $tool_id . '" class="nav-tab' . $this->is_tab_active( $tool_id ) . '">' . $tool_desc['title'] . '</a>';
+			$menu .= '<a href="' . admin_url( 'admin.php?page=alg-wc-export-tools&alg_wc_export_tool=' ) . esc_attr( $tool_id ) . '" class="nav-tab' . $this->is_tab_active( $tool_id ) . '">' . $tool_desc['title'] . '</a>';
 			$table_data[] = array(
 				$tool_desc['title'],
 				'<em>' . $tool_desc['desc'] . '</em>',
@@ -183,7 +183,7 @@ class Alg_WC_Export_Core {
 		$menu .= '</div>';
 		$tool_html = '';
 		if ( isset( $_GET['alg_wc_export_tool'] ) && '' != $_GET['alg_wc_export_tool'] ) {
-			$tool_id = $_GET['alg_wc_export_tool'];
+			$tool_id = esc_attr( $_GET['alg_wc_export_tool'] );
 			$tool_html = $this->create_export_tool( $tool_id, $tools[ $tool_id ]['title'], $tools[ $tool_id ]['desc'] );
 		} else {
 			$tool_html = '<h1>' . __( 'Dashboard', 'export-woocommerce' ) . '</h1>' .
@@ -199,19 +199,19 @@ class Alg_WC_Export_Core {
 	 * @since   1.0.0
 	 */
 	function is_tab_active( $tool_id ) {
-		$current_tool_id = ( isset( $_GET['alg_wc_export_tool'] ) ) ? $_GET['alg_wc_export_tool'] : 'dashboard';
+		$current_tool_id = ( isset( $_GET['alg_wc_export_tool'] ) ) ? esc_attr( $_GET['alg_wc_export_tool'] ) : 'dashboard';
 		return ( $current_tool_id === $tool_id ) ? ' nav-tab-active' : '';
 	}
 
 	/**
 	 * export_date_fields.
 	 *
-	 * @version 1.3.0
+	 * @version 2.0.11
 	 * @since   1.1.0
 	 */
 	function export_date_fields( $tool_id ) {
-		$current_start_date = ( isset( $_GET['start_date'] ) ? $_GET['start_date'] : '' );
-		$current_end_date   = ( isset( $_GET['end_date'] )   ? $_GET['end_date']   : '' );
+		$current_start_date = ( isset( $_GET['start_date'] ) ? esc_attr( $_GET['start_date'] ) : '' );
+		$current_end_date   = ( isset( $_GET['end_date'] )   ? esc_attr( $_GET['end_date'] )   : '' );
 		$predefined_ranges = array();
 		$predefined_ranges[] = '<a href="' . add_query_arg( 'range', 'all_time', remove_query_arg( array( 'start_date', 'end_date' ) ) ) . '"' .
 			( empty( $_GET['start_date'] ) && empty( $_GET['end_date'] ) && isset( $_GET['range'] ) && 'all_time' === $_GET['range'] ?
@@ -242,7 +242,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * create_export_tool.
 	 *
-	 * @version 1.3.0
+	 * @version 2.0.11
 	 * @since   1.0.0
 	 * @todo    [dev] (maybe) `alg_export` and `alg_export_xml` - `$date_args` and `$filter_args` should be updated if changed
 	 */
@@ -253,7 +253,7 @@ class Alg_WC_Export_Core {
 		$html .= '<form action="" method="get">';
 		$html .= '<input type="hidden" value="alg-wc-export-tools" name="page">';
 		$html .= '<input type="hidden" value="' . $tool_id . '" name="alg_wc_export_tool">';
-		$html .= '<input type="hidden" value="' . ( isset( $_GET['range'] ) ? $_GET['range'] : '' ) . '" name="range">';
+		$html .= '<input type="hidden" value="' . ( isset( $_GET['range'] ) ? esc_attr( $_GET['range'] ) : '' ) . '" name="range">';
 		$html .= '<p>';
 		$html .= $this->export_date_fields( $tool_id );
 		if ( ! isset( $_GET['range'] ) ) {
@@ -261,13 +261,13 @@ class Alg_WC_Export_Core {
 		}
 		$html .= alg_get_settings_button_html( $tool_id ) . ' ';
 		$date_args = '';
-		$date_args .= ( isset( $_GET['start_date'] ) ? '&start_date=' . $_GET['start_date'] : '' );
-		$date_args .= ( isset( $_GET['end_date'] )   ? '&end_date='   . $_GET['end_date']   : '' );
+		$date_args .= ( isset( $_GET['start_date'] ) ? '&start_date=' . esc_attr( $_GET['start_date'] ) : '' );
+		$date_args .= ( isset( $_GET['end_date'] )   ? '&end_date='   . esc_attr( $_GET['end_date'] )   : '' );
 		$filter_args = ( isset( $_GET['alg_export_filter_all_columns'] ) ? '&alg_export_filter_all_columns=' . $_GET['alg_export_filter_all_columns'] : '' );
 		$html .= '<a class="button-primary" href="' . home_url( '/?alg_export='     . $tool_id . $date_args . $filter_args ) . '">' . __( 'Download CSV', 'export-woocommerce' ) . '</a>' . ' ';
 		$html .= '<a class="button-primary" href="' . home_url( '/?alg_export_xml=' . $tool_id . $date_args . $filter_args ) . '">' . __( 'Download XML', 'export-woocommerce' ) . '</a>';
 		$html .= '<button style="float:right;margin-right:10px;" class="button-primary" type="submit" name="alg_export_filter" value="' . $tool_id . '">' . __( 'Filter by All Fields', 'export-woocommerce' ) . '</button>';
-		$html .= '<input style="float:right;margin-right:10px;" type="text" name="alg_export_filter_all_columns" value="' . ( isset( $_GET['alg_export_filter_all_columns'] ) ? $_GET['alg_export_filter_all_columns'] : '' ) . '">';
+		$html .= '<input style="float:right;margin-right:10px;" type="text" name="alg_export_filter_all_columns" value="' . ( isset( $_GET['alg_export_filter_all_columns'] ) ? esc_attr( $_GET['alg_export_filter_all_columns'] ) : '' ) . '">';
 		$html .= '</p>';
 		$html .= '</form>';
 		$data = $this->export( $tool_id );
@@ -278,7 +278,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * export.
 	 *
-	 * @version 2.0.10
+	 * @version 2.0.11
 	 * @since   1.0.0
 	 * @todo    [dev] when filtering now using strpos, but other options would be stripos (case-insensitive) or strict equality
 	 * @todo    [dev] `if ( 1 == count( $data ) ) { return '<em>' . __( 'No results found.', 'export-woocommerce' ) . '</em>'; }`
@@ -309,7 +309,7 @@ class Alg_WC_Export_Core {
 		}
 		if(!$attach_html){
 			if ( isset( $_GET['alg_export_filter_all_columns'] ) && '' != $_GET['alg_export_filter_all_columns'] ) {
-				$filter_str = $_GET['alg_export_filter_all_columns'];
+				$filter_str = esc_attr( $_GET['alg_export_filter_all_columns'] );
 				foreach ( $data as $row_id => $row ) {
 					if ( 0 == $row_id ) {
 						continue;
@@ -336,7 +336,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * export_xml.
 	 *
-	 * @version 1.5.3
+	 * @version 2.0.11
 	 * @since   1.0.0
 	 * @todo    [dev] templates for xml_start, xml_end, xml_item
 	 * @todo    [dev] str_replace( '&', '&amp;', $cell_value )
@@ -349,7 +349,7 @@ class Alg_WC_Export_Core {
 			) {
 				return;
 			}
-			$tool_id = $_GET['alg_export_xml'];
+			$tool_id = esc_attr( $_GET['alg_export_xml'] );
 			$data = $this->export( $tool_id );
 			
 			$data = apply_filters('alg_export_data_xml', $data, $tool_id);
@@ -388,7 +388,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * export_csv.
 	 *
-	 * @version 1.5.3
+	 * @version 2.0.11
 	 * @since   1.0.0
 	 */
 	function export_csv() {
@@ -399,7 +399,7 @@ class Alg_WC_Export_Core {
 			) {
 				return;
 			}
-			$tool_id = $_GET['alg_export'];
+			$tool_id = esc_attr( $_GET['alg_export'] );
 			$data = $this->export( $tool_id );
 			
 			$data = apply_filters('alg_export_data_csv', $data, $tool_id);

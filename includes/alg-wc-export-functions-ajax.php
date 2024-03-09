@@ -2,7 +2,7 @@
 /**
  * EXPORT WooCommerce FUNCTIONS - AJAX Class
  *
- * @version 1.7.0
+ * @version 2.0.11
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -30,7 +30,7 @@ class Alg_WC_EXPORT_FUNCTIONS_AJAX {
 	/**
 	 * alg_wc_export_admin_product_preview.
 	 *
-	 * @version 1.7.0
+	 * @version 2.0.11
 	 * @since   1.0.0
 	 * @todo    [dev] (maybe) better codes (i.e. not 0, 1, 2, 3)
 	 * @todo    [dev] (maybe) `if ( ! isset( $_POST['alg_wc_export_admin_product_preview'] ) ) return;`
@@ -42,7 +42,7 @@ class Alg_WC_EXPORT_FUNCTIONS_AJAX {
 		}
 		
 		$tool_id = 'products';
-		$page = $_POST['page'];
+		$page = esc_attr( $_POST['page'] );
 		$html = alg_wc_export()->core->export( $tool_id, true, $page );
 		// $html = ( is_array( $data ) ) ? alg_get_table_html( $data, array( 'table_class' => 'widefat striped' ) ) : $data;
 		echo $html;
@@ -52,7 +52,7 @@ class Alg_WC_EXPORT_FUNCTIONS_AJAX {
 	/**
 	 * alg_wc_export_admin_product_change_date_filter.
 	 *
-	 * @version 1.7.0
+	 * @version 2.0.11
 	 * @since   1.0.0
 	 * @todo    [dev] (maybe) better codes (i.e. not 0, 1, 2, 3)
 	 * @todo    [dev] (maybe) `if ( ! isset( $_POST['alg_wc_export_admin_product_change_date_filter'] ) ) return;`
@@ -63,7 +63,7 @@ class Alg_WC_EXPORT_FUNCTIONS_AJAX {
 			exit;
 		}
 		
-		$value = $_POST['value'];
+		$value = esc_attr( $_POST['value'] );
 		$date_query = array();
 		$date_query['start_date'] = '';
 		$date_query['end_date'] = '';

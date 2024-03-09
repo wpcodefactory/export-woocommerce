@@ -1,1181 +1,1185 @@
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:22
-msgid "Year"
+# Copyright (C) 2024 WPFactory
+# This file is distributed under the GNU General Public License v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: export-woocommerce 2.0.11\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/export-woocommerce\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-03-09T19:48:42+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.9.0\n"
+"X-Domain: export-woocommerce\n"
+
+#. Plugin Name of the plugin
+msgid "Products & Order Export for WooCommerce Pro"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:27
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:179
-msgid "Last month"
+#. Plugin URI of the plugin
+msgid "https://wpfactory.com/item/export-woocommerce/"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:32
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:180
-msgid "This month"
+#. Description of the plugin
+msgid "Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:37
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:181
-msgid "Last 7 days"
+#. Author of the plugin
+msgid "WPFactory"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:55
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:182
+#. Author URI of the plugin
+msgid "https://wpfactory.com"
+msgstr ""
+
+#: export-woocommerce-pro.php:119
+msgid "Tools"
+msgstr ""
+
+#: export-woocommerce-pro.php:122
+msgid "Go Pro"
+msgstr ""
+
+#: export-woocommerce-pro.php:125
+msgid "Review Us"
+msgstr ""
+
+#: includes/alg-wc-export-functions-ranges.php:55
+#: includes/settings/class-alg-wc-export-settings-products.php:182
 msgid "Last 14 days"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:60
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:183
+#: includes/alg-wc-export-functions-ranges.php:60
+#: includes/settings/class-alg-wc-export-settings-products.php:183
 msgid "Last 30 days"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:65
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:184
+#: includes/alg-wc-export-functions-ranges.php:65
+#: includes/settings/class-alg-wc-export-settings-products.php:184
 msgid "Last 3 months"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:70
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:185
+#: includes/alg-wc-export-functions-ranges.php:70
+#: includes/settings/class-alg-wc-export-settings-products.php:185
 msgid "Last 6 months"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:75
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:186
+#: includes/alg-wc-export-functions-ranges.php:75
+#: includes/settings/class-alg-wc-export-settings-products.php:186
 msgid "Last 12 months"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:80
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:187
+#: includes/alg-wc-export-functions-ranges.php:80
+#: includes/settings/class-alg-wc-export-settings-products.php:187
 msgid "Last 24 months"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:85
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:188
+#: includes/alg-wc-export-functions-ranges.php:85
+#: includes/settings/class-alg-wc-export-settings-products.php:188
 msgid "Last 36 months"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:90
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:189
+#: includes/alg-wc-export-functions-ranges.php:90
+#: includes/settings/class-alg-wc-export-settings-products.php:189
 msgid "Same days last month"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:95
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:190
+#: includes/alg-wc-export-functions-ranges.php:95
+#: includes/settings/class-alg-wc-export-settings-products.php:190
 msgid "Same days last year"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:100
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:191
+#: includes/alg-wc-export-functions-ranges.php:100
+#: includes/settings/class-alg-wc-export-settings-products.php:191
 msgid "Last year"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:105
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:192
+#: includes/alg-wc-export-functions-ranges.php:105
+#: includes/settings/class-alg-wc-export-settings-products.php:192
 msgid "Yesterday"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions-ranges.php:110
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:193
+#: includes/alg-wc-export-functions-ranges.php:110
+#: includes/settings/class-alg-wc-export-settings-products.php:193
 msgid "Today"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:88
+#: includes/alg-wc-export-functions.php:88
 msgid "Export Customers"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:89
+#: includes/alg-wc-export-functions.php:89
 msgid "Export customers tool."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:90
-msgid ""
-"Customers are exported from WordPress users table, filtering users with "
-"WooCommerce customer role."
+#: includes/alg-wc-export-functions.php:90
+msgid "Customers are exported from WordPress users table, filtering users with WooCommerce customer role."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:93
+#: includes/alg-wc-export-functions.php:93
 msgid "Export Customers from Orders"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:94
+#: includes/alg-wc-export-functions.php:94
 msgid "Export customers from orders tool."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:95
+#: includes/alg-wc-export-functions.php:95
 msgid "Customers are extracted from orders."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:96
+#: includes/alg-wc-export-functions.php:96
 msgid "Customers are identified by billing email."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:99
+#: includes/alg-wc-export-functions.php:99
 msgid "Export Orders"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:100
+#: includes/alg-wc-export-functions.php:100
 msgid "Export orders tool."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:103
+#: includes/alg-wc-export-functions.php:103
 msgid "Export Orders Items"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:104
+#: includes/alg-wc-export-functions.php:104
 msgid "Export orders items tool."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:107
+#: includes/alg-wc-export-functions.php:107
 msgid "Export Products"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:108
+#: includes/alg-wc-export-functions.php:108
 msgid "Export products tool."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:135
+#: includes/alg-wc-export-functions.php:135
 msgid "Tool Settings"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\alg-wc-export-functions.php:147
+#: includes/alg-wc-export-functions.php:147
 msgid "Open Tool"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:37
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:91
+#: includes/class-alg-export-fields-helper.php:37
+#: includes/class-alg-export-fields-helper.php:91
 msgid "Customer Nr."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:38
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:92
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:254
+#: includes/class-alg-export-fields-helper.php:38
+#: includes/class-alg-export-fields-helper.php:92
+#: includes/class-alg-export-fields-helper.php:254
 msgid "Customer ID"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:39
+#: includes/class-alg-export-fields-helper.php:39
 msgid "Customer First Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:40
+#: includes/class-alg-export-fields-helper.php:40
 msgid "Customer Last Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:41
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:117
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:177
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:266
+#: includes/class-alg-export-fields-helper.php:41
+#: includes/class-alg-export-fields-helper.php:117
+#: includes/class-alg-export-fields-helper.php:177
+#: includes/class-alg-export-fields-helper.php:266
 msgid "Billing Email"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:42
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:107
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:167
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:256
+#: includes/class-alg-export-fields-helper.php:42
+#: includes/class-alg-export-fields-helper.php:107
+#: includes/class-alg-export-fields-helper.php:167
+#: includes/class-alg-export-fields-helper.php:256
 msgid "Billing First Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:43
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:108
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:168
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:257
+#: includes/class-alg-export-fields-helper.php:43
+#: includes/class-alg-export-fields-helper.php:108
+#: includes/class-alg-export-fields-helper.php:168
+#: includes/class-alg-export-fields-helper.php:257
 msgid "Billing Last Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:44
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:109
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:169
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:258
+#: includes/class-alg-export-fields-helper.php:44
+#: includes/class-alg-export-fields-helper.php:109
+#: includes/class-alg-export-fields-helper.php:169
+#: includes/class-alg-export-fields-helper.php:258
 msgid "Billing Company"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:45
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:110
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:170
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:259
+#: includes/class-alg-export-fields-helper.php:45
+#: includes/class-alg-export-fields-helper.php:110
+#: includes/class-alg-export-fields-helper.php:170
+#: includes/class-alg-export-fields-helper.php:259
 msgid "Billing Address 1"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:46
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:111
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:171
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:260
+#: includes/class-alg-export-fields-helper.php:46
+#: includes/class-alg-export-fields-helper.php:111
+#: includes/class-alg-export-fields-helper.php:171
+#: includes/class-alg-export-fields-helper.php:260
 msgid "Billing Address 2"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:47
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:112
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:172
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:261
+#: includes/class-alg-export-fields-helper.php:47
+#: includes/class-alg-export-fields-helper.php:112
+#: includes/class-alg-export-fields-helper.php:172
+#: includes/class-alg-export-fields-helper.php:261
 msgid "Billing City"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:48
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:115
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:173
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:262
+#: includes/class-alg-export-fields-helper.php:48
+#: includes/class-alg-export-fields-helper.php:115
+#: includes/class-alg-export-fields-helper.php:173
+#: includes/class-alg-export-fields-helper.php:262
 msgid "Billing State"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:49
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:113
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:174
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:263
+#: includes/class-alg-export-fields-helper.php:49
+#: includes/class-alg-export-fields-helper.php:113
+#: includes/class-alg-export-fields-helper.php:174
+#: includes/class-alg-export-fields-helper.php:263
 msgid "Billing Postcode"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:50
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:114
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:175
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:264
+#: includes/class-alg-export-fields-helper.php:50
+#: includes/class-alg-export-fields-helper.php:114
+#: includes/class-alg-export-fields-helper.php:175
+#: includes/class-alg-export-fields-helper.php:264
 msgid "Billing Country"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:51
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:116
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:176
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:265
+#: includes/class-alg-export-fields-helper.php:51
+#: includes/class-alg-export-fields-helper.php:116
+#: includes/class-alg-export-fields-helper.php:176
+#: includes/class-alg-export-fields-helper.php:265
 msgid "Billing Phone"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:52
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:118
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:178
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:267
+#: includes/class-alg-export-fields-helper.php:52
+#: includes/class-alg-export-fields-helper.php:118
+#: includes/class-alg-export-fields-helper.php:178
+#: includes/class-alg-export-fields-helper.php:267
 msgid "Shipping First Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:53
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:119
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:179
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:268
+#: includes/class-alg-export-fields-helper.php:53
+#: includes/class-alg-export-fields-helper.php:119
+#: includes/class-alg-export-fields-helper.php:179
+#: includes/class-alg-export-fields-helper.php:268
 msgid "Shipping Last Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:54
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:120
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:180
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:269
+#: includes/class-alg-export-fields-helper.php:54
+#: includes/class-alg-export-fields-helper.php:120
+#: includes/class-alg-export-fields-helper.php:180
+#: includes/class-alg-export-fields-helper.php:269
 msgid "Shipping Company"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:55
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:121
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:181
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:270
+#: includes/class-alg-export-fields-helper.php:55
+#: includes/class-alg-export-fields-helper.php:121
+#: includes/class-alg-export-fields-helper.php:181
+#: includes/class-alg-export-fields-helper.php:270
 msgid "Shipping Address 1"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:56
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:122
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:182
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:271
+#: includes/class-alg-export-fields-helper.php:56
+#: includes/class-alg-export-fields-helper.php:122
+#: includes/class-alg-export-fields-helper.php:182
+#: includes/class-alg-export-fields-helper.php:271
 msgid "Shipping Address 2"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:57
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:123
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:183
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:272
+#: includes/class-alg-export-fields-helper.php:57
+#: includes/class-alg-export-fields-helper.php:123
+#: includes/class-alg-export-fields-helper.php:183
+#: includes/class-alg-export-fields-helper.php:272
 msgid "Shipping City"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:58
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:126
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:184
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:273
+#: includes/class-alg-export-fields-helper.php:58
+#: includes/class-alg-export-fields-helper.php:126
+#: includes/class-alg-export-fields-helper.php:184
+#: includes/class-alg-export-fields-helper.php:273
 msgid "Shipping State"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:59
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:124
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:185
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:274
+#: includes/class-alg-export-fields-helper.php:59
+#: includes/class-alg-export-fields-helper.php:124
+#: includes/class-alg-export-fields-helper.php:185
+#: includes/class-alg-export-fields-helper.php:274
 msgid "Shipping Postcode"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:60
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:125
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:186
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:275
+#: includes/class-alg-export-fields-helper.php:60
+#: includes/class-alg-export-fields-helper.php:125
+#: includes/class-alg-export-fields-helper.php:186
+#: includes/class-alg-export-fields-helper.php:275
 msgid "Shipping Country"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:61
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:101
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers.php:65
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:129
+#: includes/class-alg-export-fields-helper.php:61
+#: includes/class-alg-export-fields-helper.php:101
+#: includes/settings/class-alg-wc-export-settings-customers.php:65
+#: includes/settings/class-alg-wc-export-settings-general.php:129
 msgid "User Roles"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:62
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\pro\class-alg-wc-export-pro.php:69
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers.php:61
+#: includes/class-alg-export-fields-helper.php:62
+#: includes/pro/class-alg-wc-export-pro.php:69
+#: includes/settings/class-alg-wc-export-settings-customers.php:61
 msgid "Last Order Date"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:93
+#: includes/class-alg-export-fields-helper.php:93
 msgid "Email"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:94
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:104
+#: includes/class-alg-export-fields-helper.php:94
+#: includes/class-alg-export-fields-helper.php:104
 msgid "First Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:95
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:105
+#: includes/class-alg-export-fields-helper.php:95
+#: includes/class-alg-export-fields-helper.php:105
 msgid "Last Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:96
+#: includes/class-alg-export-fields-helper.php:96
 msgid "Login"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:97
+#: includes/class-alg-export-fields-helper.php:97
 msgid "Nicename"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:98
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:347
+#: includes/class-alg-export-fields-helper.php:98
+#: includes/class-alg-export-fields-helper.php:347
 msgid "URL"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:99
+#: includes/class-alg-export-fields-helper.php:99
 msgid "Registered"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:100
+#: includes/class-alg-export-fields-helper.php:100
 msgid "Display Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:103
+#: includes/class-alg-export-fields-helper.php:103
 msgid "Nickname"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:106
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:345
+#: includes/class-alg-export-fields-helper.php:106
+#: includes/class-alg-export-fields-helper.php:345
 msgid "Description"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:127
+#: includes/class-alg-export-fields-helper.php:127
 msgid "Last Update"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:155
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:240
+#: includes/class-alg-export-fields-helper.php:155
+#: includes/class-alg-export-fields-helper.php:240
 msgid "Order ID"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:156
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:241
+#: includes/class-alg-export-fields-helper.php:156
+#: includes/class-alg-export-fields-helper.php:241
 msgid "Order Number"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:157
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:242
+#: includes/class-alg-export-fields-helper.php:157
+#: includes/class-alg-export-fields-helper.php:242
 msgid "Order Status"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:158
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:243
+#: includes/class-alg-export-fields-helper.php:158
+#: includes/class-alg-export-fields-helper.php:243
 msgid "Order Date"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:159
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:244
+#: includes/class-alg-export-fields-helper.php:159
+#: includes/class-alg-export-fields-helper.php:244
 msgid "Order Time"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:160
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:245
+#: includes/class-alg-export-fields-helper.php:160
+#: includes/class-alg-export-fields-helper.php:245
 msgid "Order Item Count"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:161
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:248
+#: includes/class-alg-export-fields-helper.php:161
+#: includes/class-alg-export-fields-helper.php:248
 msgid "Order Currency"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:162
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:249
+#: includes/class-alg-export-fields-helper.php:162
+#: includes/class-alg-export-fields-helper.php:249
 msgid "Order Total"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:163
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:250
+#: includes/class-alg-export-fields-helper.php:163
+#: includes/class-alg-export-fields-helper.php:250
 msgid "Order Total Tax"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:164
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:251
+#: includes/class-alg-export-fields-helper.php:164
+#: includes/class-alg-export-fields-helper.php:251
 msgid "Order Shipping Total"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:165
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:252
+#: includes/class-alg-export-fields-helper.php:165
+#: includes/class-alg-export-fields-helper.php:252
 msgid "Order Payment Method"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:166
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:253
+#: includes/class-alg-export-fields-helper.php:166
+#: includes/class-alg-export-fields-helper.php:253
 msgid "Order Notes"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:188
+#: includes/class-alg-export-fields-helper.php:188
 msgid "Item Id"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:189
+#: includes/class-alg-export-fields-helper.php:189
 msgid "Item Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:190
+#: includes/class-alg-export-fields-helper.php:190
 msgid "Item SKU"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:191
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:115
+#: includes/class-alg-export-fields-helper.php:191
+#: includes/settings/class-alg-wc-export-settings-general.php:115
 msgid "Item Product Input Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:192
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:117
+#: includes/class-alg-export-fields-helper.php:192
+#: includes/settings/class-alg-wc-export-settings-general.php:117
 msgid "Item Meta"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:193
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:118
+#: includes/class-alg-export-fields-helper.php:193
+#: includes/settings/class-alg-wc-export-settings-general.php:118
 msgid "Item Variation Meta"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:194
+#: includes/class-alg-export-fields-helper.php:194
 msgid "Item Quantity"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:195
+#: includes/class-alg-export-fields-helper.php:195
 msgid "Item Tax Class"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:196
+#: includes/class-alg-export-fields-helper.php:196
 msgid "Item Product ID"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:197
+#: includes/class-alg-export-fields-helper.php:197
 msgid "Item Variation ID"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:198
+#: includes/class-alg-export-fields-helper.php:198
 msgid "Item Line Subtotal"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:199
+#: includes/class-alg-export-fields-helper.php:199
 msgid "Item Line Total"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:200
+#: includes/class-alg-export-fields-helper.php:200
 msgid "Item Line Subtotal Tax"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:201
+#: includes/class-alg-export-fields-helper.php:201
 msgid "Item Line Tax"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:202
+#: includes/class-alg-export-fields-helper.php:202
 msgid "Item Line Subtotal Plus Tax"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:203
+#: includes/class-alg-export-fields-helper.php:203
 msgid "Item Line Total Plus Tax"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:246
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:105
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:119
+#: includes/class-alg-export-fields-helper.php:246
+#: includes/settings/class-alg-wc-export-settings-general.php:105
+#: includes/settings/class-alg-wc-export-settings-general.php:119
 msgid "Order Items"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:247
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:103
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:116
+#: includes/class-alg-export-fields-helper.php:247
+#: includes/settings/class-alg-wc-export-settings-general.php:103
+#: includes/settings/class-alg-wc-export-settings-general.php:116
 msgid "Order Product Input Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:255
+#: includes/class-alg-export-fields-helper.php:255
 msgid "Shipping Method"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:332
+#: includes/class-alg-export-fields-helper.php:332
 msgid "Product ID"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:333
+#: includes/class-alg-export-fields-helper.php:333
 msgid "Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:334
+#: includes/class-alg-export-fields-helper.php:334
 msgid "SKU"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:335
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:140
+#: includes/class-alg-export-fields-helper.php:335
+#: includes/settings/class-alg-wc-export-settings-general.php:140
 msgid "Total Stock"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:336
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:139
+#: includes/class-alg-export-fields-helper.php:336
+#: includes/settings/class-alg-wc-export-settings-general.php:139
 msgid "Stock Quantity"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:337
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:141
+#: includes/class-alg-export-fields-helper.php:337
+#: includes/settings/class-alg-wc-export-settings-general.php:141
 msgid "Regular Price"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:338
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:142
+#: includes/class-alg-export-fields-helper.php:338
+#: includes/settings/class-alg-wc-export-settings-general.php:142
 msgid "Sale Price"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:339
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:143
+#: includes/class-alg-export-fields-helper.php:339
+#: includes/settings/class-alg-wc-export-settings-general.php:143
 msgid "Price"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:340
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:81
+#: includes/class-alg-export-fields-helper.php:340
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:81
 msgid "Type"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:341
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:144
+#: includes/class-alg-export-fields-helper.php:341
+#: includes/settings/class-alg-wc-export-settings-general.php:144
 msgid "Variation Attributes"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:342
+#: includes/class-alg-export-fields-helper.php:342
 msgid "Product Attributes"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:343
+#: includes/class-alg-export-fields-helper.php:343
 msgid "Image URL"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:344
+#: includes/class-alg-export-fields-helper.php:344
 msgid "Short Description"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:346
+#: includes/class-alg-export-fields-helper.php:346
 msgid "Status"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:348
+#: includes/class-alg-export-fields-helper.php:348
 msgid "Shipping Class"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:349
+#: includes/class-alg-export-fields-helper.php:349
 msgid "Shipping Class ID"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:350
+#: includes/class-alg-export-fields-helper.php:350
 msgid "Width"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:351
+#: includes/class-alg-export-fields-helper.php:351
 msgid "Length"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:352
+#: includes/class-alg-export-fields-helper.php:352
 msgid "Height"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:353
+#: includes/class-alg-export-fields-helper.php:353
 msgid "Weight"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:354
+#: includes/class-alg-export-fields-helper.php:354
 msgid "Downloadable"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:355
+#: includes/class-alg-export-fields-helper.php:355
 msgid "Virtual"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:356
+#: includes/class-alg-export-fields-helper.php:356
 msgid "Sold Individually"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:357
+#: includes/class-alg-export-fields-helper.php:357
 msgid "Tax Status"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:358
+#: includes/class-alg-export-fields-helper.php:358
 msgid "Tax Class"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:359
+#: includes/class-alg-export-fields-helper.php:359
 msgid "Manage Stock"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:360
+#: includes/class-alg-export-fields-helper.php:360
 msgid "Stock Status"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:361
+#: includes/class-alg-export-fields-helper.php:361
 msgid "Backorders"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:362
+#: includes/class-alg-export-fields-helper.php:362
 msgid "Featured"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:363
+#: includes/class-alg-export-fields-helper.php:363
 msgid "Visibility"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:364
+#: includes/class-alg-export-fields-helper.php:364
 msgid "Price Including Tax"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:365
+#: includes/class-alg-export-fields-helper.php:365
 msgid "Price Excluding Tax"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:366
+#: includes/class-alg-export-fields-helper.php:366
 msgid "Display Price"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:367
+#: includes/class-alg-export-fields-helper.php:367
 msgid "Average Rating"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:368
+#: includes/class-alg-export-fields-helper.php:368
 msgid "Rating Count"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:369
+#: includes/class-alg-export-fields-helper.php:369
 msgid "Review Count"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:370
+#: includes/class-alg-export-fields-helper.php:370
 msgid "Categories"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:371
+#: includes/class-alg-export-fields-helper.php:371
 msgid "Tags"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:372
+#: includes/class-alg-export-fields-helper.php:372
 msgid "Dimensions"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:373
+#: includes/class-alg-export-fields-helper.php:373
 msgid "Formatted Name"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:374
+#: includes/class-alg-export-fields-helper.php:374
 msgid "Availability"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-export-fields-helper.php:375
+#: includes/class-alg-export-fields-helper.php:375
 msgid "Availability Class"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:151
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:152
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:72
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:74
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-settings-export.php:24
+#: includes/class-alg-wc-export-core.php:151
+#: includes/class-alg-wc-export-core.php:152
+#: includes/settings/class-alg-wc-settings-export.php:24
 msgid "Export"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:172
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:189
+#: includes/class-alg-wc-export-core.php:172
+#: includes/class-alg-wc-export-core.php:189
 msgid "Dashboard"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:218
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:177
+#: includes/class-alg-wc-export-core.php:218
+#: includes/settings/class-alg-wc-export-settings-products.php:177
 msgid "All time"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:233
+#: includes/class-alg-wc-export-core.php:233
 msgid "Custom:"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:238
+#: includes/class-alg-wc-export-core.php:238
 msgid "Go"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:267
+#: includes/class-alg-wc-export-core.php:267
 msgid "Download CSV"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:268
+#: includes/class-alg-wc-export-core.php:268
 msgid "Download XML"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\class-alg-wc-export-core.php:269
+#: includes/class-alg-wc-export-core.php:269
 msgid "Filter by All Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\import\class-alg-wc-export-import-products.php:61
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\import\class-alg-wc-export-import-products.php:140
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\import\class-alg-wc-export-import-products.php:163
+#: includes/import/class-alg-wc-export-import-products.php:61
+#: includes/import/class-alg-wc-export-import-products.php:140
+#: includes/import/class-alg-wc-export-import-products.php:163
 msgid "Import"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\import\class-alg-wc-export-import-products.php:80
+#: includes/import/class-alg-wc-export-import-products.php:80
 msgid "Run Import"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\import\class-alg-wc-export-import-products.php:92
+#: includes/import/class-alg-wc-export-import-products.php:92
 msgid "Select File"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\import\class-alg-wc-export-import-products.php:101
+#: includes/import/class-alg-wc-export-import-products.php:101
 msgid "Upload File"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\import\class-alg-wc-export-import-products.php:143
+#: includes/import/class-alg-wc-export-import-products.php:143
 msgid "Import products by csv/xml"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\import\class-alg-wc-export-import-products.php:166
+#: includes/import/class-alg-wc-export-import-products.php:166
 msgid "Choose match fields and run import"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\import\class-alg-wc-export-import-products.php:562
+#: includes/import/class-alg-wc-export-import-products.php:562
 msgid "Import done successfully !"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\pro\class-alg-wc-export-pro.php:50
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers-from-orders.php:52
+#: includes/pro/class-alg-wc-export-pro.php:50
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:52
 msgid "First Order Date"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\pro\class-alg-wc-export-pro.php:51
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\pro\class-alg-wc-export-pro.php:67
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers-from-orders.php:53
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers.php:59
+#: includes/pro/class-alg-wc-export-pro.php:51
+#: includes/pro/class-alg-wc-export-pro.php:67
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:53
+#: includes/settings/class-alg-wc-export-settings-customers.php:59
 msgid "Total Spent (Lifetime)"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\pro\class-alg-wc-export-pro.php:52
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\pro\class-alg-wc-export-pro.php:68
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers-from-orders.php:54
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers.php:60
+#: includes/pro/class-alg-wc-export-pro.php:52
+#: includes/pro/class-alg-wc-export-pro.php:68
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:54
+#: includes/settings/class-alg-wc-export-settings-customers.php:60
 msgid "Order Count (Lifetime)"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\pro\class-alg-wc-export-pro.php:53
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers-from-orders.php:55
+#: includes/pro/class-alg-wc-export-pro.php:53
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:55
 msgid "Total Spent (Period)"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\pro\class-alg-wc-export-pro.php:54
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers-from-orders.php:56
+#: includes/pro/class-alg-wc-export-pro.php:54
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:56
 msgid "Order Count (Period)"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\pro\class-alg-wc-export-pro.php:55
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers-from-orders.php:57
+#: includes/pro/class-alg-wc-export-pro.php:55
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:57
 msgid "Item Count (Period)"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\pro\class-alg-wc-export-pro.php:80
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\pro\class-alg-wc-export-pro.php:84
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:104
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:51
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:51
+#: includes/pro/class-alg-wc-export-pro.php:80
+#: includes/pro/class-alg-wc-export-pro.php:84
+#: includes/settings/class-alg-wc-export-settings-general.php:104
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:51
+#: includes/settings/class-alg-wc-export-settings-orders.php:51
 msgid "Backend Order Notes"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers-from-orders.php:24
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:24
 msgid "Customers from Orders"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers-from-orders.php:38
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:38
 msgid "Export Customers from Orders Options"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers-from-orders.php:44
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:44
 msgid "Export Customers from Orders Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers-from-orders.php:45
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers.php:52
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:44
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:44
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:97
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:106
-msgid ""
-"Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to "
-"select all fields."
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:45
+#: includes/settings/class-alg-wc-export-settings-customers.php:52
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:44
+#: includes/settings/class-alg-wc-export-settings-orders.php:44
+#: includes/settings/class-alg-wc-export-settings-products.php:97
+#: includes/settings/class-alg-wc-export-settings-products.php:106
+msgid "Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to select all fields."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers.php:24
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:127
+#: includes/settings/class-alg-wc-export-settings-customers.php:24
+#: includes/settings/class-alg-wc-export-settings-general.php:127
 msgid "Customers"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers.php:45
+#: includes/settings/class-alg-wc-export-settings-customers.php:45
 msgid "Export Customers Options"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers.php:51
+#: includes/settings/class-alg-wc-export-settings-customers.php:51
 msgid "Export Customers Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers.php:66
+#: includes/settings/class-alg-wc-export-settings-customers.php:66
 msgid "Here you can select multiple user roles to export."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-customers.php:67
+#: includes/settings/class-alg-wc-export-settings-customers.php:67
 msgid "If empty - all user roles will be exported."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:24
+#: includes/settings/class-alg-wc-export-settings-general.php:24
 msgid "General"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:40
+#: includes/settings/class-alg-wc-export-settings-general.php:40
 msgid "Export Options"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:45
+#: includes/settings/class-alg-wc-export-settings-general.php:45
 msgid "CSV Separator"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:52
+#: includes/settings/class-alg-wc-export-settings-general.php:52
 msgid "CSV Wrap"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:59
+#: includes/settings/class-alg-wc-export-settings-general.php:59
 msgid "UTF-8 BOM"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:60
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:86
+#: includes/settings/class-alg-wc-export-settings-general.php:60
+#: includes/settings/class-alg-wc-export-settings-general.php:86
 msgid "Add"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:61
+#: includes/settings/class-alg-wc-export-settings-general.php:61
 msgid "Add UTF-8 BOM sequence."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:67
+#: includes/settings/class-alg-wc-export-settings-general.php:67
 msgid "Content Length Header"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:68
+#: includes/settings/class-alg-wc-export-settings-general.php:68
 msgid "Send"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:69
-msgid ""
-"Disable this if you are experiencing \"endless\" file download when using "
-"\"Download CSV\" or \"Download XML\" buttons."
+#: includes/settings/class-alg-wc-export-settings-general.php:69
+msgid "Disable this if you are experiencing \"endless\" file download when using \"Download CSV\" or \"Download XML\" buttons."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:75
+#: includes/settings/class-alg-wc-export-settings-general.php:75
 msgid "User Capability"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:76
-msgid ""
-"Set required user capability for CSV and XML export. Leave blank if you want "
-"all users (including not logged) to be able to export the data (not "
-"recommended)."
+#: includes/settings/class-alg-wc-export-settings-general.php:76
+msgid "Set required user capability for CSV and XML export. Leave blank if you want all users (including not logged) to be able to export the data (not recommended)."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:77
-#, php-format
+#: includes/settings/class-alg-wc-export-settings-general.php:77
 msgid "Default: %s (administrators)."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:78
-#, php-format
+#: includes/settings/class-alg-wc-export-settings-general.php:78
 msgid "Try: %s (administrators & shop managers)."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:84
+#: includes/settings/class-alg-wc-export-settings-general.php:84
 msgid "Timepicker"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:85
+#: includes/settings/class-alg-wc-export-settings-general.php:85
 msgid "Adds timepicker to all export tools (to \"Custom\" range)."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:96
+#: includes/settings/class-alg-wc-export-settings-general.php:96
 msgid "Secondary Separators Options"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:101
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:113
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:24
+#: includes/settings/class-alg-wc-export-settings-general.php:101
+#: includes/settings/class-alg-wc-export-settings-general.php:113
+#: includes/settings/class-alg-wc-export-settings-orders.php:24
 msgid "Orders"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:101
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:127
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:137
+#: includes/settings/class-alg-wc-export-settings-general.php:101
+#: includes/settings/class-alg-wc-export-settings-general.php:127
+#: includes/settings/class-alg-wc-export-settings-general.php:137
 msgid "Secondary Separator"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:102
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:114
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:138
-#, php-format
+#: includes/settings/class-alg-wc-export-settings-general.php:102
+#: includes/settings/class-alg-wc-export-settings-general.php:114
+#: includes/settings/class-alg-wc-export-settings-general.php:138
 msgid "Used in: %s columns."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:106
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:120
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:130
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:145
-#, php-format
+#: includes/settings/class-alg-wc-export-settings-general.php:106
+#: includes/settings/class-alg-wc-export-settings-general.php:120
+#: includes/settings/class-alg-wc-export-settings-general.php:130
+#: includes/settings/class-alg-wc-export-settings-general.php:145
 msgid "Default: %s"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:113
+#: includes/settings/class-alg-wc-export-settings-general.php:113
 msgid "Third Separator"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:128
-#, php-format
+#: includes/settings/class-alg-wc-export-settings-general.php:128
 msgid "Used in: %s column."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:137
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:24
+#: includes/settings/class-alg-wc-export-settings-general.php:137
+#: includes/settings/class-alg-wc-export-settings-products.php:24
 msgid "Products"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:156
+#: includes/settings/class-alg-wc-export-settings-general.php:156
 msgid "Advanced Options"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:161
+#: includes/settings/class-alg-wc-export-settings-general.php:161
 msgid "Block Size"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:162
+#: includes/settings/class-alg-wc-export-settings-general.php:162
 msgid "Number of items to process in one iteration."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:169
+#: includes/settings/class-alg-wc-export-settings-general.php:169
 msgid "Time Limit"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:170
+#: includes/settings/class-alg-wc-export-settings-general.php:170
 msgid "Export tools maximum time limit in seconds."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:171
+#: includes/settings/class-alg-wc-export-settings-general.php:171
 msgid "If set to minus one, option is ignored and default time limit is used."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:172
+#: includes/settings/class-alg-wc-export-settings-general.php:172
 msgid "If set to zero, no time limit is imposed."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:179
+#: includes/settings/class-alg-wc-export-settings-general.php:179
 msgid "Ajax Download"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:180
+#: includes/settings/class-alg-wc-export-settings-general.php:180
 msgid "Please use for heavy volume data. ( For now only Product CSV )"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-general.php:181
+#: includes/settings/class-alg-wc-export-settings-general.php:181
 msgid "Enable"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:24
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:24
 msgid "Orders Items"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:37
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:37
 msgid "Export Orders Items Options"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:43
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:43
 msgid "Export Orders Items Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:55
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:55
 msgid "Additional Export Orders Items Meta Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:56
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:56
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:122
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:56
+#: includes/settings/class-alg-wc-export-settings-orders.php:56
+#: includes/settings/class-alg-wc-export-settings-products.php:122
 msgid "Save changes after you change this number."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:68
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:68
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:134
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:68
+#: includes/settings/class-alg-wc-export-settings-orders.php:68
+#: includes/settings/class-alg-wc-export-settings-products.php:134
 msgid "Meta Field"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:70
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:70
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:136
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:70
+#: includes/settings/class-alg-wc-export-settings-orders.php:70
+#: includes/settings/class-alg-wc-export-settings-products.php:136
 msgid "Enabled"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:75
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:75
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:141
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:75
+#: includes/settings/class-alg-wc-export-settings-orders.php:75
+#: includes/settings/class-alg-wc-export-settings-products.php:141
 msgid "Title"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:87
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:87
 msgid "Order Meta"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:88
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:88
 msgid "Product Meta"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:92
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:81
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:147
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:92
+#: includes/settings/class-alg-wc-export-settings-orders.php:81
+#: includes/settings/class-alg-wc-export-settings-products.php:147
 msgid "Value"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders-items.php:93
+#: includes/settings/class-alg-wc-export-settings-orders-items.php:93
 msgid "Enter order/product meta key to retrieve (can be custom field name)."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:37
+#: includes/settings/class-alg-wc-export-settings-orders.php:37
 msgid "Export Orders Options"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:43
+#: includes/settings/class-alg-wc-export-settings-orders.php:43
 msgid "Export Orders Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:55
+#: includes/settings/class-alg-wc-export-settings-orders.php:55
 msgid "Additional Export Orders Meta Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-orders.php:82
+#: includes/settings/class-alg-wc-export-settings-orders.php:82
 msgid "Enter order meta key to retrieve (can be custom field name)."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:47
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:48
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-section.php:46
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-section.php:47
-msgid "Save changes"
-msgstr ""
-
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:53
-msgid "Preview"
-msgstr ""
-
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:89
+#: includes/settings/class-alg-wc-export-settings-products.php:89
 msgid "Export Products Options"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:91
-msgid ""
-"From the left table, select the fields you want to export, to change the "
-"order, simply add fields to the right table and order using drag & drop, "
-"once finished, click on Save Button below to save your changes first, then "
-"preview or export directly"
-msgstr ""
-
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:96
+#: includes/settings/class-alg-wc-export-settings-products.php:96
 msgid "Export Products Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:105
+#: includes/settings/class-alg-wc-export-settings-products.php:105
 msgid "Export Products Sorted Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:112
+#: includes/settings/class-alg-wc-export-settings-products.php:112
 msgid "Export Product Attribute"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:113
-msgid ""
-"Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to "
-"select all attributes."
+#: includes/settings/class-alg-wc-export-settings-products.php:113
+msgid "Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to select all attributes."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:121
+#: includes/settings/class-alg-wc-export-settings-products.php:121
 msgid "Additional Export Products Meta Fields"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:148
+#: includes/settings/class-alg-wc-export-settings-products.php:148
 msgid "Enter product meta key to retrieve (can be custom field name)."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:163
+#: includes/settings/class-alg-wc-export-settings-products.php:163
 msgid "Export Products Filter Options"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:169
+#: includes/settings/class-alg-wc-export-settings-products.php:169
 msgid "Date Filter"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:170
+#: includes/settings/class-alg-wc-export-settings-products.php:170
 msgid "Select any date filter."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:178
+#: includes/settings/class-alg-wc-export-settings-products.php:178
 msgid "This Year"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:194
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:198
+#: includes/settings/class-alg-wc-export-settings-products.php:179
+msgid "Last month"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-products.php:180
+msgid "This month"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-products.php:181
+msgid "Last 7 days"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-products.php:194
+#: includes/settings/class-alg-wc-export-settings-products.php:198
 msgid "Custom Date Range"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:200
+#: includes/settings/class-alg-wc-export-settings-products.php:200
 msgid "Enter from date and end date."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:209
+#: includes/settings/class-alg-wc-export-settings-products.php:209
 msgid "Custom date range"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:210
+#: includes/settings/class-alg-wc-export-settings-products.php:210
 msgid "End Date"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:211
+#: includes/settings/class-alg-wc-export-settings-products.php:211
 msgid "Enter end date."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:217
+#: includes/settings/class-alg-wc-export-settings-products.php:217
 msgid "Download File Type"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:218
+#: includes/settings/class-alg-wc-export-settings-products.php:218
 msgid "Select file type."
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:225
+#: includes/settings/class-alg-wc-export-settings-products.php:225
 msgid "CSV"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-export-settings-products.php:226
+#: includes/settings/class-alg-wc-export-settings-products.php:226
 msgid "XML"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-settings-export.php:49
+#: includes/settings/class-alg-wc-settings-export.php:49
 msgid "Reset Settings"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-settings-export.php:54
+#: includes/settings/class-alg-wc-settings-export.php:54
 msgid "Reset section settings"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-settings-export.php:55
+#: includes/settings/class-alg-wc-settings-export.php:55
 msgid "Reset"
 msgstr ""
 
-#: E:\xampp_php_8\htdocs\wpfactory-local\wp-content\plugins\export-woocommerce-pro\includes\settings\class-alg-wc-settings-export.php:94
+#: includes/settings/class-alg-wc-settings-export.php:94
 msgid "Your settings have been reset."
 msgstr ""

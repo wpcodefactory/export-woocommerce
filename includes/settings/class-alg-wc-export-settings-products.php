@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Products Section Settings
  *
- * @version 1.3.0
+ * @version 2.0.11
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -237,7 +237,7 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 	/**
 	 * add_settings.
 	 *
-	 * @version 2.0.10
+	 * @version 2.0.11
 	 * @since   1.0.0
 	 */
 	function alg_wc_export_admin_add_js_product_setting()
@@ -273,7 +273,7 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 												  </div>\
 												</div>\
 												<div class="subject-info-box-2">\
-												 <ul id="sortable" class="sortable_list"><?php echo $sorted_html; ?>\
+												 <ul id="sortable" class="sortable_list"><?php echo esc_js( $sorted_html ); ?>\
 												 </ul>\
 												</div>';
 					jQuery(product_arrange_html).insertAfter("div.subject-info-box-1");
@@ -311,7 +311,7 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 				}
 				
 				if(jQuery("span#todatewrapper").length > 0){
-					jQuery("span#todatewrapper").html('<input name="alg_export_products_fields_end_date_alternative" id="alg_export_products_fields_end_date_alternative" type="text" style="" value="<?php echo $export_option_end_date_saved; ?>" class="yesdatepicker" placeholder="To date" display="date">');
+					jQuery("span#todatewrapper").html('<input name="alg_export_products_fields_end_date_alternative" id="alg_export_products_fields_end_date_alternative" type="text" style="" value="<?php echo esc_js( $export_option_end_date_saved ); ?>" class="yesdatepicker" placeholder="To date" display="date">');
 				}
 				
 				jQuery("input#alg_export_products_fields_end_date_alternative").change(function(){
