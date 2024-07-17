@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Core Class
  *
- * @version 2.0.9
+ * @version 2.0.12
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -16,7 +16,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.1.0
+	 * @version 2.0.12
 	 * @since   1.0.0
 	 * @todo    [dev] Export Orders Items: Item's (product's) description
 	 * @todo    [dev] Export single (or limited number) order only (Export Orders Items and Export Orders and maybe single product/customer also)
@@ -242,7 +242,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * create_export_tool.
 	 *
-	 * @version 2.0.11
+	 * @version 2.0.12
 	 * @since   1.0.0
 	 * @todo    [dev] (maybe) `alg_export` and `alg_export_xml` - `$date_args` and `$filter_args` should be updated if changed
 	 */
@@ -263,7 +263,7 @@ class Alg_WC_Export_Core {
 		$date_args = '';
 		$date_args .= ( isset( $_GET['start_date'] ) ? '&start_date=' . esc_attr( $_GET['start_date'] ) : '' );
 		$date_args .= ( isset( $_GET['end_date'] )   ? '&end_date='   . esc_attr( $_GET['end_date'] )   : '' );
-		$filter_args = ( isset( $_GET['alg_export_filter_all_columns'] ) ? '&alg_export_filter_all_columns=' . $_GET['alg_export_filter_all_columns'] : '' );
+		$filter_args = ( isset( $_GET['alg_export_filter_all_columns'] ) ? '&alg_export_filter_all_columns=' . esc_attr( $_GET['alg_export_filter_all_columns'] ) : '' );
 		$html .= '<a class="button-primary" href="' . home_url( '/?alg_export='     . $tool_id . $date_args . $filter_args ) . '">' . __( 'Download CSV', 'export-woocommerce' ) . '</a>' . ' ';
 		$html .= '<a class="button-primary" href="' . home_url( '/?alg_export_xml=' . $tool_id . $date_args . $filter_args ) . '">' . __( 'Download XML', 'export-woocommerce' ) . '</a>';
 		$html .= '<button style="float:right;margin-right:10px;" class="button-primary" type="submit" name="alg_export_filter" value="' . $tool_id . '">' . __( 'Filter by All Fields', 'export-woocommerce' ) . '</button>';
