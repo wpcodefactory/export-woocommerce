@@ -2,8 +2,8 @@
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
 Tags: woocommerce, export
 Requires at least: 4.4
-Tested up to: 6.4
-Stable tag: 2.0.12
+Tested up to: 6.6
+Stable tag: 2.0.13
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,10 @@ When exporting products and/or orders, you can add one additional product and/or
 3. Start by visiting plugin settings at "WooCommerce > Settings > Export".
 
 == Changelog ==
+
+= 2.0.13 - 31/07/2024 =
+* WC tested up to: 9.1.
+* Tested up to: 6.6.
 
 = 2.0.12 - 17/07/2024 =
 * Upgrade Broken Cross Site Scripting (XSS) vulnerability.
