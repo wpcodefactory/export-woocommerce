@@ -2,7 +2,7 @@
 /**
  * WooCommerce Exporter Orders
  *
- * @version 2.0.8
+ * @version 2.0.14
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -12,15 +12,26 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if ( ! class_exists( 'Alg_Exporter_Orders' ) ) :
 
 class Alg_Exporter_Orders {
-
+	
+	/**
+	 * @var   alg_wc_export_confirm_hpos
+	 *
+	 * @version 2.0.14
+	 * @since   2.0.14
+	 */
+	public $alg_wc_export_confirm_hpos = 'no';
+	
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.1.0
+	 * @version 2.0.14
 	 * @since   1.0.0
 	 */
 	function __construct() {
 		$this->is_wc_version_below_3 = version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' );
+		
+		$this->alg_wc_export_confirm_hpos = get_option( 'alg_wc_export_confirm_hpos', 'no' );
+		
 		return true;
 	}
 
@@ -186,7 +197,7 @@ class Alg_Exporter_Orders {
 	/**
 	 * export_orders.
 	 *
-	 * @version 2.0.7
+	 * @version 2.0.14
 	 * @since   1.0.0
 	 * @todo    [dev] (maybe) metainfo as separate column
 	 */
@@ -218,6 +229,7 @@ class Alg_Exporter_Orders {
 		$data[]     = $titles;
 		$offset     = 0;
 		$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
+		
 		while( true ) {
 			$args_orders = array(
 				'post_type'      => 'shop_order',
@@ -228,14 +240,47 @@ class Alg_Exporter_Orders {
 				'offset'         => $offset,
 				'fields'         => 'ids',
 			);
-			$args_orders = alg_maybe_add_date_query( $args_orders );
-			$loop_orders = new WP_Query( $args_orders );
-			if ( ! $loop_orders->have_posts() ) {
-				break;
+			
+			if( $this->alg_wc_export_confirm_hpos == 'yes' ){
+				$args_orders = array(
+					'type'      	 => 'shop_order',
+					'status'         => array_keys(wc_get_order_statuses()),
+					'limit' 		 => $block_size,
+					'orderby'        => 'date',
+					'order'          => 'DESC',
+					'offset'         => $offset,
+					'return'         => 'ids',
+				);
 			}
-			foreach ( $loop_orders->posts as $order_id ) {
+			
+			$args_orders = alg_maybe_add_date_query( $args_orders );
+			
+			$result_order_ids = array();
+			
+			if ( $this->alg_wc_export_confirm_hpos == 'yes' ) {
+				
+				$loop_orders = new WC_Order_Query( $args_orders );
+				$result_order_ids = $loop_orders->get_orders();
+				
+				if( empty( $result_order_ids ) ) {
+					break;
+				}
+				
+			} else {
+				
+				if ( ! $loop_orders->have_posts() ) {
+					break;
+				}
+				
+				$loop_orders = new WP_Query( $args_orders );
+				$result_order_ids = $loop_orders->posts;
+				
+			}
+			
+			
+			foreach ( $result_order_ids as $order_id ) {
 				$order = wc_get_order( $order_id );
-
+				
 				// Standard Fields
 				$items = array();
 				if ( in_array( 'order-items', $fields_ids ) ) {
@@ -250,6 +295,7 @@ class Alg_Exporter_Orders {
 				}
 				$row = $this->get_export_orders_row( $fields_ids, $order_id, $order, $items, null, null );
 				// Additional Fields
+				
 				$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_orders' );
 				for ( $i = 1; $i <= $total_number; $i++ ) {
 					if ( 'yes' === get_option( 'alg_export_orders_fields_additional_enabled_' . $i, 'no' ) ) {
@@ -263,6 +309,8 @@ class Alg_Exporter_Orders {
 				}
 
 				$data[] = $row;
+				
+				$count++;
 			}
 			$offset += $block_size;
 		}

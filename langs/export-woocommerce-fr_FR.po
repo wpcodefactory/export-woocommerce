@@ -1130,6 +1130,7 @@ msgid "Please use for heavy volume data. ( For now only Product CSV )"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:181
+#: includes/settings/class-alg-wc-export-settings-general.php:189
 msgid "Enable"
 msgstr ""
 
@@ -1200,4 +1201,12 @@ msgstr ""
 
 #: includes/settings/class-alg-wc-settings-export.php:94
 msgid "Your settings have been reset."
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-general.php:187
+msgid "Confirm HPOS enabled"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-general.php:188
+msgid "Order query differ based on HPOS enabled or not. (If you find no order appear on export but store has order. please check with enabeling this.)"
 msgstr ""

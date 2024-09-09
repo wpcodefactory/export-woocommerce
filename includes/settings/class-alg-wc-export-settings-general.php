@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - General Section Settings
  *
- * @version 1.5.3
+ * @version 2.0.14
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -28,7 +28,7 @@ class Alg_WC_Export_Settings_General extends Alg_WC_Export_Settings_Section {
 	/**
 	 * add_settings.
 	 *
-	 * @version 2.0.10
+	 * @version 2.0.14
 	 * @since   1.0.0
 	 * @todo    [dev] add link to tools Dashboard
 	 * @todo    [dev] add more info (e.g. Wrap)
@@ -181,6 +181,14 @@ class Alg_WC_Export_Settings_General extends Alg_WC_Export_Settings_Section {
 				'desc'  	=> __( 'Enable', 'export-woocommerce' ),
 				'type'      => 'checkbox',
 				'id'        => 'alg_wc_export_ajax_download',
+				'default'   => 'no',
+			),
+			array(
+				'title'     => __( 'Confirm HPOS enabled', 'export-woocommerce' ),
+				'desc_tip'  => __( 'Order query differ based on HPOS enabled or not. (If you find no order appear on export but store has order. please check with enabeling this.)', 'export-woocommerce' ),
+				'desc'  	=> __( 'Enable', 'export-woocommerce' ),
+				'type'      => 'checkbox',
+				'id'        => 'alg_wc_export_confirm_hpos',
 				'default'   => 'no',
 			),
 			array(
