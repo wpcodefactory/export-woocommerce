@@ -3,7 +3,7 @@
 Plugin Name: Products & Order Export for WooCommerce
 Plugin URI: https://wpfactory.com/item/export-woocommerce/
 Description: Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click.
-Version: 2.0.14
+Version: 2.0.15
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: export-woocommerce
@@ -43,7 +43,7 @@ if ( ! class_exists( 'Alg_WC_Export' ) ) :
  * Main Alg_WC_Export Class
  *
  * @class   Alg_WC_Export
- * @version 2.0.14
+ * @version 2.0.15
  * @since   1.0.0
  */
 final class Alg_WC_Export {
@@ -54,7 +54,7 @@ final class Alg_WC_Export {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '2.0.14';
+	public $version = '2.0.15';
 
 	/**
 	 * @var   Alg_WC_Export The single instance of the class

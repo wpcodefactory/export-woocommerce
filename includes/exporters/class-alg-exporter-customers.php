@@ -4,7 +4,7 @@
  *
  * The WooCommerce Exporter Customers class.
  *
- * @version 1.5.3
+ * @version 2.0.15
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -14,7 +14,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if ( ! class_exists( 'Alg_Exporter_Customers' ) ) :
 
 class Alg_Exporter_Customers {
-
+	
+	/**
+	 * @var   alg_wc_export_confirm_hpos
+	 *
+	 * @version 2.0.15
+	 * @since   2.0.15
+	 */
+	public $alg_wc_export_confirm_hpos = 'no';
+	
 	/**
 	 * Constructor.
 	 *
@@ -22,6 +30,9 @@ class Alg_Exporter_Customers {
 	 * @since   1.0.0
 	 */
 	function __construct() {
+		
+		$this->alg_wc_export_confirm_hpos = get_option( 'alg_wc_export_confirm_hpos', 'no' );
+		
 		return true;
 	}
 
@@ -183,7 +194,7 @@ class Alg_Exporter_Customers {
 	/**
 	 * export_customers_from_orders.
 	 *
-	 * @version 1.5.3
+	 * @version 2.0.15
 	 * @since   1.0.0
 	 * @todo    [dev] check https://docs.woocommerce.com/wc-apidocs/class-WC_Customer.html for more fields (e.g. `get_is_paying_customer()` etc.)
 	 * @todo    [dev] (maybe) `$order_statuses  = array( 'wc-processing', 'wc-completed' );`
@@ -235,12 +246,46 @@ class Alg_Exporter_Customers {
 				'offset'         => $offset,
 				'fields'         => 'ids',
 			);
-			$args_orders = alg_maybe_add_date_query( $args_orders );
-			$loop_orders = new WP_Query( $args_orders );
-			if ( ! $loop_orders->have_posts() ) {
-				break;
+			
+			if( $this->alg_wc_export_confirm_hpos == 'yes' ){
+				$args_orders = array(
+					'type'      	 => 'shop_order',
+					'status'         => array_keys(wc_get_order_statuses()),
+					'limit' 		 => $block_size,
+					'orderby'        => 'date',
+					'order'          => 'DESC',
+					'offset'         => $offset,
+					'return'         => 'ids',
+				);
 			}
-			foreach ( $loop_orders->posts as $order_id ) {
+			
+			$args_orders = alg_maybe_add_date_query( $args_orders );
+			
+			$result_order_ids = array();
+			
+			if ( $this->alg_wc_export_confirm_hpos == 'yes' ) {
+				
+				$loop_orders = new WC_Order_Query( $args_orders );
+				$result_order_ids = $loop_orders->get_orders(); 
+				
+				if( empty( $result_order_ids ) ) {
+					break;
+				}
+				
+			} else {
+				
+				$loop_orders = new WP_Query( $args_orders );
+				
+				if ( ! $loop_orders->have_posts() ) {
+					break;
+				}
+				
+				$result_order_ids = $loop_orders->posts;
+				
+			}
+			
+			
+			foreach ( $result_order_ids as $order_id ) {
 				$order = wc_get_order( $order_id );
 				$customer_id = ( $is_wc_version_below_3 ? $order->customer_user : $order->get_customer_id() );
 				if ( $do_calculate_tmp_data && 0 != $customer_id ) {

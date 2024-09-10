@@ -260,7 +260,7 @@ class Alg_Exporter_Orders {
 			if ( $this->alg_wc_export_confirm_hpos == 'yes' ) {
 				
 				$loop_orders = new WC_Order_Query( $args_orders );
-				$result_order_ids = $loop_orders->get_orders();
+				$result_order_ids = $loop_orders->get_orders(); 
 				
 				if( empty( $result_order_ids ) ) {
 					break;
@@ -268,11 +268,13 @@ class Alg_Exporter_Orders {
 				
 			} else {
 				
+				$loop_orders = new WP_Query( $args_orders );
+				
 				if ( ! $loop_orders->have_posts() ) {
 					break;
 				}
 				
-				$loop_orders = new WP_Query( $args_orders );
+				
 				$result_order_ids = $loop_orders->posts;
 				
 			}
@@ -310,7 +312,6 @@ class Alg_Exporter_Orders {
 
 				$data[] = $row;
 				
-				$count++;
 			}
 			$offset += $block_size;
 		}
