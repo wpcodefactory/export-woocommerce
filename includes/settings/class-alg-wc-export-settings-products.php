@@ -2,12 +2,12 @@
 /**
  * Export WooCommerce - Products Section Settings
  *
- * @version 2.0.11
+ * @version 2.1.0
  * @since   1.0.0
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_WC_Export_Settings_Products' ) ) :
 
@@ -23,16 +23,17 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 		$this->id   = 'products';
 		$this->desc = __( 'Products', 'export-woocommerce' );
 		
-		add_action('admin_footer', array($this, 'alg_wc_export_admin_add_js_product_setting') );
+		
 		if(isset($_GET['page']) && $_GET['page'] == 'wc-settings' && isset($_GET['tab']) && $_GET['tab'] == 'alg_wc_export' && isset($_GET['section']) && $_GET['section'] == 'products'){
-			add_action( 'woocommerce_after_settings_alg_wc_export', 		  array( $this, 'after_settings' ), PHP_INT_MAX );
+			add_action('admin_footer', 													array($this, 'alg_wc_export_admin_add_js_product_setting') );
+			add_action( 'woocommerce_after_settings_alg_wc_export', 		  			array( $this, 'after_settings' ), PHP_INT_MAX );
 		}
 		
-		add_action( 'wp_ajax_alg_wc_export_admin_product_ajax_download',        array( $this, 'alg_wc_export_admin_product_ajax_download' ) );
-		add_action( 'wp_ajax_nopriv_alg_wc_export_admin_product_ajax_download', array( $this, 'alg_wc_export_admin_product_ajax_download' ) );
+		add_action( 'wp_ajax_alg_wc_export_admin_product_ajax_download',        		array( $this, 'alg_wc_export_admin_product_ajax_download' ) );
+		add_action( 'wp_ajax_nopriv_alg_wc_export_admin_product_ajax_download', 		array( $this, 'alg_wc_export_admin_product_ajax_download' ) );
 		
-		add_action( 'wp_ajax_alg_wc_export_admin_product_ajax_download_start',        array( $this, 'alg_wc_export_admin_product_ajax_download_start' ) );
-		add_action( 'wp_ajax_nopriv_alg_wc_export_admin_product_ajax_download_start', array( $this, 'alg_wc_export_admin_product_ajax_download_start' ) );
+		add_action( 'wp_ajax_alg_wc_export_admin_product_ajax_download_start',        	array( $this, 'alg_wc_export_admin_product_ajax_download_start' ) );
+		add_action( 'wp_ajax_nopriv_alg_wc_export_admin_product_ajax_download_start', 	array( $this, 'alg_wc_export_admin_product_ajax_download_start' ) );
 		
 		parent::__construct();
 	}
@@ -40,7 +41,7 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 	/**
 	 * after_settings.
 	 *
-	 * @version 2.0.10
+	 * @version 2.1.0
 	 * @since   1.0.0
 	 */
 	function after_settings() {
@@ -62,10 +63,10 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 		$date_args .= ( !empty( $end_date )   ? '&end_date='   . $end_date   : '' );
 		
 		if($download_file_type == 'csv'){
-			$download_url = home_url( '/?alg_export='     . $this->id . $date_args . $filter_args );
+			$download_url = home_url( '/?alg_export='     . $this->id . $date_args );
 		}
 		if($download_file_type == 'xml'){
-			$download_url = home_url( '/?alg_export_xml='     . $this->id . $date_args . $filter_args );
+			$download_url = home_url( '/?alg_export_xml='     . $this->id . $date_args );
 		}
 		
 		if( 'yes' == get_option('alg_wc_export_ajax_download', 'no') && $download_file_type == 'csv' ) {
@@ -154,6 +155,7 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 				
 			) );
 		}
+		
 		$settings = array_merge( $settings, array(
 			array(
 				'type'      => 'sectionend',
@@ -202,7 +204,7 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 					'type'      => 'text',
 					'default'   => '',
 					'placeholder'   => 'From date',
-					'class'		=> 'yesdatepicker',
+					'class'		=> 'yesdatepicker alg_export_date_from',
 					'custom_attributes' => array( 'display' => 'date' ),
 			),
 			array(
@@ -211,6 +213,7 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 					'desc_tip'  => __( 'Enter end date.', 'export-woocommerce' ),
 					'id'        => 'alg_export_products_fields_end_date',
 					'type'      => 'text',
+					'class'		=> 'alg_export_date_to',
 					'default'   => '',
 			),
 			array(
@@ -228,7 +231,7 @@ class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
 			),
 			array(
 				'type'      => 'sectionend',
-				'id'        => 'alg_wc_export_products_filter_options_section_end',
+				'id'        => 'alg_wc_export_products_filter_options',
 			),
 		) );
 		return $settings;

@@ -1,742 +1,751 @@
-# Copyright (C) 2024 WPFactory
-# This file is distributed under the GNU General Public License v3.0.
-msgid ""
-msgstr ""
-"Project-Id-Version: export-woocommerce 2.0.15\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/export-woocommerce\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-10T12:55:28+02:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
-"X-Domain: export-woocommerce\n"
-
-#. Plugin Name of the plugin
-msgid "Products & Order Export for WooCommerce Pro"
+#: export-woocommerce.php:118
+msgid "Settings"
 msgstr ""
 
-#. Plugin URI of the plugin
-msgid "https://wpfactory.com/item/export-woocommerce/"
-msgstr ""
-
-#. Description of the plugin
-msgid "Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click."
-msgstr ""
-
-#. Author of the plugin
-msgid "WPFactory"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://wpfactory.com"
-msgstr ""
-
-#: export-woocommerce-pro.php:120
+#: export-woocommerce.php:119
 msgid "Tools"
 msgstr ""
 
-#: export-woocommerce-pro.php:123
+#: export-woocommerce.php:122
 msgid "Go Pro"
 msgstr ""
 
-#: export-woocommerce-pro.php:126
+#: export-woocommerce.php:125
 msgid "Review Us"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:55
+#: includes/alg-wc-export-functions-ranges.php:23
+msgid "Year"
+msgstr ""
+
+#: includes/alg-wc-export-functions-ranges.php:28
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:139
+#: includes/settings/class-alg-wc-export-settings-products.php:181
+msgid "Last month"
+msgstr ""
+
+#: includes/alg-wc-export-functions-ranges.php:33
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:140
 #: includes/settings/class-alg-wc-export-settings-products.php:182
+msgid "This month"
+msgstr ""
+
+#: includes/alg-wc-export-functions-ranges.php:38
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:141
+#: includes/settings/class-alg-wc-export-settings-products.php:183
+msgid "Last 7 days"
+msgstr ""
+
+#: includes/alg-wc-export-functions-ranges.php:56
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:142
+#: includes/settings/class-alg-wc-export-settings-products.php:184
 msgid "Last 14 days"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:60
-#: includes/settings/class-alg-wc-export-settings-products.php:183
+#: includes/alg-wc-export-functions-ranges.php:61
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:143
+#: includes/settings/class-alg-wc-export-settings-products.php:185
 msgid "Last 30 days"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:65
-#: includes/settings/class-alg-wc-export-settings-products.php:184
+#: includes/alg-wc-export-functions-ranges.php:66
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:144
+#: includes/settings/class-alg-wc-export-settings-products.php:186
 msgid "Last 3 months"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:70
-#: includes/settings/class-alg-wc-export-settings-products.php:185
+#: includes/alg-wc-export-functions-ranges.php:71
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:145
+#: includes/settings/class-alg-wc-export-settings-products.php:187
 msgid "Last 6 months"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:75
-#: includes/settings/class-alg-wc-export-settings-products.php:186
+#: includes/alg-wc-export-functions-ranges.php:76
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:146
+#: includes/settings/class-alg-wc-export-settings-products.php:188
 msgid "Last 12 months"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:80
-#: includes/settings/class-alg-wc-export-settings-products.php:187
+#: includes/alg-wc-export-functions-ranges.php:81
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:147
+#: includes/settings/class-alg-wc-export-settings-products.php:189
 msgid "Last 24 months"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:85
-#: includes/settings/class-alg-wc-export-settings-products.php:188
+#: includes/alg-wc-export-functions-ranges.php:86
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:148
+#: includes/settings/class-alg-wc-export-settings-products.php:190
 msgid "Last 36 months"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:90
-#: includes/settings/class-alg-wc-export-settings-products.php:189
+#: includes/alg-wc-export-functions-ranges.php:91
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:149
+#: includes/settings/class-alg-wc-export-settings-products.php:191
 msgid "Same days last month"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:95
-#: includes/settings/class-alg-wc-export-settings-products.php:190
+#: includes/alg-wc-export-functions-ranges.php:96
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:150
+#: includes/settings/class-alg-wc-export-settings-products.php:192
 msgid "Same days last year"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:100
-#: includes/settings/class-alg-wc-export-settings-products.php:191
+#: includes/alg-wc-export-functions-ranges.php:101
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:151
+#: includes/settings/class-alg-wc-export-settings-products.php:193
 msgid "Last year"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:105
-#: includes/settings/class-alg-wc-export-settings-products.php:192
+#: includes/alg-wc-export-functions-ranges.php:106
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:152
+#: includes/settings/class-alg-wc-export-settings-products.php:194
 msgid "Yesterday"
 msgstr ""
 
-#: includes/alg-wc-export-functions-ranges.php:110
-#: includes/settings/class-alg-wc-export-settings-products.php:193
+#: includes/alg-wc-export-functions-ranges.php:111
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:153
+#: includes/settings/class-alg-wc-export-settings-products.php:195
 msgid "Today"
 msgstr ""
 
-#: includes/alg-wc-export-functions.php:88
+#: includes/alg-wc-export-functions.php:89
 msgid "Export Customers"
 msgstr ""
 
-#: includes/alg-wc-export-functions.php:89
+#: includes/alg-wc-export-functions.php:90
 msgid "Export customers tool."
 msgstr ""
 
-#: includes/alg-wc-export-functions.php:90
-msgid "Customers are exported from WordPress users table, filtering users with WooCommerce customer role."
-msgstr ""
-
-#: includes/alg-wc-export-functions.php:93
-msgid "Export Customers from Orders"
+#: includes/alg-wc-export-functions.php:91
+msgid ""
+"Customers are exported from WordPress users table, filtering users with "
+"WooCommerce customer role."
 msgstr ""
 
 #: includes/alg-wc-export-functions.php:94
-msgid "Export customers from orders tool."
+msgid "Export Customers from Orders"
 msgstr ""
 
 #: includes/alg-wc-export-functions.php:95
-msgid "Customers are extracted from orders."
+msgid "Export customers from orders tool."
 msgstr ""
 
 #: includes/alg-wc-export-functions.php:96
+msgid "Customers are extracted from orders."
+msgstr ""
+
+#: includes/alg-wc-export-functions.php:97
 msgid "Customers are identified by billing email."
 msgstr ""
 
-#: includes/alg-wc-export-functions.php:99
+#: includes/alg-wc-export-functions.php:100
 msgid "Export Orders"
 msgstr ""
 
-#: includes/alg-wc-export-functions.php:100
+#: includes/alg-wc-export-functions.php:101
 msgid "Export orders tool."
 msgstr ""
 
-#: includes/alg-wc-export-functions.php:103
+#: includes/alg-wc-export-functions.php:104
 msgid "Export Orders Items"
 msgstr ""
 
-#: includes/alg-wc-export-functions.php:104
+#: includes/alg-wc-export-functions.php:105
 msgid "Export orders items tool."
 msgstr ""
 
-#: includes/alg-wc-export-functions.php:107
+#: includes/alg-wc-export-functions.php:108
 msgid "Export Products"
 msgstr ""
 
-#: includes/alg-wc-export-functions.php:108
+#: includes/alg-wc-export-functions.php:109
 msgid "Export products tool."
 msgstr ""
 
-#: includes/alg-wc-export-functions.php:135
+#: includes/alg-wc-export-functions.php:136
 msgid "Tool Settings"
 msgstr ""
 
-#: includes/alg-wc-export-functions.php:147
+#: includes/alg-wc-export-functions.php:148
 msgid "Open Tool"
-msgstr ""
-
-#: includes/class-alg-export-fields-helper.php:37
-#: includes/class-alg-export-fields-helper.php:91
-msgid "Customer Nr."
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:38
 #: includes/class-alg-export-fields-helper.php:92
-#: includes/class-alg-export-fields-helper.php:254
-msgid "Customer ID"
+msgid "Customer Nr."
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:39
-msgid "Customer First Name"
+#: includes/class-alg-export-fields-helper.php:93
+#: includes/class-alg-export-fields-helper.php:255
+msgid "Customer ID"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:40
-msgid "Customer Last Name"
+msgid "Customer First Name"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:41
-#: includes/class-alg-export-fields-helper.php:117
-#: includes/class-alg-export-fields-helper.php:177
-#: includes/class-alg-export-fields-helper.php:266
-msgid "Billing Email"
+msgid "Customer Last Name"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:42
-#: includes/class-alg-export-fields-helper.php:107
-#: includes/class-alg-export-fields-helper.php:167
-#: includes/class-alg-export-fields-helper.php:256
-msgid "Billing First Name"
+#: includes/class-alg-export-fields-helper.php:118
+#: includes/class-alg-export-fields-helper.php:178
+#: includes/class-alg-export-fields-helper.php:267
+msgid "Billing Email"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:43
 #: includes/class-alg-export-fields-helper.php:108
 #: includes/class-alg-export-fields-helper.php:168
 #: includes/class-alg-export-fields-helper.php:257
-msgid "Billing Last Name"
+msgid "Billing First Name"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:44
 #: includes/class-alg-export-fields-helper.php:109
 #: includes/class-alg-export-fields-helper.php:169
 #: includes/class-alg-export-fields-helper.php:258
-msgid "Billing Company"
+msgid "Billing Last Name"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:45
 #: includes/class-alg-export-fields-helper.php:110
 #: includes/class-alg-export-fields-helper.php:170
 #: includes/class-alg-export-fields-helper.php:259
-msgid "Billing Address 1"
+msgid "Billing Company"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:46
 #: includes/class-alg-export-fields-helper.php:111
 #: includes/class-alg-export-fields-helper.php:171
 #: includes/class-alg-export-fields-helper.php:260
-msgid "Billing Address 2"
+msgid "Billing Address 1"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:47
 #: includes/class-alg-export-fields-helper.php:112
 #: includes/class-alg-export-fields-helper.php:172
 #: includes/class-alg-export-fields-helper.php:261
-msgid "Billing City"
+msgid "Billing Address 2"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:48
-#: includes/class-alg-export-fields-helper.php:115
+#: includes/class-alg-export-fields-helper.php:113
 #: includes/class-alg-export-fields-helper.php:173
 #: includes/class-alg-export-fields-helper.php:262
-msgid "Billing State"
+msgid "Billing City"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:49
-#: includes/class-alg-export-fields-helper.php:113
+#: includes/class-alg-export-fields-helper.php:116
 #: includes/class-alg-export-fields-helper.php:174
 #: includes/class-alg-export-fields-helper.php:263
-msgid "Billing Postcode"
+msgid "Billing State"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:50
 #: includes/class-alg-export-fields-helper.php:114
 #: includes/class-alg-export-fields-helper.php:175
 #: includes/class-alg-export-fields-helper.php:264
-msgid "Billing Country"
+msgid "Billing Postcode"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:51
-#: includes/class-alg-export-fields-helper.php:116
+#: includes/class-alg-export-fields-helper.php:115
 #: includes/class-alg-export-fields-helper.php:176
 #: includes/class-alg-export-fields-helper.php:265
-msgid "Billing Phone"
+msgid "Billing Country"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:52
-#: includes/class-alg-export-fields-helper.php:118
-#: includes/class-alg-export-fields-helper.php:178
-#: includes/class-alg-export-fields-helper.php:267
-msgid "Shipping First Name"
+#: includes/class-alg-export-fields-helper.php:117
+#: includes/class-alg-export-fields-helper.php:177
+#: includes/class-alg-export-fields-helper.php:266
+msgid "Billing Phone"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:53
 #: includes/class-alg-export-fields-helper.php:119
 #: includes/class-alg-export-fields-helper.php:179
 #: includes/class-alg-export-fields-helper.php:268
-msgid "Shipping Last Name"
+msgid "Shipping First Name"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:54
 #: includes/class-alg-export-fields-helper.php:120
 #: includes/class-alg-export-fields-helper.php:180
 #: includes/class-alg-export-fields-helper.php:269
-msgid "Shipping Company"
+msgid "Shipping Last Name"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:55
 #: includes/class-alg-export-fields-helper.php:121
 #: includes/class-alg-export-fields-helper.php:181
 #: includes/class-alg-export-fields-helper.php:270
-msgid "Shipping Address 1"
+msgid "Shipping Company"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:56
 #: includes/class-alg-export-fields-helper.php:122
 #: includes/class-alg-export-fields-helper.php:182
 #: includes/class-alg-export-fields-helper.php:271
-msgid "Shipping Address 2"
+msgid "Shipping Address 1"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:57
 #: includes/class-alg-export-fields-helper.php:123
 #: includes/class-alg-export-fields-helper.php:183
 #: includes/class-alg-export-fields-helper.php:272
-msgid "Shipping City"
+msgid "Shipping Address 2"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:58
-#: includes/class-alg-export-fields-helper.php:126
+#: includes/class-alg-export-fields-helper.php:124
 #: includes/class-alg-export-fields-helper.php:184
 #: includes/class-alg-export-fields-helper.php:273
-msgid "Shipping State"
+msgid "Shipping City"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:59
-#: includes/class-alg-export-fields-helper.php:124
+#: includes/class-alg-export-fields-helper.php:127
 #: includes/class-alg-export-fields-helper.php:185
 #: includes/class-alg-export-fields-helper.php:274
-msgid "Shipping Postcode"
+msgid "Shipping State"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:60
 #: includes/class-alg-export-fields-helper.php:125
 #: includes/class-alg-export-fields-helper.php:186
 #: includes/class-alg-export-fields-helper.php:275
-msgid "Shipping Country"
+msgid "Shipping Postcode"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:61
-#: includes/class-alg-export-fields-helper.php:101
+#: includes/class-alg-export-fields-helper.php:126
+#: includes/class-alg-export-fields-helper.php:187
+#: includes/class-alg-export-fields-helper.php:276
+msgid "Shipping Country"
+msgstr ""
+
+#: includes/class-alg-export-fields-helper.php:62
+#: includes/class-alg-export-fields-helper.php:102
 #: includes/settings/class-alg-wc-export-settings-customers.php:65
 #: includes/settings/class-alg-wc-export-settings-general.php:129
 msgid "User Roles"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:62
+#: includes/class-alg-export-fields-helper.php:63
 #: includes/pro/class-alg-wc-export-pro.php:69
 #: includes/settings/class-alg-wc-export-settings-customers.php:61
 msgid "Last Order Date"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:93
-msgid "Email"
-msgstr ""
-
 #: includes/class-alg-export-fields-helper.php:94
-#: includes/class-alg-export-fields-helper.php:104
-msgid "First Name"
+msgid "Email"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:95
 #: includes/class-alg-export-fields-helper.php:105
-msgid "Last Name"
+msgid "First Name"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:96
-msgid "Login"
+#: includes/class-alg-export-fields-helper.php:106
+msgid "Last Name"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:97
-msgid "Nicename"
+msgid "Login"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:98
-#: includes/class-alg-export-fields-helper.php:347
-msgid "URL"
+msgid "Nicename"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:99
-msgid "Registered"
+#: includes/class-alg-export-fields-helper.php:348
+msgid "URL"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:100
+msgid "Registered"
+msgstr ""
+
+#: includes/class-alg-export-fields-helper.php:101
 msgid "Display Name"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:103
+#: includes/class-alg-export-fields-helper.php:104
 msgid "Nickname"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:106
-#: includes/class-alg-export-fields-helper.php:345
+#: includes/class-alg-export-fields-helper.php:107
+#: includes/class-alg-export-fields-helper.php:346
 msgid "Description"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:127
+#: includes/class-alg-export-fields-helper.php:128
 msgid "Last Update"
-msgstr ""
-
-#: includes/class-alg-export-fields-helper.php:155
-#: includes/class-alg-export-fields-helper.php:240
-msgid "Order ID"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:156
 #: includes/class-alg-export-fields-helper.php:241
-msgid "Order Number"
+msgid "Order ID"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:157
 #: includes/class-alg-export-fields-helper.php:242
-msgid "Order Status"
+msgid "Order Number"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:158
 #: includes/class-alg-export-fields-helper.php:243
-msgid "Order Date"
+msgid "Order Status"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:159
 #: includes/class-alg-export-fields-helper.php:244
-msgid "Order Time"
+msgid "Order Date"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:160
 #: includes/class-alg-export-fields-helper.php:245
-msgid "Order Item Count"
+msgid "Order Time"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:161
-#: includes/class-alg-export-fields-helper.php:248
-msgid "Order Currency"
+#: includes/class-alg-export-fields-helper.php:246
+msgid "Order Item Count"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:162
 #: includes/class-alg-export-fields-helper.php:249
-msgid "Order Total"
+msgid "Order Currency"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:163
 #: includes/class-alg-export-fields-helper.php:250
-msgid "Order Total Tax"
+msgid "Order Total"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:164
 #: includes/class-alg-export-fields-helper.php:251
-msgid "Order Shipping Total"
+msgid "Order Total Tax"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:165
 #: includes/class-alg-export-fields-helper.php:252
-msgid "Order Payment Method"
+msgid "Order Shipping Total"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:166
 #: includes/class-alg-export-fields-helper.php:253
+msgid "Order Payment Method"
+msgstr ""
+
+#: includes/class-alg-export-fields-helper.php:167
+#: includes/class-alg-export-fields-helper.php:254
 msgid "Order Notes"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:188
+#: includes/class-alg-export-fields-helper.php:189
 msgid "Item Id"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:189
+#: includes/class-alg-export-fields-helper.php:190
 msgid "Item Name"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:190
+#: includes/class-alg-export-fields-helper.php:191
 msgid "Item SKU"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:191
+#: includes/class-alg-export-fields-helper.php:192
 #: includes/settings/class-alg-wc-export-settings-general.php:115
 msgid "Item Product Input Fields"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:192
+#: includes/class-alg-export-fields-helper.php:193
 #: includes/settings/class-alg-wc-export-settings-general.php:117
 msgid "Item Meta"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:193
+#: includes/class-alg-export-fields-helper.php:194
 #: includes/settings/class-alg-wc-export-settings-general.php:118
 msgid "Item Variation Meta"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:194
+#: includes/class-alg-export-fields-helper.php:195
 msgid "Item Quantity"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:195
+#: includes/class-alg-export-fields-helper.php:196
 msgid "Item Tax Class"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:196
+#: includes/class-alg-export-fields-helper.php:197
 msgid "Item Product ID"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:197
+#: includes/class-alg-export-fields-helper.php:198
 msgid "Item Variation ID"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:198
+#: includes/class-alg-export-fields-helper.php:199
 msgid "Item Line Subtotal"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:199
+#: includes/class-alg-export-fields-helper.php:200
 msgid "Item Line Total"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:200
+#: includes/class-alg-export-fields-helper.php:201
 msgid "Item Line Subtotal Tax"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:201
+#: includes/class-alg-export-fields-helper.php:202
 msgid "Item Line Tax"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:202
+#: includes/class-alg-export-fields-helper.php:203
 msgid "Item Line Subtotal Plus Tax"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:203
+#: includes/class-alg-export-fields-helper.php:204
 msgid "Item Line Total Plus Tax"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:246
+#: includes/class-alg-export-fields-helper.php:247
 #: includes/settings/class-alg-wc-export-settings-general.php:105
 #: includes/settings/class-alg-wc-export-settings-general.php:119
 msgid "Order Items"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:247
+#: includes/class-alg-export-fields-helper.php:248
 #: includes/settings/class-alg-wc-export-settings-general.php:103
 #: includes/settings/class-alg-wc-export-settings-general.php:116
 msgid "Order Product Input Fields"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:255
+#: includes/class-alg-export-fields-helper.php:256
 msgid "Shipping Method"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:332
+#: includes/class-alg-export-fields-helper.php:333
 msgid "Product ID"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:333
+#: includes/class-alg-export-fields-helper.php:334
 msgid "Name"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:334
+#: includes/class-alg-export-fields-helper.php:335
 msgid "SKU"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:335
+#: includes/class-alg-export-fields-helper.php:336
 #: includes/settings/class-alg-wc-export-settings-general.php:140
 msgid "Total Stock"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:336
+#: includes/class-alg-export-fields-helper.php:337
 #: includes/settings/class-alg-wc-export-settings-general.php:139
 msgid "Stock Quantity"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:337
+#: includes/class-alg-export-fields-helper.php:338
 #: includes/settings/class-alg-wc-export-settings-general.php:141
 msgid "Regular Price"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:338
+#: includes/class-alg-export-fields-helper.php:339
 #: includes/settings/class-alg-wc-export-settings-general.php:142
 msgid "Sale Price"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:339
+#: includes/class-alg-export-fields-helper.php:340
 #: includes/settings/class-alg-wc-export-settings-general.php:143
 msgid "Price"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:340
+#: includes/class-alg-export-fields-helper.php:341
 #: includes/settings/class-alg-wc-export-settings-orders-items.php:81
 msgid "Type"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:341
+#: includes/class-alg-export-fields-helper.php:342
 #: includes/settings/class-alg-wc-export-settings-general.php:144
 msgid "Variation Attributes"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:342
+#: includes/class-alg-export-fields-helper.php:343
 msgid "Product Attributes"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:343
+#: includes/class-alg-export-fields-helper.php:344
 msgid "Image URL"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:344
+#: includes/class-alg-export-fields-helper.php:345
 msgid "Short Description"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:346
+#: includes/class-alg-export-fields-helper.php:347
 msgid "Status"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:348
+#: includes/class-alg-export-fields-helper.php:349
 msgid "Shipping Class"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:349
+#: includes/class-alg-export-fields-helper.php:350
 msgid "Shipping Class ID"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:350
+#: includes/class-alg-export-fields-helper.php:351
 msgid "Width"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:351
+#: includes/class-alg-export-fields-helper.php:352
 msgid "Length"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:352
+#: includes/class-alg-export-fields-helper.php:353
 msgid "Height"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:353
+#: includes/class-alg-export-fields-helper.php:354
 msgid "Weight"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:354
+#: includes/class-alg-export-fields-helper.php:355
 msgid "Downloadable"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:355
+#: includes/class-alg-export-fields-helper.php:356
 msgid "Virtual"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:356
+#: includes/class-alg-export-fields-helper.php:357
 msgid "Sold Individually"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:357
+#: includes/class-alg-export-fields-helper.php:358
 msgid "Tax Status"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:358
+#: includes/class-alg-export-fields-helper.php:359
 msgid "Tax Class"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:359
+#: includes/class-alg-export-fields-helper.php:360
 msgid "Manage Stock"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:360
+#: includes/class-alg-export-fields-helper.php:361
 msgid "Stock Status"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:361
+#: includes/class-alg-export-fields-helper.php:362
 msgid "Backorders"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:362
+#: includes/class-alg-export-fields-helper.php:363
 msgid "Featured"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:363
+#: includes/class-alg-export-fields-helper.php:364
 msgid "Visibility"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:364
+#: includes/class-alg-export-fields-helper.php:365
 msgid "Price Including Tax"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:365
+#: includes/class-alg-export-fields-helper.php:366
 msgid "Price Excluding Tax"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:366
+#: includes/class-alg-export-fields-helper.php:367
 msgid "Display Price"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:367
+#: includes/class-alg-export-fields-helper.php:368
 msgid "Average Rating"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:368
+#: includes/class-alg-export-fields-helper.php:369
 msgid "Rating Count"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:369
+#: includes/class-alg-export-fields-helper.php:370
 msgid "Review Count"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:370
+#: includes/class-alg-export-fields-helper.php:371
 msgid "Categories"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:371
+#: includes/class-alg-export-fields-helper.php:372
 msgid "Tags"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:372
+#: includes/class-alg-export-fields-helper.php:373
 msgid "Dimensions"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:373
+#: includes/class-alg-export-fields-helper.php:374
 msgid "Formatted Name"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:374
+#: includes/class-alg-export-fields-helper.php:375
 msgid "Availability"
 msgstr ""
 
-#: includes/class-alg-export-fields-helper.php:375
+#: includes/class-alg-export-fields-helper.php:376
 msgid "Availability Class"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:151
-#: includes/class-alg-wc-export-core.php:152
+#: includes/class-alg-wc-export-core.php:173
+#: includes/class-alg-wc-export-core.php:174
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:74
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:76
+#: includes/settings/class-alg-wc-export-settings-products.php:73
+#: includes/settings/class-alg-wc-export-settings-products.php:75
 #: includes/settings/class-alg-wc-settings-export.php:24
 msgid "Export"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:172
-#: includes/class-alg-wc-export-core.php:189
+#: includes/class-alg-wc-export-core.php:195
+#: includes/class-alg-wc-export-core.php:212
 msgid "Dashboard"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:218
-#: includes/settings/class-alg-wc-export-settings-products.php:177
+#: includes/class-alg-wc-export-core.php:241
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:137
+#: includes/settings/class-alg-wc-export-settings-products.php:179
 msgid "All time"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:233
+#: includes/class-alg-wc-export-core.php:256
 msgid "Custom:"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:238
+#: includes/class-alg-wc-export-core.php:261
 msgid "Go"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:267
+#: includes/class-alg-wc-export-core.php:291
 msgid "Download CSV"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:268
+#: includes/class-alg-wc-export-core.php:292
 msgid "Download XML"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:269
+#: includes/class-alg-wc-export-core.php:293
 msgid "Filter by All Fields"
 msgstr ""
 
@@ -771,36 +780,36 @@ msgid "Import done successfully !"
 msgstr ""
 
 #: includes/pro/class-alg-wc-export-pro.php:50
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:52
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:106
 msgid "First Order Date"
 msgstr ""
 
 #: includes/pro/class-alg-wc-export-pro.php:51
 #: includes/pro/class-alg-wc-export-pro.php:67
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:53
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:107
 #: includes/settings/class-alg-wc-export-settings-customers.php:59
 msgid "Total Spent (Lifetime)"
 msgstr ""
 
 #: includes/pro/class-alg-wc-export-pro.php:52
 #: includes/pro/class-alg-wc-export-pro.php:68
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:54
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:108
 #: includes/settings/class-alg-wc-export-settings-customers.php:60
 msgid "Order Count (Lifetime)"
 msgstr ""
 
 #: includes/pro/class-alg-wc-export-pro.php:53
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:55
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:109
 msgid "Total Spent (Period)"
 msgstr ""
 
 #: includes/pro/class-alg-wc-export-pro.php:54
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:56
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:110
 msgid "Order Count (Period)"
 msgstr ""
 
 #: includes/pro/class-alg-wc-export-pro.php:55
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:57
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:111
 msgid "Item Count (Period)"
 msgstr ""
 
@@ -816,21 +825,104 @@ msgstr ""
 msgid "Customers from Orders"
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:38
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:49
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:50
+#: includes/settings/class-alg-wc-export-settings-products.php:48
+#: includes/settings/class-alg-wc-export-settings-products.php:49
+#: includes/settings/class-alg-wc-export-settings-section.php:46
+#: includes/settings/class-alg-wc-export-settings-section.php:47
+msgid "Save changes"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:55
+#: includes/settings/class-alg-wc-export-settings-products.php:54
+msgid "Preview"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:92
 msgid "Export Customers from Orders Options"
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:44
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:98
 msgid "Export Customers from Orders Fields"
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:45
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:99
 #: includes/settings/class-alg-wc-export-settings-customers.php:52
 #: includes/settings/class-alg-wc-export-settings-orders-items.php:44
 #: includes/settings/class-alg-wc-export-settings-orders.php:44
-#: includes/settings/class-alg-wc-export-settings-products.php:97
-#: includes/settings/class-alg-wc-export-settings-products.php:106
-msgid "Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to select all fields."
+#: includes/settings/class-alg-wc-export-settings-products.php:98
+#: includes/settings/class-alg-wc-export-settings-products.php:107
+msgid ""
+"Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to "
+"select all fields."
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:123
+#: includes/settings/class-alg-wc-export-settings-products.php:165
+msgid "Export Products Filter Options"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:129
+#: includes/settings/class-alg-wc-export-settings-products.php:171
+msgid "Date Filter"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:130
+#: includes/settings/class-alg-wc-export-settings-products.php:172
+msgid "Select any date filter."
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:138
+#: includes/settings/class-alg-wc-export-settings-products.php:180
+msgid "This Year"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:154
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:158
+#: includes/settings/class-alg-wc-export-settings-products.php:196
+#: includes/settings/class-alg-wc-export-settings-products.php:200
+msgid "Custom Date Range"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:160
+#: includes/settings/class-alg-wc-export-settings-products.php:202
+msgid "Enter from date and end date."
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:169
+#: includes/settings/class-alg-wc-export-settings-products.php:211
+msgid "Custom date range"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:170
+#: includes/settings/class-alg-wc-export-settings-products.php:212
+msgid "End Date"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:171
+#: includes/settings/class-alg-wc-export-settings-products.php:213
+msgid "Enter end date."
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:178
+#: includes/settings/class-alg-wc-export-settings-products.php:220
+msgid "Download File Type"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:179
+#: includes/settings/class-alg-wc-export-settings-products.php:221
+msgid "Select file type."
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:186
+#: includes/settings/class-alg-wc-export-settings-products.php:228
+msgid "CSV"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:187
+#: includes/settings/class-alg-wc-export-settings-products.php:229
+msgid "XML"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-customers.php:24
@@ -892,7 +984,9 @@ msgid "Send"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:69
-msgid "Disable this if you are experiencing \"endless\" file download when using \"Download CSV\" or \"Download XML\" buttons."
+msgid ""
+"Disable this if you are experiencing \"endless\" file download when using "
+"\"Download CSV\" or \"Download XML\" buttons."
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:75
@@ -900,14 +994,19 @@ msgid "User Capability"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:76
-msgid "Set required user capability for CSV and XML export. Leave blank if you want all users (including not logged) to be able to export the data (not recommended)."
+msgid ""
+"Set required user capability for CSV and XML export. Leave blank if you want "
+"all users (including not logged) to be able to export the data (not "
+"recommended)."
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:77
+#, php-format
 msgid "Default: %s (administrators)."
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:78
+#, php-format
 msgid "Try: %s (administrators & shop managers)."
 msgstr ""
 
@@ -938,6 +1037,7 @@ msgstr ""
 #: includes/settings/class-alg-wc-export-settings-general.php:102
 #: includes/settings/class-alg-wc-export-settings-general.php:114
 #: includes/settings/class-alg-wc-export-settings-general.php:138
+#, php-format
 msgid "Used in: %s columns."
 msgstr ""
 
@@ -945,6 +1045,7 @@ msgstr ""
 #: includes/settings/class-alg-wc-export-settings-general.php:120
 #: includes/settings/class-alg-wc-export-settings-general.php:130
 #: includes/settings/class-alg-wc-export-settings-general.php:145
+#, php-format
 msgid "Default: %s"
 msgstr ""
 
@@ -953,6 +1054,7 @@ msgid "Third Separator"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:128
+#, php-format
 msgid "Used in: %s column."
 msgstr ""
 
@@ -1007,7 +1109,9 @@ msgid "Confirm HPOS enabled"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:188
-msgid "Order query differ based on HPOS enabled or not. (If you find no order appear on export but store has order. please check with enabeling this.)"
+msgid ""
+"Order query differ based on HPOS enabled or not. (If you find no order "
+"appear on export but store has order. please check with enabeling this.)"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-orders-items.php:24
@@ -1028,25 +1132,25 @@ msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-orders-items.php:56
 #: includes/settings/class-alg-wc-export-settings-orders.php:56
-#: includes/settings/class-alg-wc-export-settings-products.php:122
+#: includes/settings/class-alg-wc-export-settings-products.php:123
 msgid "Save changes after you change this number."
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-orders-items.php:68
 #: includes/settings/class-alg-wc-export-settings-orders.php:68
-#: includes/settings/class-alg-wc-export-settings-products.php:134
+#: includes/settings/class-alg-wc-export-settings-products.php:135
 msgid "Meta Field"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-orders-items.php:70
 #: includes/settings/class-alg-wc-export-settings-orders.php:70
-#: includes/settings/class-alg-wc-export-settings-products.php:136
+#: includes/settings/class-alg-wc-export-settings-products.php:137
 msgid "Enabled"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-orders-items.php:75
 #: includes/settings/class-alg-wc-export-settings-orders.php:75
-#: includes/settings/class-alg-wc-export-settings-products.php:141
+#: includes/settings/class-alg-wc-export-settings-products.php:142
 msgid "Title"
 msgstr ""
 
@@ -1060,7 +1164,7 @@ msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-orders-items.php:92
 #: includes/settings/class-alg-wc-export-settings-orders.php:81
-#: includes/settings/class-alg-wc-export-settings-products.php:147
+#: includes/settings/class-alg-wc-export-settings-products.php:148
 msgid "Value"
 msgstr ""
 
@@ -1084,97 +1188,42 @@ msgstr ""
 msgid "Enter order meta key to retrieve (can be custom field name)."
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-products.php:89
+#: includes/settings/class-alg-wc-export-settings-products.php:90
 msgid "Export Products Options"
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-products.php:96
+#: includes/settings/class-alg-wc-export-settings-products.php:92
+msgid ""
+"From the left table, select the fields you want to export, to change the "
+"order, simply add fields to the right table and order using drag & drop, "
+"once finished, click on Save Button below to save your changes first, then "
+"preview or export directly"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-products.php:97
 msgid "Export Products Fields"
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-products.php:105
+#: includes/settings/class-alg-wc-export-settings-products.php:106
 msgid "Export Products Sorted Fields"
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-products.php:112
+#: includes/settings/class-alg-wc-export-settings-products.php:113
 msgid "Export Product Attribute"
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-products.php:113
-msgid "Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to select all attributes."
+#: includes/settings/class-alg-wc-export-settings-products.php:114
+msgid ""
+"Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to "
+"select all attributes."
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-products.php:121
+#: includes/settings/class-alg-wc-export-settings-products.php:122
 msgid "Additional Export Products Meta Fields"
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-products.php:148
+#: includes/settings/class-alg-wc-export-settings-products.php:149
 msgid "Enter product meta key to retrieve (can be custom field name)."
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:163
-msgid "Export Products Filter Options"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:169
-msgid "Date Filter"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:170
-msgid "Select any date filter."
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:178
-msgid "This Year"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:179
-msgid "Last month"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:180
-msgid "This month"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:181
-msgid "Last 7 days"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:194
-#: includes/settings/class-alg-wc-export-settings-products.php:198
-msgid "Custom Date Range"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:200
-msgid "Enter from date and end date."
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:209
-msgid "Custom date range"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:210
-msgid "End Date"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:211
-msgid "Enter end date."
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:217
-msgid "Download File Type"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:218
-msgid "Select file type."
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:225
-msgid "CSV"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-products.php:226
-msgid "XML"
 msgstr ""
 
 #: includes/settings/class-alg-wc-settings-export.php:49

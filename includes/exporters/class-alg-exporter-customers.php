@@ -203,7 +203,7 @@ class Alg_Exporter_Customers {
 	 * @todo    [dev] (maybe) add more order fields (shipping)
 	 * @todo    [dev] (maybe) `$is_wc_version_below_3`: 'total-spent', 'order-count'
 	 */
-	function export_customers_from_orders( $fields_helper ) {
+	function export_customers_from_orders( $fields_helper, $attach_html = false, $page = 1, $start = 0, $is_ajax = false ) {
 
 		// Time limit
 		if ( -1 != ( $time_limit = get_option( 'alg_wc_export_time_limit', -1 ) ) ) {
@@ -236,6 +236,27 @@ class Alg_Exporter_Customers {
 		$do_init_wc_customer   = ( ! empty( $do_init_wc_customer ) );
 		$offset                = 0;
 		$block_size            = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
+		
+		if($page > 1 && $is_ajax){
+			$data       = array();
+		}
+		
+		if($attach_html){
+			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
+			if($page <= 1){
+				$offset  = 0;
+			}else{
+				$offset  = ($page-1) * $block_size;
+			}
+		}else{
+			$offset     = 0;
+			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
+		}
+		
+		if($is_ajax) {
+			$offset = $start;
+		}
+		
 		while( true ) {
 			$args_orders = array(
 				'post_type'      => 'shop_order',
@@ -256,6 +277,7 @@ class Alg_Exporter_Customers {
 					'order'          => 'DESC',
 					'offset'         => $offset,
 					'return'         => 'ids',
+					'paginate' 		 => true,
 				);
 			}
 			
@@ -265,8 +287,9 @@ class Alg_Exporter_Customers {
 			
 			if ( $this->alg_wc_export_confirm_hpos == 'yes' ) {
 				
-				$loop_orders = new WC_Order_Query( $args_orders );
-				$result_order_ids = $loop_orders->get_orders(); 
+				$loop_orders = wc_get_orders( $args_orders );
+				
+				$result_order_ids = $loop_orders->orders; 
 				
 				if( empty( $result_order_ids ) ) {
 					break;
@@ -282,6 +305,18 @@ class Alg_Exporter_Customers {
 				
 				$result_order_ids = $loop_orders->posts;
 				
+			}
+			
+			if( $is_ajax ) {
+				if( empty( $result_order_ids ) ) {
+					break;
+				}
+			}
+			
+			if( ! $attach_html ){
+				if( empty( $result_order_ids ) ) {
+					break;
+				}
 			}
 			
 			
@@ -356,6 +391,10 @@ class Alg_Exporter_Customers {
 				}
 			}
 			$offset += $block_size;
+			
+			if( $attach_html || $is_ajax ){
+				break;
+			}
 		}
 		if ( $do_calculate_tmp_data ) {
 			foreach ( $data as &$row ) {
@@ -370,6 +409,20 @@ class Alg_Exporter_Customers {
 				}
 			}
 		}
+		
+		if($attach_html){
+			$output_html = '';
+			$output_html .= '<div class="paginate-ajax-alg-preview">';
+			$output_html .= paginate_links( array(
+				'total'        => $loop_orders->max_num_pages,
+				'current'      => $page,
+				'base' => "#%#%" //will make hrefs like "#3"
+			) );
+			$output_html .= '</div>';
+			$output_html .= ( is_array( $data ) ) ? alg_get_table_html( $data, array( 'table_class' => 'widefat striped' ) ) : $data;
+			return $output_html;
+		}
+		
 		return $data;
 	}
 

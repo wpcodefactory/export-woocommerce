@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, export
 Requires at least: 4.4
 Tested up to: 6.6
-Stable tag: 2.0.15
+Stable tag: 2.1.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,11 @@ When exporting products and/or orders, you can add one additional product and/or
 3. Start by visiting plugin settings at "WooCommerce > Settings > Export".
 
 == Changelog ==
+
+= 2.1.0 - 08/10/2024 =
+* Fix - Cross-Site Scripting vulnerability.
+* Dev - Code refactoring.
+* WC tested up to: 9.3.
 
 = 2.0.15 - 10/09/2024 =
 * Fix - class-alg-exporter-customers.php adjust for HPOS support code.

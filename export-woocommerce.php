@@ -3,19 +3,18 @@
 Plugin Name: Products & Order Export for WooCommerce
 Plugin URI: https://wpfactory.com/item/export-woocommerce/
 Description: Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click.
-Version: 2.0.15
+Version: 2.1.0
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: export-woocommerce
 Domain Path: /langs
-Copyright: © 2023 WPFactory
-WC tested up to: 9.2
+WC tested up to: 9.3
 Requires Plugins: woocommerce
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 // Check if WooCommerce is active
 $plugin = 'woocommerce/woocommerce.php';
@@ -43,7 +42,7 @@ if ( ! class_exists( 'Alg_WC_Export' ) ) :
  * Main Alg_WC_Export Class
  *
  * @class   Alg_WC_Export
- * @version 2.0.15
+ * @version 2.1.0
  * @since   1.0.0
  */
 final class Alg_WC_Export {
@@ -54,7 +53,7 @@ final class Alg_WC_Export {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '2.0.15';
+	public $version = '2.1.0';
 
 	/**
 	 * @var   Alg_WC_Export The single instance of the class
@@ -122,8 +121,8 @@ final class Alg_WC_Export {
 			$custom_links[] = '<a style="color: green; font-weight: bold;" target="_blank" href="' . esc_url( 'https://wpfactory.com/item/export-woocommerce/"' ) . '">' .
 				__( 'Go Pro', 'export-woocommerce' ) . '</a>';
 		}
-		$custom_links[] = '<a style=" font-weight: bold;" target="_blank" href="' . esc_url( 		'https://wordpress.org/support/plugin/export-woocommerce/reviews/#new-post"' ) . '">' .
-		__( 'Review Us', 'export-woocommerce' ) . '</a>';
+		$custom_links[] = '<a style=" font-weight: bold;" target="_blank" href="' . esc_url( 'https://wordpress.org/support/plugin/export-woocommerce/reviews/#new-post"' ) . '">' .
+			__( 'Review Us', 'export-woocommerce' ) . '</a>';
 		return array_merge( $custom_links, $links );
 	}
 
@@ -230,46 +229,54 @@ if ( ! function_exists( 'alg_wc_export' ) ) {
 	}
 }
 
+/**
+ * alg_wc_export.
+ */
 alg_wc_export();
 
-
-add_action('admin_footer', 'alg_wc_export_admin_add_js');
+/**
+ * alg_wc_export_admin_add_js.
+ */
+alg_wc_export();
+add_action( 'admin_footer', 'alg_wc_export_admin_add_js' );
 function alg_wc_export_admin_add_js() {
-    ?>
+	?>
 	<script>
-	jQuery("select#alg_export_products_fields").change(function () {
-	  if (jQuery(this).val().indexOf("product-attributes") > 0) {
-		show_hide_attr(true);
-	  } else {
-		show_hide_attr();
-	  }
-	});
-	function show_hide_attr(flag = false){
-		if(flag){
-			if(jQuery("select#alg_export_products_attribute").length > 0){
-				jQuery("label[for='alg_export_products_attribute']").show();
-				jQuery("select#alg_export_products_attribute").show();
+	jQuery( "select#alg_export_products_fields" ).change( function () {
+		if ( jQuery( this ).val().indexOf( "product-attributes" ) > 0 ) {
+			show_hide_attr( true );
+		} else {
+			show_hide_attr();
+		}
+	} );
+	function show_hide_attr( flag = false ){
+		if ( flag ) {
+			if ( jQuery( "select#alg_export_products_attribute" ).length > 0 ) {
+				jQuery( "label[for='alg_export_products_attribute']" ).show();
+				jQuery( "select#alg_export_products_attribute" ).show();
 			}
 		}else{
-			if(jQuery("select#alg_export_products_attribute").length > 0){
-				jQuery("label[for='alg_export_products_attribute']").hide();
-				jQuery("select#alg_export_products_attribute").hide();
+			if ( jQuery( "select#alg_export_products_attribute").length > 0 ) {
+				jQuery( "label[for='alg_export_products_attribute']" ).hide();
+				jQuery( "select#alg_export_products_attribute" ).hide();
 			}
 		}
 	}
 
 	jQuery( document ).ready(function() {
-		if(jQuery("select#alg_export_products_fields").length > 0){
-			jQuery("select#alg_export_products_fields").change();
+		if ( jQuery( "select#alg_export_products_fields" ).length > 0 ) {
+			jQuery( "select#alg_export_products_fields" ).change();
 		}
-	});
+	} );
 	</script>
-    <?php
+	<?php
 }
 
-
+/**
+ * before_woocommerce_init.
+ */
 add_action( 'before_woocommerce_init', function() {
 	if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
-		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', dirname(__FILE__), true );
+		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', dirname( __FILE__ ), true );
 	}
 } );

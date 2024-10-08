@@ -64,7 +64,7 @@ class Alg_Exporter_Products {
 	/**
 	 * export_products.
 	 *
-	 * @version 2.0.10
+	 * @version 2.1.0
 	 * @since   1.0.0
 	 * @todo    [dev] export variations; `product-attributes` -> `( ! empty( $_product->get_attributes() ) ? serialize( $_product->get_attributes() ) : '' );`
 	 */
@@ -122,6 +122,7 @@ class Alg_Exporter_Products {
 		if($page > 1 && $is_ajax){
 			$data       = array();
 		}
+		
 		if($attach_html){
 			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
 			if($page <= 1){
@@ -157,7 +158,7 @@ class Alg_Exporter_Products {
 				}
 			}
 			
-			if(!$attach_html){
+			if( ! $attach_html ){
 				if ( ! $loop->have_posts() ) {
 					break;
 				}

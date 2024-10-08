@@ -4,10 +4,11 @@
  *
  * @version 1.5.1
  * @since   1.0.0
+ *
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'alg_maybe_add_date_query' ) ) {
 	/**
@@ -32,7 +33,7 @@ if ( ! function_exists( 'alg_maybe_add_date_query' ) ) {
 			if($section == 'product'){
 				$date_filter = get_option('alg_export_products_fields_date_filter', '');
 				if(!empty($date_filter)){
-					
+
 					if($date_filter == 'custom_date_range'){
 						$from_date = get_option('alg_export_products_fields_from_date', '');
 						$end_date = get_option('alg_export_products_fields_end_date', '');
@@ -319,7 +320,7 @@ if ( ! function_exists( 'alg_get_string_comma_replace' ) ) {
 	 * @todo    [dev] placeholder
 	 */
 	function alg_get_string_comma_replace( $string = '', $del=' | ' ) {
-		
+
 		$string = str_replace(",", $del, $string);
 		return $string;
 	}

@@ -2,12 +2,13 @@
 /**
  * Export WooCommerce - Core Class
  *
- * @version 2.0.12
+ * @version 2.1.0
  * @since   1.0.0
+ *
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_WC_Export_Core' ) ) :
 
@@ -18,10 +19,11 @@ class Alg_WC_Export_Core {
 	 *
 	 * @version 2.0.12
 	 * @since   1.0.0
-	 * @todo    [dev] Export Orders Items: Item's (product's) description
-	 * @todo    [dev] Export single (or limited number) order only (Export Orders Items and Export Orders and maybe single product/customer also)
-	 * @todo    [dev] check if maybe `strip_tags` needs to be applied in some exported fields
-	 * @todo    [feature] add import tool(s)
+	 *
+	 * @todo    (dev) Export Orders Items: Item's (product's) description
+	 * @todo    (dev) Export single (or limited number) order only (Export Orders Items and Export Orders and maybe single product/customer also)
+	 * @todo    (dev) check if maybe `strip_tags` needs to be applied in some exported fields
+	 * @todo    (feature) add import tool(s)
 	 */
 	function __construct() {
 		add_action( 'admin_head',              array( $this, 'add_admin_styles' ) );
@@ -34,12 +36,20 @@ class Alg_WC_Export_Core {
 	/**
 	 * enqueue_backend_scripts_and_styles.
 	 *
-	 * @version 2.0.11
+	 * @version 2.1.0
 	 * @since   1.1.0
 	 */
 	function enqueue_backend_scripts_and_styles() {
-		
-		if(isset($_GET['page']) && $_GET['page'] == 'wc-settings' && isset($_GET['tab']) && $_GET['tab'] == 'alg_wc_export' && isset($_GET['section']) && $_GET['section'] == 'products'){
+
+		if (
+			isset( $_GET['page'], $_GET['tab'], $_GET['section'] ) &&
+			'wc-settings' === $_GET['page'] &&
+			'alg_wc_export' === $_GET['tab'] &&
+			(
+				'products' === $_GET['section'] ||
+				'customers_from_orders' === $_GET['section']
+			)
+		) {
 			$do_add_timepicker = ( 'yes' === get_option( 'alg_wc_export_add_timepicker', 'no' ) );
 			wp_enqueue_script( 'alg-wc-export-admin-own-js',
 				alg_wc_export()->plugin_url() . '/includes/js/alg-wc-export-admin-own.js',
@@ -48,8 +58,9 @@ class Alg_WC_Export_Core {
 				true
 			);
 			$nonce = wp_create_nonce('alg-wc-export-ajax-nonce');
-			wp_localize_script( 'alg-wc-export-admin-own-js', 'alg_wc_export_admin_own_js', array( 'nonce' => $nonce ) );
-			
+			$section = $_GET['section'];
+			wp_localize_script( 'alg-wc-export-admin-own-js', 'alg_wc_export_admin_own_js', array( 'nonce' => $nonce, 'section' => $section ) );
+
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			wp_enqueue_script( 'alg-wc-export-datepicker',
 				alg_wc_export()->plugin_url() . '/includes/js/alg-wc-export-datepicker.js',
@@ -64,9 +75,12 @@ class Alg_WC_Export_Core {
 				alg_wc_export()->version
 			);
 		}
-			
-		if ( isset( $_GET['page'] ) && 'alg-wc-export-tools' == $_GET['page'] && isset( $_GET['alg_wc_export_tool'] ) ) {
-			
+
+		if (
+			isset( $_GET['page'], $_GET['alg_wc_export_tool'] ) &&
+			'alg-wc-export-tools' === $_GET['page']
+		) {
+
 			$do_add_timepicker = ( 'yes' === get_option( 'alg_wc_export_add_timepicker', 'no' ) );
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			wp_enqueue_script( 'alg-wc-export-datepicker',
@@ -100,7 +114,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * add_admin_styles.
 	 *
-	 * @version 1.0.0
+	 * @version 2.1.0
 	 * @since   1.0.0
 	 */
 	function add_admin_styles() {
@@ -113,26 +127,34 @@ class Alg_WC_Export_Core {
 			text-shadow: 0 -1px 1px #009967,1px 0 1px #009967,0 1px 1px #009967,-1px 0 1px #009967 !important;
 		}';
 		echo '</style>';
-		
-		if(isset($_GET['page']) && $_GET['page'] == 'wc-settings' && isset($_GET['tab']) && $_GET['tab'] == 'alg_wc_export' && isset($_GET['section']) && $_GET['section'] == 'products'){
+
+		if (
+			isset( $_GET['page'], $_GET['tab'], $_GET['section'] ) &&
+			'wc-settings' === $_GET['page'] &&
+			'alg_wc_export' === $_GET['tab'] &&
+			(
+				'products' === $_GET['section'] ||
+				'customers_from_orders' === $_GET['section']
+			)
+		) {
 			echo '<style>';
 			echo 'p.submit {
 					display: none !important;
 				}';
-			echo 'input#alg_export_products_fields_from_date{
+			echo 'input#alg_export_products_fields_from_date, input#alg_export_customers_from_orders_fields_from_date{
 					float: left;
 					margin-right: 20px;
 					width: 12em;
 				}';
-			echo 'input#alg_export_products_fields_from_date + p.description{
+			echo 'input#alg_export_products_fields_from_date + p.description, input#alg_export_customers_from_orders_fields_from_date + p.description{
 					float: left;
 					width: 12em;
 					margin-top: 0px!important;
 				}';
-			echo 'input#alg_export_products_fields_end_date_alternative{
+			echo 'input#alg_export_products_fields_end_date_alternative, input#alg_export_customers_from_orders_fields_end_date_alternative{
 					width: 12em;
 				}';
-			echo 'body div#alg_wc_export_products_filter_options-description + table.form-table tbody tr:nth-child(3) {
+			echo 'body div#alg_wc_export_products_filter_options-description + table.form-table tbody tr:nth-child(3), body div#alg_wc_export_customers_from_orders_filter_options-description + table.form-table tbody tr:nth-child(3) {
 					display: none;
 				}';
 			echo '</style>';
@@ -161,7 +183,8 @@ class Alg_WC_Export_Core {
 	 *
 	 * @version 2.0.11
 	 * @since   1.0.0
-	 * @todo    [dev] add link to General settings
+	 *
+	 * @todo    (dev) add link to General settings
 	 */
 	function create_export_tools_page() {
 		$tools = alg_get_export_tools_data();
@@ -206,14 +229,14 @@ class Alg_WC_Export_Core {
 	/**
 	 * export_date_fields.
 	 *
-	 * @version 2.0.11
+	 * @version 2.1.0
 	 * @since   1.1.0
 	 */
 	function export_date_fields( $tool_id ) {
 		$current_start_date = ( isset( $_GET['start_date'] ) ? esc_attr( $_GET['start_date'] ) : '' );
 		$current_end_date   = ( isset( $_GET['end_date'] )   ? esc_attr( $_GET['end_date'] )   : '' );
 		$predefined_ranges = array();
-		$predefined_ranges[] = '<a href="' . add_query_arg( 'range', 'all_time', remove_query_arg( array( 'start_date', 'end_date' ) ) ) . '"' .
+		$predefined_ranges[] = '<a href="' . esc_url( add_query_arg( 'range', 'all_time', remove_query_arg( array( 'start_date', 'end_date' ) ) ) ) . '"' .
 			( empty( $_GET['start_date'] ) && empty( $_GET['end_date'] ) && isset( $_GET['range'] ) && 'all_time' === $_GET['range'] ?
 				' style="font-weight:bold;color:black;"' : '' ) . '>' . __( 'All time', 'export-woocommerce' ) . '</a>';
 		foreach ( array_merge( alg_wc_export_get_reports_standard_ranges(), alg_wc_export_get_reports_custom_ranges() ) as $range_id => $range_data ) {
@@ -226,7 +249,7 @@ class Alg_WC_Export_Core {
 				isset( $_GET['start_date'] ) && strtotime( $range_data['start_date'] ) === strtotime( $_GET['start_date'] ) &&
 				isset( $_GET['end_date'] )   && strtotime( $range_data['end_date'] )   === strtotime( $_GET['end_date'] ) ?
 					' style="font-weight:bold;color:black;"' : '' );
-			$predefined_ranges[] = '<a href="' . $link . '"' . $is_active_style . '>' . $range_data['title'] . '</a>';
+			$predefined_ranges[] = '<a href="' . esc_url( $link ) . '"' . $is_active_style . '>' . $range_data['title'] . '</a>';
 		}
 		$predefined_ranges = implode( ' | ', $predefined_ranges );
 		$date_input_fields =
@@ -244,7 +267,8 @@ class Alg_WC_Export_Core {
 	 *
 	 * @version 2.0.12
 	 * @since   1.0.0
-	 * @todo    [dev] (maybe) `alg_export` and `alg_export_xml` - `$date_args` and `$filter_args` should be updated if changed
+	 *
+	 * @todo    (dev) `alg_export` and `alg_export_xml` - `$date_args` and `$filter_args` should be updated if changed?
 	 */
 	function create_export_tool( $tool_id, $tool_title, $tool_desc ) {
 		$html = '';
@@ -280,8 +304,9 @@ class Alg_WC_Export_Core {
 	 *
 	 * @version 2.0.11
 	 * @since   1.0.0
-	 * @todo    [dev] when filtering now using strpos, but other options would be stripos (case-insensitive) or strict equality
-	 * @todo    [dev] `if ( 1 == count( $data ) ) { return '<em>' . __( 'No results found.', 'export-woocommerce' ) . '</em>'; }`
+	 *
+	 * @todo    (dev) when filtering now using strpos, but other options would be stripos (case-insensitive) or strict equality
+	 * @todo    (dev) `if ( 1 == count( $data ) ) { return '<em>' . __( 'No results found.', 'export-woocommerce' ) . '</em>'; }`
 	 */
 	function export( $tool_id, $attach_html = false, $page = 1, $start = 0, $is_ajax = false ) {
 		$data = array();
@@ -292,7 +317,7 @@ class Alg_WC_Export_Core {
 				break;
 			case 'customers_from_orders':
 				$exporter = require_once( 'exporters/class-alg-exporter-customers.php' );
-				$data = $exporter->export_customers_from_orders( alg_wc_export()->fields_helper );
+				$data = $exporter->export_customers_from_orders( alg_wc_export()->fields_helper, $attach_html, $page, $start, $is_ajax );
 				break;
 			case 'orders':
 				$exporter = require_once( 'exporters/class-alg-exporter-orders.php' );
@@ -327,9 +352,7 @@ class Alg_WC_Export_Core {
 				}
 			}
 		}
-		
-		/*return $data;*/
-		
+
 		return apply_filters('alg_export_data', $data, $tool_id);
 	}
 
@@ -338,8 +361,9 @@ class Alg_WC_Export_Core {
 	 *
 	 * @version 2.0.11
 	 * @since   1.0.0
-	 * @todo    [dev] templates for xml_start, xml_end, xml_item
-	 * @todo    [dev] str_replace( '&', '&amp;', $cell_value )
+	 *
+	 * @todo    (dev) templates for xml_start, xml_end, xml_item
+	 * @todo    (dev) str_replace( '&', '&amp;', $cell_value )
 	 */
 	function export_xml() {
 		if ( isset( $_GET['alg_export_xml'] ) ) {
@@ -351,9 +375,9 @@ class Alg_WC_Export_Core {
 			}
 			$tool_id = esc_attr( $_GET['alg_export_xml'] );
 			$data = $this->export( $tool_id );
-			
+
 			$data = apply_filters('alg_export_data_xml', $data, $tool_id);
-			
+
 			if ( is_array( $data ) ) {
 				$xml = '';
 				$xml .= '<?xml version = "1.0" encoding = "utf-8" ?>' . PHP_EOL . '<root>' . PHP_EOL;
@@ -401,9 +425,9 @@ class Alg_WC_Export_Core {
 			}
 			$tool_id = esc_attr( $_GET['alg_export'] );
 			$data = $this->export( $tool_id );
-			
+
 			$data = apply_filters('alg_export_data_csv', $data, $tool_id);
-			
+
 			if ( is_array( $data ) ) {
 				$csv  = '';
 				$wrap = get_option( 'alg_export_csv_wrap', '' );
@@ -427,9 +451,11 @@ class Alg_WC_Export_Core {
 			}
 		}
 	}
-	
-	function removeComma($v)
-	{
+
+	/**
+	 * removeComma.
+	 */
+	function removeComma( $v ) {
 		return str_replace(',', ' ', $v);
 	}
 

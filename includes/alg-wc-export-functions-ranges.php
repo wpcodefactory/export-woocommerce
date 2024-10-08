@@ -4,10 +4,11 @@
  *
  * @version 1.2.0
  * @since   1.2.0
+ *
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'alg_wc_export_get_reports_standard_ranges' ) ) {
 	/*

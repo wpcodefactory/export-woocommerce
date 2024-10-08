@@ -6,6 +6,7 @@
  *
  * @version 2.0.8
  * @since   1.0.0
+ *
  * @author  WPFactory
  */
 
@@ -375,7 +376,7 @@ class Alg_Export_Fields_Helper {
 			'product-availability-class'         => __( 'Availability Class', 'export-woocommerce' ),
 		);
 	}
-	
+
 	/**
 	 * get_product_export_attribute.
 	 *
@@ -387,7 +388,7 @@ class Alg_Export_Fields_Helper {
 		global $wpdb;
 		$attr_taxonomies = array();
 		$raw_attr_taxonomies = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}woocommerce_attribute_taxonomies WHERE attribute_name != '' ORDER BY attribute_name ASC;" );
-		
+
 		// Index by ID for easer lookups.
 		$attr_taxonomies = array();
 
@@ -396,7 +397,7 @@ class Alg_Export_Fields_Helper {
 		}
 		return $attr_taxonomies;
 	}
-	
+
 	/**
 	 * get_product_export_default_fields_ids.
 	 *
@@ -419,7 +420,7 @@ class Alg_Export_Fields_Helper {
 			'product-url',
 		);
 	}
-	
+
 	/**
 	 * get_product_export_import_fields_ids.
 	 *
