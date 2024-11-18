@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Core Class
  *
- * @version 2.1.0
+ * @version 2.2.0
  * @since   1.0.0
  *
  * @author  WPFactory
@@ -17,7 +17,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 2.0.12
+	 * @version 2.2.0
 	 * @since   1.0.0
 	 *
 	 * @todo    (dev) Export Orders Items: Item's (product's) description
@@ -31,6 +31,44 @@ class Alg_WC_Export_Core {
 		add_action( 'init',                    array( $this, 'export_csv' ) );
 		add_action( 'init',                    array( $this, 'export_xml' ) );
 		add_action( 'admin_enqueue_scripts',   array( $this, 'enqueue_backend_scripts_and_styles' ) );
+		add_action( 'admin_footer',            array( $this, 'add_admin_js' ) );
+	}
+
+	/**
+	 * add_admin_js.
+	 *
+	 * @version 2.2.0
+	 */
+	function add_admin_js() {
+		?>
+		<script>
+		jQuery( "select#alg_export_products_fields" ).change( function () {
+			if ( jQuery( this ).val().indexOf( "product-attributes" ) > 0 ) {
+				show_hide_attr( true );
+			} else {
+				show_hide_attr();
+			}
+		} );
+		function show_hide_attr( flag = false ) {
+			if ( flag ) {
+				if ( jQuery( "select#alg_export_products_attribute" ).length > 0 ) {
+					jQuery( "label[for='alg_export_products_attribute']" ).show();
+					jQuery( "select#alg_export_products_attribute" ).show();
+				}
+			} else {
+				if ( jQuery( "select#alg_export_products_attribute").length > 0 ) {
+					jQuery( "label[for='alg_export_products_attribute']" ).hide();
+					jQuery( "select#alg_export_products_attribute" ).hide();
+				}
+			}
+		}
+		jQuery( document ).ready( function () {
+			if ( jQuery( "select#alg_export_products_fields" ).length > 0 ) {
+				jQuery( "select#alg_export_products_fields" ).change();
+			}
+		} );
+		</script>
+		<?php
 	}
 
 	/**

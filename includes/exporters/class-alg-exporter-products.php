@@ -4,12 +4,13 @@
  *
  * The WooCommerce Exporter Products class.
  *
- * @version 1.5.3
+ * @version 2.2.0
  * @since   1.0.0
+ *
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_Exporter_Products' ) ) :
 
@@ -79,7 +80,7 @@ class Alg_Exporter_Products {
 		$all_fields = $fields_helper->get_product_export_fields();
 		$fields_ids = get_option( 'alg_export_products_fields', $fields_helper->get_product_export_default_fields_ids() );
 		$fields_ids_sorted = get_option( 'alg_export_products_fields_sorted', array() );
-		
+
 		if(!empty($fields_ids_sorted)){
 			if( strpos($fields_ids_sorted, ',') !== false ) {
 				// $fields_ids = sort_array_by_array($fields_ids, explode(',', $fields_ids_sorted));
@@ -99,7 +100,7 @@ class Alg_Exporter_Products {
 				$titles[] = $all_fields[ $field_id ];
 			}
 		}
-		
+
 		// Product attributes
 		if($is_prd_attr){
 			$all_attributes = $fields_helper->get_product_export_attribute();
@@ -122,7 +123,7 @@ class Alg_Exporter_Products {
 		if($page > 1 && $is_ajax){
 			$data       = array();
 		}
-		
+
 		if($attach_html){
 			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
 			if($page <= 1){
@@ -134,11 +135,11 @@ class Alg_Exporter_Products {
 			$offset     = 0;
 			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
 		}
-		
+
 		if($is_ajax) {
 			$offset = $start;
 		}
-		
+
 		while( true ) {
 			$args = array(
 				'post_type'      => 'product',
@@ -151,13 +152,13 @@ class Alg_Exporter_Products {
 			);
 			$args = alg_maybe_add_date_query( $args, 'product', true );
 			$loop = new WP_Query( $args );
-			
+
 			if( $is_ajax ) {
 				if ( ! $loop->have_posts() ) {
 					break;
 				}
 			}
-			
+
 			if( ! $attach_html ){
 				if ( ! $loop->have_posts() ) {
 					break;
@@ -308,7 +309,7 @@ class Alg_Exporter_Products {
 							break;
 					}
 				}
-				
+
 				// Product Attributes
 				if($is_prd_attr){
 					foreach( $attributes_ids as $attribue_id ) {
@@ -318,7 +319,7 @@ class Alg_Exporter_Products {
 						$row[] = alg_get_string_comma_replace(((isset($attr_val) && !empty($attr_val)) ? $attr_val : '-'));
 					}
 				}
-				
+
 				// Additional Fields
 				$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_products' );
 				for ( $i = 1; $i <= $total_number; $i++ ) {
@@ -350,7 +351,7 @@ class Alg_Exporter_Products {
 			$output_html .= ( is_array( $data ) ) ? alg_get_table_html( $data, array( 'table_class' => 'widefat striped' ) ) : $data;
 			return $output_html;
 		}
-		
+
 		return $data;
 	}
 

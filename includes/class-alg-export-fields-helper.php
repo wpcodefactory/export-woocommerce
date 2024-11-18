@@ -4,13 +4,13 @@
  *
  * The WooCommerce Export Fields Helper class.
  *
- * @version 2.0.8
+ * @version 2.2.0
  * @since   1.0.0
  *
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_Export_Fields_Helper' ) ) :
 

@@ -2,17 +2,18 @@
 /**
  * WooCommerce Exporter Orders
  *
- * @version 2.0.14
+ * @version 2.2.0
  * @since   1.0.0
+ *
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_Exporter_Orders' ) ) :
 
 class Alg_Exporter_Orders {
-	
+
 	/**
 	 * @var   alg_wc_export_confirm_hpos
 	 *
@@ -20,7 +21,7 @@ class Alg_Exporter_Orders {
 	 * @since   2.0.14
 	 */
 	public $alg_wc_export_confirm_hpos = 'no';
-	
+
 	/**
 	 * Constructor.
 	 *
@@ -29,9 +30,9 @@ class Alg_Exporter_Orders {
 	 */
 	function __construct() {
 		$this->is_wc_version_below_3 = version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' );
-		
+
 		$this->alg_wc_export_confirm_hpos = get_option( 'alg_wc_export_confirm_hpos', 'no' );
-		
+
 		return true;
 	}
 
@@ -229,7 +230,7 @@ class Alg_Exporter_Orders {
 		$data[]     = $titles;
 		$offset     = 0;
 		$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
-		
+
 		while( true ) {
 			$args_orders = array(
 				'post_type'      => 'shop_order',
@@ -240,7 +241,7 @@ class Alg_Exporter_Orders {
 				'offset'         => $offset,
 				'fields'         => 'ids',
 			);
-			
+
 			if( $this->alg_wc_export_confirm_hpos == 'yes' ){
 				$args_orders = array(
 					'type'      	 => 'shop_order',
@@ -252,37 +253,37 @@ class Alg_Exporter_Orders {
 					'return'         => 'ids',
 				);
 			}
-			
+
 			$args_orders = alg_maybe_add_date_query( $args_orders );
-			
+
 			$result_order_ids = array();
-			
+
 			if ( $this->alg_wc_export_confirm_hpos == 'yes' ) {
-				
+
 				$loop_orders = new WC_Order_Query( $args_orders );
-				$result_order_ids = $loop_orders->get_orders(); 
-				
+				$result_order_ids = $loop_orders->get_orders();
+
 				if( empty( $result_order_ids ) ) {
 					break;
 				}
-				
+
 			} else {
-				
+
 				$loop_orders = new WP_Query( $args_orders );
-				
+
 				if ( ! $loop_orders->have_posts() ) {
 					break;
 				}
-				
-				
+
+
 				$result_order_ids = $loop_orders->posts;
-				
+
 			}
-			
-			
+
+
 			foreach ( $result_order_ids as $order_id ) {
 				$order = wc_get_order( $order_id );
-				
+
 				// Standard Fields
 				$items = array();
 				if ( in_array( 'order-items', $fields_ids ) ) {
@@ -297,7 +298,7 @@ class Alg_Exporter_Orders {
 				}
 				$row = $this->get_export_orders_row( $fields_ids, $order_id, $order, $items, null, null );
 				// Additional Fields
-				
+
 				$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_orders' );
 				for ( $i = 1; $i <= $total_number; $i++ ) {
 					if ( 'yes' === get_option( 'alg_export_orders_fields_additional_enabled_' . $i, 'no' ) ) {
@@ -311,11 +312,11 @@ class Alg_Exporter_Orders {
 				}
 
 				$data[] = $row;
-				
+
 			}
 			$offset += $block_size;
 		}
-		
+
 		return $data;
 	}
 

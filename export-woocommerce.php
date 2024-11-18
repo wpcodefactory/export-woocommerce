@@ -1,14 +1,14 @@
 <?php
 /*
-Plugin Name: Products & Order Export for WooCommerce
+Plugin Name: Export Products, Order & Customers for WooCommerce
 Plugin URI: https://wpfactory.com/item/export-woocommerce/
 Description: Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click.
-Version: 2.1.0
+Version: 2.2.0-dev
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: export-woocommerce
 Domain Path: /langs
-WC tested up to: 9.3
+WC tested up to: 9.4
 Requires Plugins: woocommerce
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -16,7 +16,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 defined( 'ABSPATH' ) || exit;
 
-// Check if WooCommerce is active
+/**
+ * Check if WooCommerce is active.
+ */
 $plugin = 'woocommerce/woocommerce.php';
 if (
 	! in_array( $plugin, apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) ) ) &&
@@ -25,6 +27,24 @@ if (
 	return;
 }
 
+/**
+ * before_woocommerce_init.
+ *
+ * @version 2.2.0
+ */
+add_action( 'before_woocommerce_init', function() {
+	if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility(
+			'custom_order_tables',
+			dirname( __FILE__ ),
+			true
+		);
+	}
+} );
+
+/**
+ * Check if Pro is active.
+ */
 if ( 'export-woocommerce.php' === basename( __FILE__ ) ) {
 	// Check if Pro is active, if so then return
 	$plugin = 'export-woocommerce-pro/export-woocommerce-pro.php';
@@ -41,9 +61,10 @@ if ( ! class_exists( 'Alg_WC_Export' ) ) :
 /**
  * Main Alg_WC_Export Class
  *
- * @class   Alg_WC_Export
- * @version 2.1.0
+ * @version 2.2.0
  * @since   1.0.0
+ *
+ * @class   Alg_WC_Export
  */
 final class Alg_WC_Export {
 
@@ -53,11 +74,36 @@ final class Alg_WC_Export {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '2.1.0';
+	public $version = '2.2.0-dev-20241118-1515';
 
 	/**
-	 * @var   Alg_WC_Export The single instance of the class
+	 * core.
+	 *
+	 * @version 2.2.0
+	 * @since   2.2.0
+	 */
+	public $core;
+
+	/**
+	 * fields_helper.
+	 *
+	 * @version 2.2.0
+	 * @since   2.2.0
+	 */
+	public $fields_helper;
+
+	/**
+	 * settings.
+	 *
+	 * @version 2.2.0
+	 * @since   2.2.0
+	 */
+	public $settings;
+
+	/**
 	 * @since 1.0.0
+	 *
+	 * @var   Alg_WC_Export The single instance of the class
 	 */
 	protected static $_instance = null;
 
@@ -68,6 +114,7 @@ final class Alg_WC_Export {
 	 *
 	 * @version 1.0.0
 	 * @since   1.0.0
+	 *
 	 * @static
 	 * @return  Alg_WC_Export - Main instance
 	 */
@@ -81,11 +128,17 @@ final class Alg_WC_Export {
 	/**
 	 * Alg_WC_Export Constructor.
 	 *
-	 * @version 1.5.4
+	 * @version 2.2.0
 	 * @since   1.0.0
+	 *
 	 * @access  public
 	 */
 	function __construct() {
+
+		// Load libs
+		if ( is_admin() ) {
+			require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+		}
 
 		// Set up localisation
 		load_plugin_textdomain( 'export-woocommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
@@ -108,15 +161,16 @@ final class Alg_WC_Export {
 	/**
 	 * Show action links on the plugin screen.
 	 *
-	 * @version 1.1.0
+	 * @version 2.2.0
 	 * @since   1.0.0
+	 *
 	 * @param   mixed $links
 	 * @return  array
 	 */
 	function action_links( $links ) {
 		$custom_links = array();
-		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_export' ) . '">' . __( 'Settings', 'woocommerce' )     . '</a>';
-		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=alg-wc-export-tools' )           . '">' . __( 'Tools', 'export-woocommerce' ) . '</a>';
+		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_export' ) . '">' . __( 'Settings', 'export-woocommerce' ) . '</a>';
+		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=alg-wc-export-tools' ) . '">' . __( 'Tools', 'export-woocommerce' ) . '</a>';
 		if ( 'export-woocommerce.php' === basename( __FILE__ ) ) {
 			$custom_links[] = '<a style="color: green; font-weight: bold;" target="_blank" href="' . esc_url( 'https://wpfactory.com/item/export-woocommerce/"' ) . '">' .
 				__( 'Go Pro', 'export-woocommerce' ) . '</a>';
@@ -146,12 +200,20 @@ final class Alg_WC_Export {
 	/**
 	 * admin.
 	 *
-	 * @version 1.3.0
+	 * @version 2.2.0
 	 * @since   1.3.0
 	 */
 	function admin() {
+
 		// Action links
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'action_links' ) );
+
+		// "Recommendations" page
+		$this->add_cross_selling_library();
+
+		// WC Settings tab as WPFactory submenu item
+		$this->move_wc_settings_tab_to_wpfactory_menu();
+
 		// Settings
 		add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
 		require_once( 'includes/settings/class-alg-wc-export-settings-section.php' );
@@ -163,10 +225,56 @@ final class Alg_WC_Export {
 		$this->settings['orders_items']          = require_once( 'includes/settings/class-alg-wc-export-settings-orders-items.php' );
 		$this->settings['customers']             = require_once( 'includes/settings/class-alg-wc-export-settings-customers.php' );
 		$this->settings['customers_from_orders'] = require_once( 'includes/settings/class-alg-wc-export-settings-customers-from-orders.php' );
+
 		// Version updated
 		if ( get_option( 'alg_wc_export_version', '' ) !== $this->version ) {
 			add_action( 'admin_init', array( $this, 'version_updated' ) );
 		}
+
+	}
+
+	/**
+	 * add_cross_selling_library.
+	 *
+	 * @version 2.2.0
+	 * @since   2.2.0
+	 */
+	function add_cross_selling_library() {
+
+		if ( ! class_exists( '\WPFactory\WPFactory_Cross_Selling\WPFactory_Cross_Selling' ) ) {
+			return;
+		}
+
+		$cross_selling = new \WPFactory\WPFactory_Cross_Selling\WPFactory_Cross_Selling();
+		$cross_selling->setup( array( 'plugin_file_path' => __FILE__ ) );
+		$cross_selling->init();
+
+	}
+
+	/**
+	 * move_wc_settings_tab_to_wpfactory_menu.
+	 *
+	 * @version 2.2.0
+	 * @since   2.2.0
+	 */
+	function move_wc_settings_tab_to_wpfactory_menu() {
+
+		if ( ! class_exists( '\WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
+			return;
+		}
+
+		$wpfactory_admin_menu = \WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
+
+		if ( ! method_exists( $wpfactory_admin_menu, 'move_wc_settings_tab_to_wpfactory_menu' ) ) {
+			return;
+		}
+
+		$wpfactory_admin_menu->move_wc_settings_tab_to_wpfactory_menu( array(
+			'wc_settings_tab_id' => 'alg_wc_export',
+			'menu_title'         => __( 'Export', 'export-woocommerce' ),
+			'page_title'         => __( 'Export', 'export-woocommerce' ),
+		) );
+
 	}
 
 	/**
@@ -195,6 +303,7 @@ final class Alg_WC_Export {
 	 *
 	 * @version 1.0.0
 	 * @since   1.0.0
+	 *
 	 * @return  string
 	 */
 	function plugin_url() {
@@ -206,6 +315,7 @@ final class Alg_WC_Export {
 	 *
 	 * @version 1.0.0
 	 * @since   1.0.0
+	 *
 	 * @return  string
 	 */
 	function plugin_path() {
@@ -222,6 +332,7 @@ if ( ! function_exists( 'alg_wc_export' ) ) {
 	 *
 	 * @version 1.0.0
 	 * @since   1.0.0
+	 *
 	 * @return  Alg_WC_Export
 	 */
 	function alg_wc_export() {
@@ -230,53 +341,9 @@ if ( ! function_exists( 'alg_wc_export' ) ) {
 }
 
 /**
- * alg_wc_export.
+ * init.
+ *
+ * @version 2.2.0
+ * @since   1.0.0
  */
-alg_wc_export();
-
-/**
- * alg_wc_export_admin_add_js.
- */
-alg_wc_export();
-add_action( 'admin_footer', 'alg_wc_export_admin_add_js' );
-function alg_wc_export_admin_add_js() {
-	?>
-	<script>
-	jQuery( "select#alg_export_products_fields" ).change( function () {
-		if ( jQuery( this ).val().indexOf( "product-attributes" ) > 0 ) {
-			show_hide_attr( true );
-		} else {
-			show_hide_attr();
-		}
-	} );
-	function show_hide_attr( flag = false ){
-		if ( flag ) {
-			if ( jQuery( "select#alg_export_products_attribute" ).length > 0 ) {
-				jQuery( "label[for='alg_export_products_attribute']" ).show();
-				jQuery( "select#alg_export_products_attribute" ).show();
-			}
-		}else{
-			if ( jQuery( "select#alg_export_products_attribute").length > 0 ) {
-				jQuery( "label[for='alg_export_products_attribute']" ).hide();
-				jQuery( "select#alg_export_products_attribute" ).hide();
-			}
-		}
-	}
-
-	jQuery( document ).ready(function() {
-		if ( jQuery( "select#alg_export_products_fields" ).length > 0 ) {
-			jQuery( "select#alg_export_products_fields" ).change();
-		}
-	} );
-	</script>
-	<?php
-}
-
-/**
- * before_woocommerce_init.
- */
-add_action( 'before_woocommerce_init', function() {
-	if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
-		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', dirname( __FILE__ ), true );
-	}
-} );
+add_action( 'plugins_loaded', 'alg_wc_export' );

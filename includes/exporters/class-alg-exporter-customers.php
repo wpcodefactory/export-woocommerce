@@ -4,17 +4,18 @@
  *
  * The WooCommerce Exporter Customers class.
  *
- * @version 2.0.15
+ * @version 2.2.0
  * @since   1.0.0
+ *
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_Exporter_Customers' ) ) :
 
 class Alg_Exporter_Customers {
-	
+
 	/**
 	 * @var   alg_wc_export_confirm_hpos
 	 *
@@ -22,7 +23,7 @@ class Alg_Exporter_Customers {
 	 * @since   2.0.15
 	 */
 	public $alg_wc_export_confirm_hpos = 'no';
-	
+
 	/**
 	 * Constructor.
 	 *
@@ -30,9 +31,9 @@ class Alg_Exporter_Customers {
 	 * @since   1.0.0
 	 */
 	function __construct() {
-		
+
 		$this->alg_wc_export_confirm_hpos = get_option( 'alg_wc_export_confirm_hpos', 'no' );
-		
+
 		return true;
 	}
 
@@ -236,11 +237,11 @@ class Alg_Exporter_Customers {
 		$do_init_wc_customer   = ( ! empty( $do_init_wc_customer ) );
 		$offset                = 0;
 		$block_size            = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
-		
+
 		if($page > 1 && $is_ajax){
 			$data       = array();
 		}
-		
+
 		if($attach_html){
 			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
 			if($page <= 1){
@@ -252,11 +253,11 @@ class Alg_Exporter_Customers {
 			$offset     = 0;
 			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
 		}
-		
+
 		if($is_ajax) {
 			$offset = $start;
 		}
-		
+
 		while( true ) {
 			$args_orders = array(
 				'post_type'      => 'shop_order',
@@ -267,7 +268,7 @@ class Alg_Exporter_Customers {
 				'offset'         => $offset,
 				'fields'         => 'ids',
 			);
-			
+
 			if( $this->alg_wc_export_confirm_hpos == 'yes' ){
 				$args_orders = array(
 					'type'      	 => 'shop_order',
@@ -280,46 +281,46 @@ class Alg_Exporter_Customers {
 					'paginate' 		 => true,
 				);
 			}
-			
+
 			$args_orders = alg_maybe_add_date_query( $args_orders );
-			
+
 			$result_order_ids = array();
-			
+
 			if ( $this->alg_wc_export_confirm_hpos == 'yes' ) {
-				
+
 				$loop_orders = wc_get_orders( $args_orders );
-				
-				$result_order_ids = $loop_orders->orders; 
-				
+
+				$result_order_ids = $loop_orders->orders;
+
 				if( empty( $result_order_ids ) ) {
 					break;
 				}
-				
+
 			} else {
-				
+
 				$loop_orders = new WP_Query( $args_orders );
-				
+
 				if ( ! $loop_orders->have_posts() ) {
 					break;
 				}
-				
+
 				$result_order_ids = $loop_orders->posts;
-				
+
 			}
-			
+
 			if( $is_ajax ) {
 				if( empty( $result_order_ids ) ) {
 					break;
 				}
 			}
-			
+
 			if( ! $attach_html ){
 				if( empty( $result_order_ids ) ) {
 					break;
 				}
 			}
-			
-			
+
+
 			foreach ( $result_order_ids as $order_id ) {
 				$order = wc_get_order( $order_id );
 				$customer_id = ( $is_wc_version_below_3 ? $order->customer_user : $order->get_customer_id() );
@@ -391,7 +392,7 @@ class Alg_Exporter_Customers {
 				}
 			}
 			$offset += $block_size;
-			
+
 			if( $attach_html || $is_ajax ){
 				break;
 			}
@@ -409,7 +410,7 @@ class Alg_Exporter_Customers {
 				}
 			}
 		}
-		
+
 		if($attach_html){
 			$output_html = '';
 			$output_html .= '<div class="paginate-ajax-alg-preview">';
@@ -422,7 +423,7 @@ class Alg_Exporter_Customers {
 			$output_html .= ( is_array( $data ) ) ? alg_get_table_html( $data, array( 'table_class' => 'widefat striped' ) ) : $data;
 			return $output_html;
 		}
-		
+
 		return $data;
 	}
 
