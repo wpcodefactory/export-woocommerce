@@ -1,20 +1,20 @@
-#: export-woocommerce.php:172
+#: export-woocommerce.php:173
 msgid "Settings"
 msgstr ""
 
-#: export-woocommerce.php:173
+#: export-woocommerce.php:176
 msgid "Tools"
 msgstr ""
 
-#: export-woocommerce.php:176
+#: export-woocommerce.php:180
 msgid "Go Pro"
 msgstr ""
 
-#: export-woocommerce.php:179
+#: export-woocommerce.php:184
 msgid "Review Us"
 msgstr ""
 
-#: export-woocommerce.php:274 export-woocommerce.php:275
+#: export-woocommerce.php:280 export-woocommerce.php:281
 #: includes/class-alg-wc-export-core.php:211
 #: includes/class-alg-wc-export-core.php:212
 #: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:74
