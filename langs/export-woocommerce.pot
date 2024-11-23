@@ -1,50 +1,61 @@
-#: export-woocommerce.php:173
+# Copyright (C) 2024 WPFactory
+# This file is distributed under the GNU General Public License v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: export-woocommerce 2.2.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/export-woocommerce\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-11-23T02:09:16+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: export-woocommerce\n"
+
+#. Plugin Name of the plugin
+msgid "Export Products, Order & Customers for WooCommerce Pro"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://wpfactory.com/item/export-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click."
+msgstr ""
+
+#. Author of the plugin
+msgid "WPFactory"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://wpfactory.com"
+msgstr ""
+
+#: export-woocommerce-pro.php:185
 msgid "Settings"
 msgstr ""
 
-#: export-woocommerce.php:176
+#: export-woocommerce-pro.php:188
 msgid "Tools"
 msgstr ""
 
-#: export-woocommerce.php:180
+#: export-woocommerce-pro.php:192
 msgid "Go Pro"
 msgstr ""
 
-#: export-woocommerce.php:184
+#: export-woocommerce-pro.php:196
 msgid "Review Us"
 msgstr ""
 
-#: export-woocommerce.php:280 export-woocommerce.php:281
+#: export-woocommerce-pro.php:292
+#: export-woocommerce-pro.php:293
 #: includes/class-alg-wc-export-core.php:211
 #: includes/class-alg-wc-export-core.php:212
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:74
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:76
-#: includes/settings/class-alg-wc-export-settings-products.php:73
-#: includes/settings/class-alg-wc-export-settings-products.php:75
 #: includes/settings/class-alg-wc-settings-export.php:25
 msgid "Export"
-msgstr ""
-
-#: includes/alg-wc-export-functions-ranges.php:23
-msgid "Year"
-msgstr ""
-
-#: includes/alg-wc-export-functions-ranges.php:28
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:139
-#: includes/settings/class-alg-wc-export-settings-products.php:181
-msgid "Last month"
-msgstr ""
-
-#: includes/alg-wc-export-functions-ranges.php:33
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:140
-#: includes/settings/class-alg-wc-export-settings-products.php:182
-msgid "This month"
-msgstr ""
-
-#: includes/alg-wc-export-functions-ranges.php:38
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:141
-#: includes/settings/class-alg-wc-export-settings-products.php:183
-msgid "Last 7 days"
 msgstr ""
 
 #: includes/alg-wc-export-functions-ranges.php:56
@@ -128,9 +139,7 @@ msgid "Export customers tool."
 msgstr ""
 
 #: includes/alg-wc-export-functions.php:91
-msgid ""
-"Customers are exported from WordPress users table, filtering users with "
-"WooCommerce customer role."
+msgid "Customers are exported from WordPress users table, filtering users with WooCommerce customer role."
 msgstr ""
 
 #: includes/alg-wc-export-functions.php:94
@@ -826,20 +835,6 @@ msgstr ""
 msgid "Customers from Orders"
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:49
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:50
-#: includes/settings/class-alg-wc-export-settings-products.php:48
-#: includes/settings/class-alg-wc-export-settings-products.php:49
-#: includes/settings/class-alg-wc-export-settings-section.php:46
-#: includes/settings/class-alg-wc-export-settings-section.php:47
-msgid "Save changes"
-msgstr ""
-
-#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:55
-#: includes/settings/class-alg-wc-export-settings-products.php:54
-msgid "Preview"
-msgstr ""
-
 #: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:92
 msgid "Export Customers from Orders Options"
 msgstr ""
@@ -854,9 +849,7 @@ msgstr ""
 #: includes/settings/class-alg-wc-export-settings-orders.php:44
 #: includes/settings/class-alg-wc-export-settings-products.php:98
 #: includes/settings/class-alg-wc-export-settings-products.php:107
-msgid ""
-"Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to "
-"select all fields."
+msgid "Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to select all fields."
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:123
@@ -877,6 +870,21 @@ msgstr ""
 #: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:138
 #: includes/settings/class-alg-wc-export-settings-products.php:180
 msgid "This Year"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:139
+#: includes/settings/class-alg-wc-export-settings-products.php:181
+msgid "Last month"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:140
+#: includes/settings/class-alg-wc-export-settings-products.php:182
+msgid "This month"
+msgstr ""
+
+#: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:141
+#: includes/settings/class-alg-wc-export-settings-products.php:183
+msgid "Last 7 days"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:154
@@ -985,9 +993,7 @@ msgid "Send"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:69
-msgid ""
-"Disable this if you are experiencing \"endless\" file download when using "
-"\"Download CSV\" or \"Download XML\" buttons."
+msgid "Disable this if you are experiencing \"endless\" file download when using \"Download CSV\" or \"Download XML\" buttons."
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:75
@@ -995,19 +1001,14 @@ msgid "User Capability"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:76
-msgid ""
-"Set required user capability for CSV and XML export. Leave blank if you want "
-"all users (including not logged) to be able to export the data (not "
-"recommended)."
+msgid "Set required user capability for CSV and XML export. Leave blank if you want all users (including not logged) to be able to export the data (not recommended)."
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:77
-#, php-format
 msgid "Default: %s (administrators)."
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:78
-#, php-format
 msgid "Try: %s (administrators & shop managers)."
 msgstr ""
 
@@ -1038,7 +1039,6 @@ msgstr ""
 #: includes/settings/class-alg-wc-export-settings-general.php:102
 #: includes/settings/class-alg-wc-export-settings-general.php:114
 #: includes/settings/class-alg-wc-export-settings-general.php:138
-#, php-format
 msgid "Used in: %s columns."
 msgstr ""
 
@@ -1046,7 +1046,6 @@ msgstr ""
 #: includes/settings/class-alg-wc-export-settings-general.php:120
 #: includes/settings/class-alg-wc-export-settings-general.php:130
 #: includes/settings/class-alg-wc-export-settings-general.php:145
-#, php-format
 msgid "Default: %s"
 msgstr ""
 
@@ -1055,7 +1054,6 @@ msgid "Third Separator"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:128
-#, php-format
 msgid "Used in: %s column."
 msgstr ""
 
@@ -1110,9 +1108,7 @@ msgid "Confirm HPOS enabled"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-general.php:188
-msgid ""
-"Order query differ based on HPOS enabled or not. (If you find no order "
-"appear on export but store has order. please check with enabeling this.)"
+msgid "Order query differ based on HPOS enabled or not. (If you find no order appear on export but store has order. please check with enabeling this.)"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-orders-items.php:24
@@ -1193,14 +1189,6 @@ msgstr ""
 msgid "Export Products Options"
 msgstr ""
 
-#: includes/settings/class-alg-wc-export-settings-products.php:92
-msgid ""
-"From the left table, select the fields you want to export, to change the "
-"order, simply add fields to the right table and order using drag & drop, "
-"once finished, click on Save Button below to save your changes first, then "
-"preview or export directly"
-msgstr ""
-
 #: includes/settings/class-alg-wc-export-settings-products.php:97
 msgid "Export Products Fields"
 msgstr ""
@@ -1214,9 +1202,7 @@ msgid "Export Product Attribute"
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-products.php:114
-msgid ""
-"Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to "
-"select all attributes."
+msgid "Hold \"Control\" key to select multiple fields. Hold \"Control + A\" to select all attributes."
 msgstr ""
 
 #: includes/settings/class-alg-wc-export-settings-products.php:122

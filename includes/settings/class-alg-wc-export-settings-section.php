@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Section Settings
  *
- * @version 1.3.0
+ * @version 2.2.1
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -12,6 +12,20 @@ defined( 'ABSPATH' ) || exit;
 if ( ! class_exists( 'Alg_WC_Export_Settings_Section' ) ) :
 
 class Alg_WC_Export_Settings_Section {
+
+	/**
+	 * ID.
+	 *
+	 * @since 2.2.1
+	 */
+	public $id;
+
+	/**
+	 * Description.
+	 *
+	 * @since 2.2.1
+	 */
+	public $desc;
 
 	/**
 	 * Constructor.
