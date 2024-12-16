@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, export
 Requires at least: 4.4
 Tested up to: 6.7
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -60,8 +60,13 @@ When exporting products and/or orders, you can add one additional product and/or
 
 == Changelog ==
 
+= 2.2.2 - 16/12/2024 =
+* Fix - Fixed line break issue in CSV export.
+* Dev - Key Manager - Library updated.
+* Dev - Code refactoring.
+
 = 2.2.1 - 22/11/2024 =
-* Fix - Fixed warning "Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>".
+* Fix - Fixed warning "Function _load_textdomain_just_in_time was called incorrectly".
 * Fix - Fixed dynamic property warning.
 
 = 2.2.0 - 19/11/2024 =

@@ -3,7 +3,7 @@
 Plugin Name: Export Products, Order & Customers for WooCommerce
 Plugin URI: https://wpfactory.com/item/export-woocommerce/
 Description: Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click.
-Version: 2.2.1
+Version: 2.2.2
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: export-woocommerce
@@ -74,7 +74,7 @@ final class Alg_WC_Export {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '2.2.1';
+	public $version = '2.2.2';
 
 	/**
 	 * core.
@@ -135,23 +135,23 @@ final class Alg_WC_Export {
 	 */
 	function __construct() {
 
-		// Load libs.
+		// Load libs
 		if ( is_admin() ) {
 			require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 		}
 
-		// Localization.
+		// Set up localisation
 		add_action( 'init', array( $this, 'localize' ) );
 
-		// Pro.
+		// Pro
 		if ( 'export-woocommerce-pro.php' === basename( __FILE__ ) ) {
 			require_once( 'includes/pro/class-alg-wc-export-pro.php' );
 		}
 
-		// Include required files.
+		// Include required files
 		$this->includes();
 
-		// Admin.
+		// Admin
 		if ( is_admin() ) {
 			$this->admin();
 		}
@@ -166,8 +166,11 @@ final class Alg_WC_Export {
 	 *
 	 */
 	function localize() {
-		// Set up localisation.
-		load_plugin_textdomain( 'export-woocommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
+		load_plugin_textdomain(
+			'export-woocommerce',
+			false,
+			dirname( plugin_basename( __FILE__ ) ) . '/langs/'
+		);
 	}
 
 	/**
