@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Core Class
  *
- * @version 2.2.2
+ * @version 2.2.3
  * @since   1.0.0
  *
  * @author  WPFactory
@@ -539,7 +539,7 @@ class Alg_WC_Export_Core {
 	/**
 	 * Formats a string for safe output.
 	 *
-	 * @version 2.2.2
+	 * @version 2.2.3
 	 * @since   2.2.2
 	 */
 	function format_string( $value ) {
@@ -547,9 +547,12 @@ class Alg_WC_Export_Core {
 			// Normalize line breaks to a single newline character; remove comma
 			$value = str_replace( [ "\r\n", "\r", "," ], [ "\n", "", " " ], $value );
 
-			if ( '"' === get_option( 'alg_export_csv_wrap', '' ) ) {
-				// Escape double quotes by doubling them
-				$value = str_replace( '"', '""', $value );
+			// Escape double quotes by doubling them
+			$value = str_replace( '"', '""', $value );
+
+			if ( '"' !== get_option( 'alg_export_csv_wrap', '' ) ) {
+				// Enclose the string in double quotes
+				$value = '"' . $value . '"';
 			}
 		}
 

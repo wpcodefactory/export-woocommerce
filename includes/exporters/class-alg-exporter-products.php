@@ -4,7 +4,7 @@
  *
  * The WooCommerce Exporter Products class.
  *
- * @version 2.2.0
+ * @version 2.2.3
  * @since   1.0.0
  *
  * @author  WPFactory
@@ -15,6 +15,14 @@ defined( 'ABSPATH' ) || exit;
 if ( ! class_exists( 'Alg_Exporter_Products' ) ) :
 
 class Alg_Exporter_Products {
+
+	/**
+	 * @var is_wc_version_below_3
+	 *
+	 * @version 2.2.3
+	 * @since   2.2.3
+	 */
+	public $is_wc_version_below_3;
 
 	/**
 	 * Constructor.

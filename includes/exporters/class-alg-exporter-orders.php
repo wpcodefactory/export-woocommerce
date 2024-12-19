@@ -2,7 +2,7 @@
 /**
  * WooCommerce Exporter Orders
  *
- * @version 2.2.0
+ * @version 2.2.3
  * @since   1.0.0
  *
  * @author  WPFactory
@@ -15,7 +15,15 @@ if ( ! class_exists( 'Alg_Exporter_Orders' ) ) :
 class Alg_Exporter_Orders {
 
 	/**
-	 * @var   alg_wc_export_confirm_hpos
+	 * @var is_wc_version_below_3
+	 *
+	 * @version 2.2.3
+	 * @since   2.2.3
+	 */
+	public $is_wc_version_below_3;
+
+	/**
+	 * @var alg_wc_export_confirm_hpos
 	 *
 	 * @version 2.0.14
 	 * @since   2.0.14
@@ -29,10 +37,8 @@ class Alg_Exporter_Orders {
 	 * @since   1.0.0
 	 */
 	function __construct() {
-		$this->is_wc_version_below_3 = version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' );
-
+		$this->is_wc_version_below_3      = version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' );
 		$this->alg_wc_export_confirm_hpos = get_option( 'alg_wc_export_confirm_hpos', 'no' );
-
 		return true;
 	}
 
