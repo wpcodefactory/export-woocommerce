@@ -3,12 +3,12 @@
 Plugin Name: Export Products, Order & Customers for WooCommerce
 Plugin URI: https://wpfactory.com/item/export-woocommerce/
 Description: Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click.
-Version: 2.2.3
+Version: 2.2.4
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: export-woocommerce
 Domain Path: /langs
-WC tested up to: 9.5
+WC tested up to: 9.6
 Requires Plugins: woocommerce
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -22,7 +22,10 @@ defined( 'ABSPATH' ) || exit;
 $plugin = 'woocommerce/woocommerce.php';
 if (
 	! in_array( $plugin, apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) ) ) &&
-	! ( is_multisite() && array_key_exists( $plugin, get_site_option( 'active_sitewide_plugins', array() ) ) )
+	! (
+		is_multisite() &&
+		array_key_exists( $plugin, get_site_option( 'active_sitewide_plugins', array() ) )
+	)
 ) {
 	return;
 }
@@ -50,7 +53,10 @@ if ( 'export-woocommerce.php' === basename( __FILE__ ) ) {
 	$plugin = 'export-woocommerce-pro/export-woocommerce-pro.php';
 	if (
 		in_array( $plugin, apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) ) ) ||
-		( is_multisite() && array_key_exists( $plugin, get_site_option( 'active_sitewide_plugins', array() ) ) )
+		(
+			is_multisite() &&
+			array_key_exists( $plugin, get_site_option( 'active_sitewide_plugins', array() ) )
+		)
 	) {
 		return;
 	}
@@ -74,7 +80,7 @@ final class Alg_WC_Export {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '2.2.3';
+	public $version = '2.2.4';
 
 	/**
 	 * core.
@@ -108,7 +114,7 @@ final class Alg_WC_Export {
 	protected static $_instance = null;
 
 	/**
-	 * Main Alg_WC_Export Instance
+	 * Main Alg_WC_Export Instance.
 	 *
 	 * Ensures only one instance of Alg_WC_Export is loaded or can be loaded.
 	 *
@@ -184,20 +190,25 @@ final class Alg_WC_Export {
 	 */
 	function action_links( $links ) {
 		$custom_links = array();
+
 		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_export' ) . '">' .
 			__( 'Settings', 'export-woocommerce' ) .
 		'</a>';
+
 		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=alg-wc-export-tools' ) . '">' .
 			__( 'Tools', 'export-woocommerce' ) .
 		'</a>';
+
 		if ( 'export-woocommerce.php' === basename( __FILE__ ) ) {
 			$custom_links[] = '<a style="color: green; font-weight: bold;" target="_blank" href="' . esc_url( 'https://wpfactory.com/item/export-woocommerce/"' ) . '">' .
 				__( 'Go Pro', 'export-woocommerce' ) .
 			'</a>';
 		}
+
 		$custom_links[] = '<a style=" font-weight: bold;" target="_blank" href="' . esc_url( 'https://wordpress.org/support/plugin/export-woocommerce/reviews/#new-post"' ) . '">' .
 			__( 'Review Us', 'export-woocommerce' ) .
 		'</a>';
+
 		return array_merge( $custom_links, $links );
 	}
 

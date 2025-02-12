@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, export
 Requires at least: 4.4
 Tested up to: 6.7
-Stable tag: 2.2.3
+Stable tag: 2.2.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -56,9 +56,17 @@ When exporting products and/or orders, you can add one additional product and/or
 
 1. Upload the entire plugin folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the "Plugins" menu in WordPress.
-3. Start by visiting plugin settings at "WooCommerce > Settings > Export".
+3. Start by visiting plugin settings at "WPFactory > Export".
 
 == Changelog ==
+
+= 2.2.4 - 12/02/2025 =
+* Fix - Export Products - Sorting list - Issues after saving changes fixed.
+* Fix - Export Products - Sorting list - Layout fixed.
+* Dev - Export Products - "Gallery Image URL" field added.
+* Dev - Composer - `autoloader-suffix` param added.
+* Dev - Code cleanup.
+* WC tested up to: 9.6.
 
 = 2.2.3 - 19/12/2024 =
 * Fix - Fixed double quotes in CSV export.
@@ -160,7 +168,7 @@ When exporting products and/or orders, you can add one additional product and/or
 * Verified compatibility with WordPress 6.0 & WooCommerce 6.5
 
 = 1.9.1 - 19/04/2022 =
-* Verified compatibily with WooCommerce 6.4
+* Verified compatibility with WooCommerce 6.4
 * Bug fixed: Warning for "date() expects parameter"
 * Site health message related to PHP session creation was handled
 
@@ -172,7 +180,7 @@ When exporting products and/or orders, you can add one additional product and/or
 * Fixed error message related to session calling in PHP 8.0
 
 = 1.8 - 28/01/2022 =
-* Verified compatibily with WordPress 5.9 & WooCommerce 6.1
+* Verified compatibility with WordPress 5.9 & WooCommerce 6.1
 * New feature: You can order fields in products table before exporting them
 
 = 1.7.8 - 30/08/2021 =
@@ -186,10 +194,10 @@ When exporting products and/or orders, you can add one additional product and/or
 
 = 1.7.5 - 11/04/2021 =
 * Added a section to import products (exported by the plugin)
-* Tested compatibilty with WC 5.1 & WP 5.7
+* Tested compatibility with WC 5.1 & WP 5.7
 
 = 1.7.4 - 28/02/2021 =
-* Tested compatibilty with WC 5.0
+* Tested compatibility with WC 5.0
 
 = 1.7.3 - 27/01/2021 =
 * Tested compatibility with WC 4.9

@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Functions
  *
- * @version 1.5.1
+ * @version 2.2.4
  * @since   1.0.0
  *
  * @author  WPFactory
@@ -308,6 +308,35 @@ if ( ! function_exists( 'alg_get_product_image_url' ) ) {
 			$image_url = '';
 		}
 		return $image_url;
+	}
+}
+
+if ( ! function_exists( 'alg_get_product_gallery_image_url' ) ) {
+	/**
+	 * alg_get_product_gallery_image_url.
+	 *
+	 * @version 2.2.4
+	 * @since   2.2.4
+	 */
+	function alg_get_product_gallery_image_url( $product_id ) {
+		$product = wc_get_product( $product_id );
+
+		if ( ! $product ) {
+			return '';
+		}
+
+		$gallery_image_ids = $product->get_gallery_image_ids();
+		$gallery_urls = [];
+		if ( ! empty( $gallery_image_ids ) ) {
+			foreach ( $gallery_image_ids as $image_id ) {
+				$image_url = wp_get_attachment_url( $image_id );
+				if ( $image_url ) {
+					$gallery_urls[] = $image_url;
+				}
+			}
+		}
+
+		return implode( ';', $gallery_urls );
 	}
 }
 

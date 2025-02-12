@@ -4,7 +4,7 @@
  *
  * The WooCommerce Exporter Products class.
  *
- * @version 2.2.3
+ * @version 2.2.4
  * @since   1.0.0
  *
  * @author  WPFactory
@@ -73,7 +73,7 @@ class Alg_Exporter_Products {
 	/**
 	 * export_products.
 	 *
-	 * @version 2.1.0
+	 * @version 2.2.4
 	 * @since   1.0.0
 	 * @todo    [dev] export variations; `product-attributes` -> `( ! empty( $_product->get_attributes() ) ? serialize( $_product->get_attributes() ) : '' );`
 	 */
@@ -216,6 +216,9 @@ class Alg_Exporter_Products {
 							break;
 						case 'product-image-url':
 							$row[] = alg_get_product_image_url( $product_id, 'full' );
+							break;
+						case 'product-gallery-image-url':
+							$row[] = alg_get_product_gallery_image_url( $product_id );
 							break;
 						case 'product-short-description':
 							$row[] = alg_get_string_comma_replace(( $this->is_wc_version_below_3 ? $_product->post->post_excerpt : $_product->get_short_description() ), '');

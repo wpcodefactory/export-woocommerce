@@ -4,7 +4,7 @@
  *
  * The WooCommerce Export Fields Helper class.
  *
- * @version 2.2.0
+ * @version 2.2.4
  * @since   1.0.0
  *
  * @author  WPFactory
@@ -324,7 +324,7 @@ class Alg_Export_Fields_Helper {
 	/**
 	 * get_product_export_fields.
 	 *
-	 * @version 1.0.0
+	 * @version 2.2.4
 	 * @since   1.0.0
 	 * @todo    [dev] `product-attributes`
 	 */
@@ -340,8 +340,9 @@ class Alg_Export_Fields_Helper {
 			'product-price'                      => __( 'Price', 'export-woocommerce' ),
 			'product-type'                       => __( 'Type', 'export-woocommerce' ),
 			'product-variation-attributes'       => __( 'Variation Attributes', 'export-woocommerce' ),
-			'product-attributes'       			 => __( 'Product Attributes', 'export-woocommerce' ),
+			'product-attributes'                 => __( 'Product Attributes', 'export-woocommerce' ),
 			'product-image-url'                  => __( 'Image URL', 'export-woocommerce' ),
+			'product-gallery-image-url'          => __( 'Gallery Image URL', 'export-woocommerce' ),
 			'product-short-description'          => __( 'Short Description', 'export-woocommerce' ),
 			'product-description'                => __( 'Description', 'export-woocommerce' ),
 			'product-status'                     => __( 'Status', 'export-woocommerce' ),
@@ -424,7 +425,7 @@ class Alg_Export_Fields_Helper {
 	/**
 	 * get_product_export_import_fields_ids.
 	 *
-	 * @version 1.0.0
+	 * @version 2.2.4
 	 * @since   1.0.0
 	 */
 	function get_product_export_import_fields_ids() {
@@ -439,6 +440,7 @@ class Alg_Export_Fields_Helper {
 			'product-price',
 			'product-type',
 			'product-image-url',
+			'product-gallery-image-url',
 			'product-short-description',
 			'product-description',
 			'product-status',
