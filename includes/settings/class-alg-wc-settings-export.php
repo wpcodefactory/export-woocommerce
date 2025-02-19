@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Settings
  *
- * @version 1.4.0
+ * @version 2.2.5
  * @since   1.0.0
  *
  * @author  WPFactory
@@ -40,11 +40,14 @@ class Alg_WC_Settings_Export extends WC_Settings_Page {
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.3.0
+	 * @version 2.2.5
 	 * @since   1.0.0
 	 */
 	function get_settings() {
 		global $current_section;
+		if ( 'import' === $current_section ) {
+			return array();
+		}
 		return array_merge( apply_filters( 'woocommerce_get_settings_' . $this->id . '_' . $current_section, array() ), array(
 			array(
 				'title'     => __( 'Reset Settings', 'export-woocommerce' ),

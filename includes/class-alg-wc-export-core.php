@@ -23,7 +23,6 @@ class Alg_WC_Export_Core {
 	 * @todo    (dev) Export Orders Items: Item's (product's) description
 	 * @todo    (dev) Export single (or limited number) order only (Export Orders Items and Export Orders and maybe single product/customer also)
 	 * @todo    (dev) check if maybe `strip_tags` needs to be applied in some exported fields
-	 * @todo    (feature) add import tool(s)
 	 */
 	function __construct() {
 		add_action( 'admin_head', array( $this, 'add_admin_styles' ) );

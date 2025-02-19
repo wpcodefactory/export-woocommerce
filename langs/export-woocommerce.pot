@@ -2,21 +2,21 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: Export Products, Order & Customers for WooCommerce 2.2.4\n"
+"Project-Id-Version: Export Products, Orders & Customers for WooCommerce 2.2.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/export-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-12T22:17:18+00:00\n"
+"POT-Creation-Date: 2025-02-19T23:28:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: export-woocommerce\n"
 
 #. Plugin Name of the plugin
 #: export-woocommerce.php
-msgid "Export Products, Order & Customers for WooCommerce"
+msgid "Export Products, Orders & Customers for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
@@ -55,10 +55,10 @@ msgstr ""
 msgid "Review Us"
 msgstr ""
 
-#: export-woocommerce.php:306
 #: export-woocommerce.php:307
+#: export-woocommerce.php:308
+#: includes/class-alg-wc-export-core.php:220
 #: includes/class-alg-wc-export-core.php:221
-#: includes/class-alg-wc-export-core.php:222
 #: includes/settings/class-alg-wc-settings-export.php:25
 msgid "Export"
 msgstr ""
@@ -737,64 +737,64 @@ msgstr ""
 msgid "Availability Class"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:243
-#: includes/class-alg-wc-export-core.php:261
+#: includes/class-alg-wc-export-core.php:242
+#: includes/class-alg-wc-export-core.php:260
 msgid "Dashboard"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:307
+#: includes/class-alg-wc-export-core.php:306
 #: includes/settings/class-alg-wc-export-settings-customers-from-orders.php:137
 #: includes/settings/class-alg-wc-export-settings-products.php:185
 msgid "All time"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:325
+#: includes/class-alg-wc-export-core.php:324
 msgid "Custom:"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:330
+#: includes/class-alg-wc-export-core.php:329
 msgid "Go"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:364
+#: includes/class-alg-wc-export-core.php:363
 msgid "Download CSV"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:365
+#: includes/class-alg-wc-export-core.php:364
 msgid "Download XML"
 msgstr ""
 
-#: includes/class-alg-wc-export-core.php:366
+#: includes/class-alg-wc-export-core.php:365
 msgid "Filter by All Fields"
 msgstr ""
 
-#: includes/import/class-alg-wc-export-import-products.php:61
-#: includes/import/class-alg-wc-export-import-products.php:140
-#: includes/import/class-alg-wc-export-import-products.php:163
-msgid "Import"
-msgstr ""
-
-#: includes/import/class-alg-wc-export-import-products.php:80
+#: includes/import/class-alg-wc-export-import-products.php:93
 msgid "Run Import"
 msgstr ""
 
-#: includes/import/class-alg-wc-export-import-products.php:92
+#: includes/import/class-alg-wc-export-import-products.php:105
 msgid "Select File"
 msgstr ""
 
-#: includes/import/class-alg-wc-export-import-products.php:101
+#: includes/import/class-alg-wc-export-import-products.php:114
 msgid "Upload File"
 msgstr ""
 
-#: includes/import/class-alg-wc-export-import-products.php:143
-msgid "Import products by csv/xml"
+#: includes/import/class-alg-wc-export-import-products.php:163
+#: includes/import/class-alg-wc-export-import-products.php:184
+#: includes/settings/class-alg-wc-export-settings-import.php:25
+msgid "Import"
 msgstr ""
 
 #: includes/import/class-alg-wc-export-import-products.php:166
+msgid "Import products by csv/xml"
+msgstr ""
+
+#: includes/import/class-alg-wc-export-import-products.php:187
 msgid "Choose match fields and run import"
 msgstr ""
 
-#: includes/import/class-alg-wc-export-import-products.php:562
+#: includes/import/class-alg-wc-export-import-products.php:630
 msgid "Import done successfully !"
 msgstr ""
 
@@ -1222,18 +1222,18 @@ msgstr ""
 msgid "Enter product meta key to retrieve (can be custom field name)."
 msgstr ""
 
-#: includes/settings/class-alg-wc-settings-export.php:50
+#: includes/settings/class-alg-wc-settings-export.php:53
 msgid "Reset Settings"
 msgstr ""
 
-#: includes/settings/class-alg-wc-settings-export.php:55
+#: includes/settings/class-alg-wc-settings-export.php:58
 msgid "Reset section settings"
 msgstr ""
 
-#: includes/settings/class-alg-wc-settings-export.php:56
+#: includes/settings/class-alg-wc-settings-export.php:59
 msgid "Reset"
 msgstr ""
 
-#: includes/settings/class-alg-wc-settings-export.php:95
+#: includes/settings/class-alg-wc-settings-export.php:98
 msgid "Your settings have been reset."
 msgstr ""

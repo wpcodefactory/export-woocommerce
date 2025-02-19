@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Export Products, Order & Customers for WooCommerce
+Plugin Name: Export Products, Orders & Customers for WooCommerce
 Plugin URI: https://wpfactory.com/item/export-woocommerce/
 Description: Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click.
-Version: 2.2.4
+Version: 2.2.5
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: export-woocommerce
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Alg_WC_Export' ) ) :
 /**
  * Main Alg_WC_Export Class
  *
- * @version 2.2.0
+ * @version 2.2.5
  * @since   1.0.0
  *
  * @class   Alg_WC_Export
@@ -80,7 +80,7 @@ final class Alg_WC_Export {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '2.2.4';
+	public $version = '2.2.5';
 
 	/**
 	 * core.
@@ -232,7 +232,7 @@ final class Alg_WC_Export {
 	/**
 	 * admin.
 	 *
-	 * @version 2.2.0
+	 * @version 2.2.5
 	 * @since   1.3.0
 	 */
 	function admin() {
@@ -257,6 +257,7 @@ final class Alg_WC_Export {
 		$this->settings['orders_items']          = require_once( 'includes/settings/class-alg-wc-export-settings-orders-items.php' );
 		$this->settings['customers']             = require_once( 'includes/settings/class-alg-wc-export-settings-customers.php' );
 		$this->settings['customers_from_orders'] = require_once( 'includes/settings/class-alg-wc-export-settings-customers-from-orders.php' );
+		$this->settings['import']                = require_once( 'includes/settings/class-alg-wc-export-settings-import.php' );
 
 		// Version updated
 		if ( get_option( 'alg_wc_export_version', '' ) !== $this->version ) {
