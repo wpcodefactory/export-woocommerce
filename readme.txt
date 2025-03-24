@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, export
 Requires at least: 4.4
 Tested up to: 6.7
-Stable tag: 2.2.5
+Stable tag: 2.2.6
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,11 @@ When exporting products and/or orders, you can add one additional product and/or
 3. Start by visiting plugin settings at "WPFactory > Export".
 
 == Changelog ==
+
+= 2.2.6 - 24/03/2025 =
+* Dev - Export Products - Variation product fields data added (width, length, height, weight, downloadable, virtual, manage stock).
+* Dev - Export Products - "Grouped Product SKUs" field added.
+* WC tested up to: 9.7.
 
 = 2.2.5 - 19/02/2025 =
 * Fix - Import section added to the "WPFactory > Export" menu.

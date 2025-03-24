@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: Export Products, Orders & Customers for WooCommerce 2.2.5\n"
+"Project-Id-Version: Export Products, Orders & Customers for WooCommerce 2.2.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/export-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-19T23:28:24+00:00\n"
+"POT-Creation-Date: 2025-03-24T08:59:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: export-woocommerce\n"
@@ -614,7 +614,7 @@ msgid "Image URL"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:345
-msgid "Gallery Image URL"
+msgid "Gallery Image URLs"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:346
@@ -626,114 +626,118 @@ msgid "Status"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:350
-msgid "Shipping Class"
+msgid "Grouped Product SKUs"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:351
-msgid "Shipping Class ID"
+msgid "Shipping Class"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:352
-msgid "Width"
+msgid "Shipping Class ID"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:353
-msgid "Length"
+msgid "Width"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:354
-msgid "Height"
+msgid "Length"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:355
-msgid "Weight"
+msgid "Height"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:356
-msgid "Downloadable"
+msgid "Weight"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:357
-msgid "Virtual"
+msgid "Downloadable"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:358
-msgid "Sold Individually"
+msgid "Virtual"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:359
-msgid "Tax Status"
+msgid "Sold Individually"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:360
-msgid "Tax Class"
+msgid "Tax Status"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:361
-msgid "Manage Stock"
+msgid "Tax Class"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:362
-msgid "Stock Status"
+msgid "Manage Stock"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:363
-msgid "Backorders"
+msgid "Stock Status"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:364
-msgid "Featured"
+msgid "Backorders"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:365
-msgid "Visibility"
+msgid "Featured"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:366
-msgid "Price Including Tax"
+msgid "Visibility"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:367
-msgid "Price Excluding Tax"
+msgid "Price Including Tax"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:368
-msgid "Display Price"
+msgid "Price Excluding Tax"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:369
-msgid "Average Rating"
+msgid "Display Price"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:370
-msgid "Rating Count"
+msgid "Average Rating"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:371
-msgid "Review Count"
+msgid "Rating Count"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:372
-msgid "Categories"
+msgid "Review Count"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:373
-msgid "Tags"
+msgid "Categories"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:374
-msgid "Dimensions"
+msgid "Tags"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:375
-msgid "Formatted Name"
+msgid "Dimensions"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:376
-msgid "Availability"
+msgid "Formatted Name"
 msgstr ""
 
 #: includes/class-alg-export-fields-helper.php:377
+msgid "Availability"
+msgstr ""
+
+#: includes/class-alg-export-fields-helper.php:378
 msgid "Availability Class"
 msgstr ""
 

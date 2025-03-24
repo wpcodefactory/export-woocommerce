@@ -4,7 +4,7 @@
  *
  * The WooCommerce Exporter Products class.
  *
- * @version 2.2.4
+ * @version 2.2.6
  * @since   1.0.0
  *
  * @author  WPFactory
@@ -38,13 +38,45 @@ class Alg_Exporter_Products {
 	/**
 	 * get_variable_or_grouped_product_info.
 	 *
-	 * @version 1.5.1
+	 * @version 2.2.6
 	 * @since   1.0.0
 	 */
 	function get_variable_or_grouped_product_info( $_product, $which_info ) {
 		$all_variations_data = array();
+
+		// Append parent product data
+		switch ( $which_info ) {
+			case 'product_group_sku':
+				$all_variations_data[] = ( '' === $_product->get_sku() ) ? '-' : $_product->get_sku();
+				break;
+			case 'variable_width':
+				$all_variations_data[] = ( '' === $_product->get_width() ) ? '-' : $_product->get_width();
+				break;
+			case 'variable_length':
+				$all_variations_data[] = ( '' === $_product->get_length() ) ? '-' : $_product->get_length();
+				break;
+			case 'variable_height':
+				$all_variations_data[] = ( '' === $_product->get_height() ) ? '-' : $_product->get_height();
+				break;
+			case 'variable_weight':
+				$all_variations_data[] = ( '' === $_product->get_weight() ) ? '-' : $_product->get_weight();
+				break;
+			case 'variable_downloadable':
+				$all_variations_data[] = ( false === $_product->is_downloadable() ) ? '-' : $_product->is_downloadable();
+				break;
+			case 'variable_virtual':
+				$all_variations_data[] = ( false === $_product->is_virtual( ) ) ? '-' : $_product->is_virtual();
+				break;
+			case 'variable_manage_stock':
+				$all_variations_data[] = ( false === $_product->get_manage_stock() ) ? '-' : $_product->get_manage_stock();
+				break;
+		}
+
 		foreach ( $_product->get_children() as $child_id ) {
 			$variation = ( $this->is_wc_version_below_3 ? $_product->get_child( $child_id ) : wc_get_product( $child_id ) );
+			if ( ! $variation ) {
+				continue;
+			}
 			switch ( $which_info ) {
 				case 'price':
 					$all_variations_data[] = ( '' === $variation->get_price() ) ? '-' : $variation->get_price();
@@ -65,6 +97,30 @@ class Alg_Exporter_Products {
 				case 'variation_attributes':
 					$all_variations_data[] = ( ! $variation->is_type( 'variation' ) ) ? '-' : ( $this->is_wc_version_below_3 ? $variation->get_formatted_variation_attributes( true ) : wc_get_formatted_variation( $variation, true ) );
 					break;
+				case 'product_group_sku':
+					$all_variations_data[] = ( '' === $variation->get_sku() ) ? '-' : $variation->get_sku();
+					break;
+				case 'variable_width':
+					$all_variations_data[] = ( '' === $variation->get_width() ) ? '-' : $variation->get_width();
+					break;
+				case 'variable_length':
+					$all_variations_data[] = ( '' === $variation->get_length() ) ? '-' : $variation->get_length();
+					break;
+				case 'variable_height':
+					$all_variations_data[] = ( '' === $variation->get_height() ) ? '-' : $variation->get_height();
+					break;
+				case 'variable_weight':
+					$all_variations_data[] = ( '' === $variation->get_weight() ) ? '-' : $variation->get_weight();
+					break;
+				case 'variable_downloadable':
+					$all_variations_data[] = ( false === $variation->is_downloadable() ) ? '-' : $variation->is_downloadable();
+					break;
+				case 'variable_virtual':
+					$all_variations_data[] = ( false === $variation->is_virtual( ) ) ? '-' : $variation->is_virtual();
+					break;
+				case 'variable_manage_stock':
+					$all_variations_data[] = ( false === $variation->get_manage_stock() ) ? '-' : $variation->get_manage_stock();
+					break;
 			}
 		}
 		return implode( get_option( 'alg_export_csv_separator_2_products', '/' ), $all_variations_data );
@@ -73,7 +129,7 @@ class Alg_Exporter_Products {
 	/**
 	 * export_products.
 	 *
-	 * @version 2.2.4
+	 * @version 2.2.6
 	 * @since   1.0.0
 	 * @todo    [dev] export variations; `product-attributes` -> `( ! empty( $_product->get_attributes() ) ? serialize( $_product->get_attributes() ) : '' );`
 	 */
@@ -232,6 +288,9 @@ class Alg_Exporter_Products {
 						case 'product-url':
 							$row[] = $_product->get_permalink();
 							break;
+						case 'product-group-sku':
+							$row[] = ( $_product->is_type( 'grouped' ) ? $this->get_variable_or_grouped_product_info( $_product, 'product_group_sku' ) : '' );
+							break;
 						case 'product-shipping-class':
 							$row[] = $_product->get_shipping_class();
 							break;
@@ -239,22 +298,22 @@ class Alg_Exporter_Products {
 							$row[] = $_product->get_shipping_class_id();
 							break;
 						case 'product-width':
-							$row[] = $_product->get_width();
+							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_width' ) : $_product->get_width() );
 							break;
 						case 'product-length':
-							$row[] = $_product->get_length();
+							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_length' ) : $_product->get_length() );
 							break;
 						case 'product-height':
-							$row[] = $_product->get_height();
+							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_height' ) : $_product->get_height() );
 							break;
 						case 'product-weight':
-							$row[] = $_product->get_weight();
+							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_weight' ) : $_product->get_weight() );
 							break;
 						case 'product-downloadable':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->downloadable : $_product->get_downloadable() );
+							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_downloadable' ) : $_product->get_downloadable() );
 							break;
 						case 'product-virtual':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->virtual : $_product->get_virtual() );
+							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_virtual' ) : $_product->get_virtual() );
 							break;
 						case 'product-sold-individually':
 							$row[] = ( $this->is_wc_version_below_3 ? $_product->sold_individually : $_product->get_sold_individually() );
@@ -266,7 +325,7 @@ class Alg_Exporter_Products {
 							$row[] = $_product->get_tax_class();
 							break;
 						case 'product-manage-stock':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->manage_stock : $_product->get_manage_stock() );
+							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_manage_stock' ) : $_product->get_manage_stock() );
 							break;
 						case 'product-stock-status':
 							$row[] = ( $this->is_wc_version_below_3 ? $_product->stock_status : $_product->get_stock_status() );
