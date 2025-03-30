@@ -4,7 +4,7 @@
  *
  * The WooCommerce Exporter Products class.
  *
- * @version 2.2.6
+ * @version 2.3.0
  * @since   1.0.0
  *
  * @author  WPFactory
@@ -40,6 +40,8 @@ class Alg_Exporter_Products {
 	 *
 	 * @version 2.2.6
 	 * @since   1.0.0
+	 *
+	 * @todo    (v2.3.0) remove `is_wc_version_below_3` support
 	 */
 	function get_variable_or_grouped_product_info( $_product, $which_info ) {
 		$all_variations_data = array();
@@ -73,7 +75,11 @@ class Alg_Exporter_Products {
 		}
 
 		foreach ( $_product->get_children() as $child_id ) {
-			$variation = ( $this->is_wc_version_below_3 ? $_product->get_child( $child_id ) : wc_get_product( $child_id ) );
+			$variation = (
+				$this->is_wc_version_below_3 ?
+				$_product->get_child( $child_id ) :
+				wc_get_product( $child_id )
+			);
 			if ( ! $variation ) {
 				continue;
 			}
@@ -129,9 +135,10 @@ class Alg_Exporter_Products {
 	/**
 	 * export_products.
 	 *
-	 * @version 2.2.6
+	 * @version 2.3.0
 	 * @since   1.0.0
-	 * @todo    [dev] export variations; `product-attributes` -> `( ! empty( $_product->get_attributes() ) ? serialize( $_product->get_attributes() ) : '' );`
+	 *
+	 * @todo    (dev) export variations; `product-attributes` -> `( ! empty( $_product->get_attributes() ) ? serialize( $_product->get_attributes() ) : '' );`
 	 */
 	function export_products( $fields_helper, $attach_html = false, $page = 1, $start = 0, $is_ajax = false ) {
 
@@ -139,34 +146,40 @@ class Alg_Exporter_Products {
 		if ( -1 != ( $time_limit = get_option( 'alg_wc_export_time_limit', -1 ) ) ) {
 			set_time_limit( $time_limit );
 		}
+
 		$is_prd_attr = false;
+
 		// Standard Fields
-		$all_fields = $fields_helper->get_product_export_fields();
-		$fields_ids = get_option( 'alg_export_products_fields', $fields_helper->get_product_export_default_fields_ids() );
+		$all_fields        = $fields_helper->get_product_export_fields();
+		$fields_ids        = get_option( 'alg_export_products_fields', $fields_helper->get_product_export_default_fields_ids() );
 		$fields_ids_sorted = get_option( 'alg_export_products_fields_sorted', array() );
 
-		if(!empty($fields_ids_sorted)){
-			if( strpos($fields_ids_sorted, ',') !== false ) {
-				// $fields_ids = sort_array_by_array($fields_ids, explode(',', $fields_ids_sorted));
-				$fields_ids = explode(',', $fields_ids_sorted);
-			}else{
-				// $fields_ids = sort_array_by_array($fields_ids, array($fields_ids_sorted));
-				$fields_ids = array($fields_ids_sorted);
+		if ( ! empty( $fields_ids_sorted ) ) {
+			if ( false !== strpos( $fields_ids_sorted, ',' ) ) {
+				$fields_ids = explode( ',', $fields_ids_sorted );
+			} else {
+				$fields_ids = array( $fields_ids_sorted );
 			}
 		}
 
 		$titles = array();
-		foreach( $fields_ids as $field_id ) {
-			if($field_id=='product-attributes'){
+		foreach ( $fields_ids as $field_id ) {
+			if ( 'product-attributes' == $field_id ){
 				$is_prd_attr = true;
-				unset($fields_ids[$field_id]);
-			}else{
+				unset( $fields_ids[ $field_id ] );
+			} else {
 				$titles[] = $all_fields[ $field_id ];
 			}
 		}
 
+		// Variation product parent title
+		$is_variation_newline = get_option( 'alg_export_products_variation_newline', 'no' );
+		if ( 'yes' === $is_variation_newline ) {
+			$titles[] = __( 'Parent SKU', 'export-woocommerce' );
+		}
+
 		// Product attributes
-		if($is_prd_attr){
+		if ( $is_prd_attr ) {
 			$all_attributes = $fields_helper->get_product_export_attribute();
 			$attributes_ids = get_option( 'alg_export_products_attribute', array() );
 			foreach( $attributes_ids as $attribue_id ) {
@@ -182,29 +195,30 @@ class Alg_Exporter_Products {
 			}
 		}
 
-		$data       = array();
-		$data[]     = $titles;
-		if($page > 1 && $is_ajax){
-			$data       = array();
+		$data = array();
+		$data[] = $titles;
+		if ( $page > 1 && $is_ajax ) {
+			$data = array();
 		}
 
-		if($attach_html){
+		if ( $attach_html ) {
 			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
-			if($page <= 1){
-				$offset  = 0;
-			}else{
-				$offset  = ($page-1) * $block_size;
+			if ( $page <= 1 ) {
+				$offset = 0;
+			} else {
+				$offset = ( $page - 1 ) * $block_size;
 			}
-		}else{
+		} else {
 			$offset     = 0;
 			$block_size = get_option( 'alg_wc_export_wp_query_block_size', 1024 );
 		}
 
-		if($is_ajax) {
+		if ( $is_ajax ) {
 			$offset = $start;
 		}
 
-		while( true ) {
+		while ( true ) {
+
 			$args = array(
 				'post_type'      => 'product',
 				'post_status'    => 'any',
@@ -215,178 +229,46 @@ class Alg_Exporter_Products {
 				'fields'         => 'ids',
 			);
 			$args = alg_maybe_add_date_query( $args, 'product', true );
+
 			$loop = new WP_Query( $args );
 
-			if( $is_ajax ) {
+			if ( $is_ajax ) {
 				if ( ! $loop->have_posts() ) {
 					break;
 				}
 			}
 
-			if( ! $attach_html ){
+			if ( ! $attach_html ) {
 				if ( ! $loop->have_posts() ) {
 					break;
 				}
 			}
 
 			foreach ( $loop->posts as $product_id ) {
-				$_product = wc_get_product( $product_id );
+				if ( ! ( $_product = wc_get_product( $product_id ) ) ) {
+					continue;
+				}
 				$row = array();
-				foreach( $fields_ids as $field_id ) {
-					switch ( $field_id ) {
-						case 'product-id':
-							$row[] = $product_id;
-							break;
-						case 'product-name':
-							$row[] = $_product->get_title();
-							break;
-						case 'product-sku':
-							$row[] = $_product->get_sku();
-							break;
-						case 'product-stock-quantity':
-							$row[] = ( $_product->is_type( 'variable' ) || $_product->is_type( 'grouped' ) ?
-								$this->get_variable_or_grouped_product_info( $_product, 'stock_quantity' ) : $_product->get_stock_quantity() );
-							break;
-						case 'product-stock':
-							$row[] = ( $_product->is_type( 'variable' ) || $_product->is_type( 'grouped' ) ?
-								$this->get_variable_or_grouped_product_info( $_product, 'total_stock' ) : ( $this->is_wc_version_below_3 ? $_product->get_total_stock() : $_product->get_stock_quantity() ) );
-							break;
-						case 'product-regular-price':
-							$row[] = ( $_product->is_type( 'variable' ) || $_product->is_type( 'grouped' ) ?
-								$this->get_variable_or_grouped_product_info( $_product, 'regular_price' ) : $_product->get_regular_price() );
-							break;
-						case 'product-sale-price':
-							$row[] = ( $_product->is_type( 'variable' ) || $_product->is_type( 'grouped' ) ?
-								$this->get_variable_or_grouped_product_info( $_product, 'sale_price' ) : $_product->get_sale_price() );
-							break;
-						case 'product-price':
-							$row[] = ( $_product->is_type( 'variable' ) || $_product->is_type( 'grouped' ) ?
-								$this->get_variable_or_grouped_product_info( $_product, 'price' ) : $_product->get_price() );
-							break;
-						case 'product-type':
-							$row[] = alg_get_string_comma_replace($_product->get_type(), '');
-							break;
-						case 'product-variation-attributes':
-							$row[] = ( $_product->is_type( 'variable' ) ?
-								$this->get_variable_or_grouped_product_info( $_product, 'variation_attributes' ) : '' );
-							break;
-						case 'product-image-url':
-							$row[] = alg_get_product_image_url( $product_id, 'full' );
-							break;
-						case 'product-gallery-image-url':
-							$row[] = alg_get_product_gallery_image_url( $product_id );
-							break;
-						case 'product-short-description':
-							$row[] = alg_get_string_comma_replace(( $this->is_wc_version_below_3 ? $_product->post->post_excerpt : $_product->get_short_description() ), '');
-							break;
-						case 'product-description':
-							$row[] = alg_get_string_comma_replace(( $this->is_wc_version_below_3 ? $_product->post->post_content : $_product->get_description() ), '');
-							break;
-						case 'product-status':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->post->post_status : $_product->get_status() );
-							break;
-						case 'product-url':
-							$row[] = $_product->get_permalink();
-							break;
-						case 'product-group-sku':
-							$row[] = ( $_product->is_type( 'grouped' ) ? $this->get_variable_or_grouped_product_info( $_product, 'product_group_sku' ) : '' );
-							break;
-						case 'product-shipping-class':
-							$row[] = $_product->get_shipping_class();
-							break;
-						case 'product-shipping-class-id':
-							$row[] = $_product->get_shipping_class_id();
-							break;
-						case 'product-width':
-							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_width' ) : $_product->get_width() );
-							break;
-						case 'product-length':
-							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_length' ) : $_product->get_length() );
-							break;
-						case 'product-height':
-							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_height' ) : $_product->get_height() );
-							break;
-						case 'product-weight':
-							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_weight' ) : $_product->get_weight() );
-							break;
-						case 'product-downloadable':
-							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_downloadable' ) : $_product->get_downloadable() );
-							break;
-						case 'product-virtual':
-							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_virtual' ) : $_product->get_virtual() );
-							break;
-						case 'product-sold-individually':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->sold_individually : $_product->get_sold_individually() );
-							break;
-						case 'product-tax-status':
-							$row[] = $_product->get_tax_status();
-							break;
-						case 'product-tax-class':
-							$row[] = $_product->get_tax_class();
-							break;
-						case 'product-manage-stock':
-							$row[] = ( $_product->is_type( 'variable' ) ? $this->get_variable_or_grouped_product_info( $_product, 'variable_manage_stock' ) : $_product->get_manage_stock() );
-							break;
-						case 'product-stock-status':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->stock_status : $_product->get_stock_status() );
-							break;
-						case 'product-backorders':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->backorders : $_product->get_backorders() );
-							break;
-						case 'product-featured':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->featured : $_product->get_featured() );
-							break;
-						case 'product-visibility':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->visibility : $_product->get_catalog_visibility() );
-							break;
-						case 'product-price-including-tax':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->get_price_including_tax() : wc_get_price_including_tax( $_product ) );
-							break;
-						case 'product-price-excluding-tax':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->get_price_excluding_tax() : wc_get_price_excluding_tax( $_product ) );
-							break;
-						case 'product-display-price':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->get_display_price() : wc_get_price_to_display( $_product ) );
-							break;
-						case 'product-average-rating':
-							$row[] = $_product->get_average_rating();
-							break;
-						case 'product-rating-count':
-							$row[] = $_product->get_rating_count();
-							break;
-						case 'product-review-count':
-							$row[] = $_product->get_review_count();
-							break;
-						case 'product-categories':
-							$row[] = strip_tags( ( $this->is_wc_version_below_3 ? $_product->get_categories() : wc_get_product_category_list( $_product->get_id() ) ) );
-							break;
-						case 'product-tags':
-							$row[] = strip_tags( ( $this->is_wc_version_below_3 ? $_product->get_tags() : wc_get_product_tag_list( $_product->get_id() ) ) );
-							break;
-						case 'product-dimensions':
-							$row[] = ( $this->is_wc_version_below_3 ? $_product->get_dimensions() : wc_format_dimensions( $_product->get_dimensions( false ) ) );
-							break;
-						case 'product-formatted-name':
-							$row[] = $_product->get_formatted_name();
-							break;
-						case 'product-availability':
-							$availability = $_product->get_availability();
-							$row[] = $availability['availability'];
-							break;
-						case 'product-availability-class':
-							$availability = $_product->get_availability();
-							$row[] = $availability['class'];
-							break;
-					}
+				foreach ( $fields_ids as $field_id ) {
+					$row[] = $this->get_field_value(
+						$field_id,
+						$_product,
+						$product_id,
+						$is_variation_newline
+					);
+				}
+
+				if ( 'yes' === $is_variation_newline ) {
+					$row[] = ''; // Parent SKU
 				}
 
 				// Product Attributes
-				if($is_prd_attr){
-					foreach( $attributes_ids as $attribue_id ) {
-						$txnm = 'pa_'.$all_attributes[ $attribue_id ];
+				if ( $is_prd_attr ) {
+					foreach ( $attributes_ids as $attribue_id ) {
+						$txnm        = 'pa_' . $all_attributes[ $attribue_id ];
 						$pa_tax_name = apply_filters( 'sanitize_taxonomy_name', urldecode( sanitize_title( urldecode( $txnm ) ) ), $txnm );
-						$attr_val = $_product->get_attribute( $pa_tax_name );
-						$row[] = alg_get_string_comma_replace(((isset($attr_val) && !empty($attr_val)) ? $attr_val : '-'));
+						$attr_val    = $_product->get_attribute( $pa_tax_name );
+						$row[]       = alg_get_string_comma_replace( ( ! empty( $attr_val ) ? $attr_val : '-' ) );
 					}
 				}
 
@@ -403,26 +285,315 @@ class Alg_Exporter_Products {
 				}
 
 				$data[] = $row;
+
+				// Variation product data newline
+				$variations = $_product->get_children();
+				if (
+					$variations &&
+					'yes' === $is_variation_newline &&
+					$_product->is_type( 'variable' )
+				) {
+					foreach ( $variations as $variation_id ) {
+						if ( ! ( $variation = wc_get_product( $variation_id ) ) ) {
+							continue;
+						}
+						$row = array();
+						foreach ( $fields_ids as $field_id ) {
+							$row[] = $this->get_field_value(
+								$field_id,
+								$variation,
+								$variation_id,
+								$is_variation_newline
+							);
+						}
+						$row[] = $_product->get_sku(); // Parent SKU
+						$data[] = $row;
+					}
+				}
 			}
 			$offset += $block_size;
-			if($attach_html || $is_ajax){
+			if ( $attach_html || $is_ajax ) {
 				break;
 			}
 		}
-		if($attach_html){
+
+		if ( $attach_html ) {
 			$output_html = '';
 			$output_html .= '<div class="paginate-ajax-alg-preview">';
 			$output_html .= paginate_links( array(
-				'total'        => $loop->max_num_pages,
-				'current'      => $page,
-				'base' => "#%#%" //will make hrefs like "#3"
+				'total'   => $loop->max_num_pages,
+				'current' => $page,
+				'base'    => "#%#%", //will make hrefs like "#3"
 			) );
 			$output_html .= '</div>';
-			$output_html .= ( is_array( $data ) ) ? alg_get_table_html( $data, array( 'table_class' => 'widefat striped' ) ) : $data;
+			$output_html .= (
+				is_array( $data ) ?
+				alg_get_table_html( $data, array( 'table_class' => 'widefat striped' ) ) :
+				$data
+			);
 			return $output_html;
 		}
 
 		return $data;
+	}
+
+	/**
+	 * is_variable_or_grouped_product_info.
+	 *
+	 * @version 2.3.0
+	 * @since   2.3.0
+	 */
+	function is_variable_or_grouped_product_info( $product, $is_variation_newline ) {
+		return (
+			'no' === $is_variation_newline &&
+			(
+				$product->is_type( 'variable' ) ||
+				$product->is_type( 'grouped' )
+			)
+		);
+	}
+
+	/**
+	 * is_variable_product_info.
+	 *
+	 * @version 2.3.0
+	 * @since   2.3.0
+	 */
+	function is_variable_product_info( $product, $is_variation_newline ) {
+		return (
+			'no' === $is_variation_newline &&
+			$product->is_type( 'variable' )
+		);
+	}
+
+	/**
+	 * get_field_value.
+	 *
+	 * @version 2.3.0
+	 * @since   2.3.0
+	 */
+	function get_field_value( $field_id, $product, $product_id, $is_variation_newline ) {
+		switch ( $field_id ) {
+
+			case 'product-id':
+				return $product_id;
+
+			case 'product-name':
+				return $product->get_title();
+
+			case 'product-sku':
+				return $product->get_sku();
+
+			case 'product-stock-quantity':
+				return (
+					$this->is_variable_or_grouped_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'stock_quantity' ) :
+					$product->get_stock_quantity()
+				);
+
+			case 'product-stock':
+				return (
+					$this->is_variable_or_grouped_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'total_stock' ) :
+					$product->get_stock_quantity()
+				);
+
+			case 'product-regular-price':
+				return (
+					$this->is_variable_or_grouped_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'regular_price' ) :
+					$product->get_regular_price()
+				);
+
+			case 'product-sale-price':
+				return (
+					$this->is_variable_or_grouped_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'sale_price' ) :
+					$product->get_sale_price()
+				);
+
+			case 'product-price':
+				return (
+					$this->is_variable_or_grouped_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'price' ) :
+					$product->get_price()
+				);
+
+			case 'product-type':
+				return alg_get_string_comma_replace( $product->get_type(), '' );
+
+			case 'product-variation-attributes':
+				return (
+					$product->is_type( 'variable' ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'variation_attributes' ) :
+					''
+				);
+
+			case 'product-image-url':
+				return alg_get_product_image_url( $product_id, 'full' );
+
+			case 'product-gallery-image-url':
+				return (
+					! $product->is_type( 'variation' ) ?
+					alg_get_product_gallery_image_url( $product_id ) :
+					''
+				);
+
+			case 'product-short-description':
+				return (
+					! $product->is_type( 'variation' ) ?
+					alg_get_string_comma_replace( $product->get_short_description(), '' ) :
+					''
+				);
+
+			case 'product-description':
+				return alg_get_string_comma_replace( $product->get_description(), '' );
+
+			case 'product-status':
+				return $product->get_status();
+
+			case 'product-url':
+				return (
+					! $product->is_type( 'variation' ) ?
+					$product->get_permalink() :
+					''
+				);
+
+			case 'product-group-sku':
+				return (
+					$product->is_type( 'grouped' ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'product_group_sku' ) :
+					''
+				);
+
+			case 'product-shipping-class':
+				return $product->get_shipping_class();
+
+			case 'product-shipping-class-id':
+				return $product->get_shipping_class_id();
+
+			case 'product-width':
+				return (
+					$this->is_variable_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'variable_width' ) :
+					$product->get_width()
+				);
+
+			case 'product-length':
+				return (
+					$this->is_variable_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'variable_length' ) :
+					$product->get_length()
+				);
+
+			case 'product-height':
+				return (
+					$this->is_variable_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'variable_height' ) :
+					$product->get_height()
+				);
+
+			case 'product-weight':
+				return (
+					$this->is_variable_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'variable_weight' ) :
+					$product->get_weight()
+				);
+
+			case 'product-downloadable':
+				return (
+					$this->is_variable_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'variable_downloadable' ) :
+					$product->get_downloadable()
+				);
+
+			case 'product-virtual':
+				return (
+					$this->is_variable_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'variable_virtual' ) :
+					$product->get_virtual()
+				);
+
+			case 'product-sold-individually':
+				return $product->get_sold_individually();
+
+			case 'product-tax-status':
+				return $product->get_tax_status();
+
+			case 'product-tax-class':
+				return $product->get_tax_class();
+
+			case 'product-manage-stock':
+				return (
+					$this->is_variable_product_info( $product, $is_variation_newline ) ?
+					$this->get_variable_or_grouped_product_info( $product, 'variable_manage_stock' ) :
+					$product->get_manage_stock()
+				);
+
+			case 'product-stock-status':
+				return $product->get_stock_status();
+
+			case 'product-backorders':
+				return $product->get_backorders();
+
+			case 'product-featured':
+				return (
+					! $product->is_type( 'variation' ) ?
+					$product->get_featured() :
+					''
+				);
+
+			case 'product-visibility':
+				return $product->get_catalog_visibility();
+
+			case 'product-price-including-tax':
+				return wc_get_price_including_tax( $product );
+
+			case 'product-price-excluding-tax':
+				return wc_get_price_excluding_tax( $product );
+
+			case 'product-display-price':
+				return wc_get_price_to_display( $product );
+
+			case 'product-average-rating':
+				return $product->get_average_rating();
+
+			case 'product-rating-count':
+				return $product->get_rating_count();
+
+			case 'product-review-count':
+				return $product->get_review_count();
+
+			case 'product-categories':
+				return (
+					! $product->is_type( 'variation' ) ?
+					strip_tags( wc_get_product_category_list( $product->get_id() ) ) :
+					''
+				);
+
+			case 'product-tags':
+				return (
+					! $product->is_type( 'variation' ) ?
+					strip_tags( wc_get_product_tag_list( $product->get_id() ) ) :
+					''
+				);
+
+			case 'product-dimensions':
+				return wc_format_dimensions( $product->get_dimensions( false ) );
+
+			case 'product-formatted-name':
+				return $product->get_formatted_name();
+
+			case 'product-availability':
+				$availability = $product->get_availability();
+				return $availability['availability'];
+
+			case 'product-availability-class':
+				$availability = $product->get_availability();
+				return $availability['class'];
+
+		}
+
 	}
 
 }
