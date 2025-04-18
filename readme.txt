@@ -2,8 +2,8 @@
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
 Tags: woocommerce, export
 Requires at least: 4.4
-Tested up to: 6.7
-Stable tag: 2.3.0
+Tested up to: 6.8
+Stable tag: 2.3.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,13 @@ When exporting products and/or orders, you can add one additional product and/or
 3. Start by visiting plugin settings at "WPFactory > Export".
 
 == Changelog ==
+
+= 2.3.1 - 18/04/2025 =
+* Fix - Export Products - Remove empty "Product Attributes" column.
+* Fix - Translation loading fixed.
+* Dev - Key Manager - Library updated.
+* WC tested up to: 9.8.
+* Tested up to: 6.8.
 
 = 2.3.0 - 30/03/2025 =
 * Dev - Export Products - Add "Variation Product on a New Row" option (defaults to `no`).

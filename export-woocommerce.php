@@ -3,12 +3,12 @@
 Plugin Name: Export Products, Orders & Customers for WooCommerce
 Plugin URI: https://wpfactory.com/item/export-woocommerce/
 Description: Advanced export tools for all your WooCommerce store data: Orders, Products Customers & More, export to XML or CSV in one click.
-Version: 2.3.0
+Version: 2.3.1
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: export-woocommerce
 Domain Path: /langs
-WC tested up to: 9.7
+WC tested up to: 9.8
 Requires Plugins: woocommerce
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -62,12 +62,16 @@ if ( 'export-woocommerce.php' === basename( __FILE__ ) ) {
 	}
 }
 
+defined( 'ALG_WC_EXPORT_VERSION' ) || define( 'ALG_WC_EXPORT_VERSION', '2.3.1' );
+
+defined( 'ALG_WC_EXPORT_FILE' ) || define( 'ALG_WC_EXPORT_FILE', __FILE__ );
+
 if ( ! class_exists( 'Alg_WC_Export' ) ) :
 
 /**
  * Main Alg_WC_Export Class
  *
- * @version 2.2.5
+ * @version 2.3.1
  * @since   1.0.0
  *
  * @class   Alg_WC_Export
@@ -80,7 +84,7 @@ final class Alg_WC_Export {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '2.3.0';
+	public $version = ALG_WC_EXPORT_VERSION;
 
 	/**
 	 * core.
@@ -97,14 +101,6 @@ final class Alg_WC_Export {
 	 * @since   2.2.0
 	 */
 	public $fields_helper;
-
-	/**
-	 * settings.
-	 *
-	 * @version 2.2.0
-	 * @since   2.2.0
-	 */
-	public $settings;
 
 	/**
 	 * @since 1.0.0
@@ -232,7 +228,7 @@ final class Alg_WC_Export {
 	/**
 	 * admin.
 	 *
-	 * @version 2.2.5
+	 * @version 2.3.1
 	 * @since   1.3.0
 	 */
 	function admin() {
@@ -241,23 +237,13 @@ final class Alg_WC_Export {
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'action_links' ) );
 
 		// "Recommendations" page
-		$this->add_cross_selling_library();
+		add_action( 'init', array( $this, 'add_cross_selling_library' ) );
 
 		// WC Settings tab as WPFactory submenu item
-		$this->move_wc_settings_tab_to_wpfactory_menu();
+		add_action( 'init', array( $this, 'move_wc_settings_tab_to_wpfactory_menu' ) );
 
 		// Settings
 		add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
-		require_once( 'includes/settings/class-alg-wc-export-settings-section.php' );
-		require_once( 'includes/import/class-alg-wc-export-import-products.php' );
-		$this->settings = array();
-		$this->settings['general']               = require_once( 'includes/settings/class-alg-wc-export-settings-general.php' );
-		$this->settings['products']              = require_once( 'includes/settings/class-alg-wc-export-settings-products.php' );
-		$this->settings['orders']                = require_once( 'includes/settings/class-alg-wc-export-settings-orders.php' );
-		$this->settings['orders_items']          = require_once( 'includes/settings/class-alg-wc-export-settings-orders-items.php' );
-		$this->settings['customers']             = require_once( 'includes/settings/class-alg-wc-export-settings-customers.php' );
-		$this->settings['customers_from_orders'] = require_once( 'includes/settings/class-alg-wc-export-settings-customers-from-orders.php' );
-		$this->settings['import']                = require_once( 'includes/settings/class-alg-wc-export-settings-import.php' );
 
 		// Version updated
 		if ( get_option( 'alg_wc_export_version', '' ) !== $this->version ) {

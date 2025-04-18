@@ -4,7 +4,7 @@
  *
  * The WooCommerce Exporter Products class.
  *
- * @version 2.3.0
+ * @version 2.3.1
  * @since   1.0.0
  *
  * @author  WPFactory
@@ -135,7 +135,7 @@ class Alg_Exporter_Products {
 	/**
 	 * export_products.
 	 *
-	 * @version 2.3.0
+	 * @version 2.3.1
 	 * @since   1.0.0
 	 *
 	 * @todo    (dev) export variations; `product-attributes` -> `( ! empty( $_product->get_attributes() ) ? serialize( $_product->get_attributes() ) : '' );`
@@ -163,10 +163,10 @@ class Alg_Exporter_Products {
 		}
 
 		$titles = array();
-		foreach ( $fields_ids as $field_id ) {
+		foreach ( $fields_ids as $field_key => $field_id ) {
 			if ( 'product-attributes' == $field_id ){
 				$is_prd_attr = true;
-				unset( $fields_ids[ $field_id ] );
+				unset( $fields_ids[ $field_key ] );
 			} else {
 				$titles[] = $all_fields[ $field_id ];
 			}
