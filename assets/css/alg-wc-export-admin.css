@@ -1,0 +1,17 @@
+/**
+ * Export WooCommerce - Admin CSS
+ *
+ * @version 2.4.0
+ * @since   2.4.0
+ *
+ * @author WPFactory
+ */
+
+.alg-button-export-tool-settings,
+.alg-button-export-tool-open {
+	background: #00c28e !important;
+	border-color: #009967 !important;
+	color: #fff !important;
+	box-shadow: 0 1px 0 #009967 !important;
+	text-shadow: 0 -1px 1px #009967, 1px 0 1px #009967, 0 1px 1px #009967, -1px 0 1px #009967 !important;
+}

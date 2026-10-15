@@ -1,0 +1,36 @@
+/**
+ * Export WooCommerce - Admin Filter Options CSS
+ *
+ * @version 2.4.0
+ * @since   2.4.0
+ *
+ * @author WPFactory
+ */
+
+p.submit {
+	display: none !important;
+}
+
+input#alg_export_products_fields_from_date,
+input#alg_export_customers_from_orders_fields_from_date {
+	float: left;
+	margin-right: 20px;
+	width: 12em;
+}
+
+input#alg_export_products_fields_from_date+p.description,
+input#alg_export_customers_from_orders_fields_from_date+p.description {
+	float: left;
+	width: 12em;
+	margin-top: 0px !important;
+}
+
+input#alg_export_products_fields_end_date_alternative,
+input#alg_export_customers_from_orders_fields_end_date_alternative {
+	width: 12em;
+}
+
+body div#alg_wc_export_products_filter_options-description+table.form-table tbody tr:nth-child(3),
+body div#alg_wc_export_customers_from_orders_filter_options-description+table.form-table tbody tr:nth-child(3) {
+	display: none;
+}

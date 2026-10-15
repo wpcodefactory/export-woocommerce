@@ -1,0 +1,210 @@
+/**
+ * Export WooCommerce - Products Admin CSS
+ *
+ * @version 2.4.0
+ * @since   2.4.0
+ *
+ * @author WPFactory
+ */
+
+select#alg_export_products_fields {
+	max-width: 100%;
+}
+
+.subject-info-box-1,
+.subject-info-box-2 {
+	float: left;
+	width: 40%;
+}
+
+.subject-info-box-1 {
+	margin-right: 20px;
+}
+
+.subject-info-box-2 {
+	margin-left: 20px;
+}
+
+.subject-info-arrows {
+	float: left;
+	width: 10%;
+	position: relative;
+	height: 300px;
+}
+
+.subject-info-arrows input {
+	width: 70%;
+	margin-bottom: 5px;
+}
+
+.button-wrapper {
+	top: 33%;
+	position: absolute;
+	transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	width: 120px;
+}
+
+.sortable_list {
+	margin-top: 0px;
+	height: 300px;
+	border: 1px solid #000;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+span.ui-icon.ui-icon-arrowthick-2-n-s {
+	float: left;
+	margin-right: 20px;
+}
+
+.sortable_list li {
+	padding: 5px;
+	cursor: move;
+}
+
+.remove_sort_item {
+	float: right;
+	color: red;
+	cursor: pointer;
+}
+
+label[for="alg_export_products_fields_sorted"] {
+	display: none !important;
+}
+
+.paginate-ajax-alg-preview .page-numbers {
+	color: #2271b1;
+	border-color: #2271b1;
+	background: #f6f7f7;
+	vertical-align: top;
+	display: inline-block;
+	text-decoration: none;
+	font-size: 13px;
+	line-height: 2.15384615;
+	min-height: 30px;
+	margin: 0;
+	padding: 0 10px;
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: 3px;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+
+.paginate-ajax-alg-preview .page-numbers.current {
+	background: #0071a1;
+	border-color: #0071a1;
+	color: #fff;
+}
+
+.paginate-ajax-alg-preview {
+	text-align: center;
+	margin-bottom: 12px;
+}
+
+#alg-wc-overlay-id {
+	display: none;
+}
+
+.alg-wc-overlay {
+	background-color: black;
+	background-color: rgba(0, 0, 0, .8);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+}
+
+.alg-wc-progress {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 20px;
+	margin: -10px 0 0 -150px;
+	z-index: 101;
+	opacity: 1.0;
+	border: 1px solid #149bdf;
+}
+
+.alg-wc-progress-striped .alg-wc-bar {
+	background-color: #149bdf;
+	background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	-webkit-background-size: 40px 40px;
+	-moz-background-size: 40px 40px;
+	-o-background-size: 40px 40px;
+	background-size: 40px 40px;
+	-webkit-animation: progress-bar-stripes 2s linear infinite;
+	-moz-animation: progress-bar-stripes 2s linear infinite;
+	-ms-animation: progress-bar-stripes 2s linear infinite;
+	-o-animation: progress-bar-stripes 2s linear infinite;
+	animation: progress-bar-stripes 2s linear infinite;
+
+}
+
+.alg-wc-progress .alg-wc-bar {
+	float: left;
+	width: 0;
+	height: 100%;
+	font-size: 12px;
+	color: #ffffff;
+	text-align: center;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #0e90d2;
+	background-image: -moz-linear-gradient(top, #149bdf, #0480be);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#149bdf), to(#0480be));
+	background-image: -webkit-linear-gradient(top, #149bdf, #0480be);
+	background-image: -o-linear-gradient(top, #149bdf, #0480be);
+	background-image: linear-gradient(to bottom, #149bdf, #0480be);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff149bdf', endColorstr='#ff0480be', GradientType=0);
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: width 0.6s ease;
+	-moz-transition: width 0.6s ease;
+	-o-transition: width 0.6s ease;
+	transition: width 0.6s ease;
+
+}
+
+.alg-wc-overlay .alg-wc-file-download-per-text {
+	color: #fff;
+	font-size: 24px;
+	position: absolute;
+	top: 53%;
+	left: 50%;
+	width: 400px;
+	margin: -10px 0 0 -150px;
+	z-index: 101;
+	opacity: 1.0;
+	text-align: center;
+	line-height: 1.5;
+}
+
+.alg-wc-overlay .alg-wc-file-download-text {
+	color: #fff;
+	font-size: 20px;
+	position: absolute;
+	top: 56%;
+	left: 50%;
+	width: 400px;
+	margin: -10px 0 0 -150px;
+	z-index: 101;
+	opacity: 1.0;
+	text-align: center;
+	line-height: 1.5;
+}
