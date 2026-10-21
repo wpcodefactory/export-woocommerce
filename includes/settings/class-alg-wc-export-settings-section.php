@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Section Settings
  *
- * @version 2.4.0
+ * @version 2.4.1
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Section' ) ) :
 	/**
 	 * Alg_WC_Export_Settings_Section class.
 	 *
-	 * @version 2.4.0
+	 * @version 2.4.1
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_Settings_Section {
@@ -76,24 +76,35 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Section' ) ) :
 		/**
 		 * Get save button.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.3.0
 		 */
 		public function get_save_button() {
 			return (
-				'<button name="save" class="button-primary woocommerce-save-button" type="submit" value="' . esc_attr( __( 'Save changes', 'export-woocommerce' ) ) . '">' .
+				'<button name="save" class="button-primary woocommerce-save-button" type="submit" value="' . esc_attr__( 'Save changes', 'export-woocommerce' ) . '">' .
 					esc_html__( 'Save changes', 'export-woocommerce' ) .
-				'</button>' .
-				apply_filters(
-					'alg_wc_export',
-					'<p>' .
-						sprintf(
-							'Please upgrade to <a href="%s" target="_blank">Export WooCommerce Pro plugin</a> to add more than one additional export field.',
-							'https://wpfactory.com/item/export-woocommerce/'
-						) .
-					'</p>',
-					'settings'
-				)
+				'</button>'
+			);
+		}
+
+		/**
+		 * Create temporary folder.
+		 *
+		 * @version 2.4.1
+		 * @since   2.0.10
+		 */
+		public function create_temp_folder() {
+			$upload_dir  = wp_upload_dir();
+			$destination = trailingslashit( $upload_dir['basedir'] ) . 'alg_wc_export_temp/';
+			$url         = trailingslashit( $upload_dir['baseurl'] ) . 'alg_wc_export_temp/';
+
+			if ( ! file_exists( $destination ) ) {
+				wp_mkdir_p( $destination );
+			}
+
+			return array(
+				'path' => $destination,
+				'url'  => $url,
 			);
 		}
 	}

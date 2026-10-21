@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Exporter Customers Class
  *
- * @version 2.4.0
+ * @version 2.4.1
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_Customers_Exporter' ) ) :
 	/**
 	 * Alg_WC_Export_Customers_Exporter class.
 	 *
-	 * @version 2.4.0
+	 * @version 2.4.1
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_Customers_Exporter {
@@ -45,7 +45,7 @@ if ( ! class_exists( 'Alg_WC_Export_Customers_Exporter' ) ) :
 		/**
 		 * Export customers.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 *
 		 * @param Alg_WC_Export_Fields_Helper $fields_helper Fields helper object.
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Alg_WC_Export_Customers_Exporter' ) ) :
 			$total_customers     = 0;
 			$data                = array();
 			$data[]              = $titles;
-			$user_roles          = apply_filters( 'alg_wc_export', array( 'customer' ), 'value_export_customers_user_roles' );
+			$user_roles          = get_option( 'alg_export_customers_user_roles', array( 'customer' ) );
 			$args                = ( ! empty( $user_roles ) ? array( 'role__in' => $user_roles ) : array() );
 			$args                = alg_wc_export_maybe_add_date_query( $args );
 			$customers           = get_users( $args );
@@ -127,13 +127,14 @@ if ( ! class_exists( 'Alg_WC_Export_Customers_Exporter' ) ) :
 							$row[] = date( get_option( 'date_format' ), $last_update ); // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
 							break;
 						case 'total-spent':
-							$row[] = apply_filters( 'alg_wc_export', '', 'customer_export_total_spent', array( 'wc_customer' => $wc_customer ) );
+							$row[] = ( $wc_customer ? $wc_customer->get_total_spent() : '' );
 							break;
 						case 'order-count':
-							$row[] = apply_filters( 'alg_wc_export', '', 'customer_export_order_count', array( 'wc_customer' => $wc_customer ) );
+							$row[] = ( $wc_customer ? $wc_customer->get_order_count() : '' );
 							break;
 						case 'last-order-date':
-							$row[] = apply_filters( 'alg_wc_export', '', 'customer_export_last_order_date', array( 'wc_customer' => $wc_customer ) );
+							$last_order = ( $wc_customer ? $wc_customer->get_last_order() : false );
+							$row[]      = ( $last_order ? get_the_date( get_option( 'date_format' ), $last_order->get_id() ) : '' );
 							break;
 						case 'nickname':
 						case 'first-name':
@@ -212,7 +213,7 @@ if ( ! class_exists( 'Alg_WC_Export_Customers_Exporter' ) ) :
 		/**
 		 * Export customers from orders.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 *
 		 * @param object $fields_helper Fields helper object.
@@ -399,22 +400,22 @@ if ( ! class_exists( 'Alg_WC_Export_Customers_Exporter' ) ) :
 									}
 									break;
 								case 'total-spent':
-									$row[] = ( $is_wc_version_below_3 ? '' : apply_filters( 'alg_wc_export', '', 'customer_export_total_spent', array( 'wc_customer' => $wc_customer ) ) );
+									$row[] = ( $is_wc_version_below_3 ? '' : ( $wc_customer ? $wc_customer->get_total_spent() : '' ) );
 									break;
 								case 'order-count':
-									$row[] = ( $is_wc_version_below_3 ? '' : apply_filters( 'alg_wc_export', '', 'customer_export_order_count', array( 'wc_customer' => $wc_customer ) ) );
+									$row[] = ( $is_wc_version_below_3 ? '' : ( $wc_customer ? $wc_customer->get_order_count() : '' ) );
 									break;
 								case 'total-spent-period':
-									$row[] = apply_filters( 'alg_wc_export', '', 'customer_from_orders_export_total_spent_period', array( 'customer_id' => $customer_id ) );
+									$row[] = ( ! empty( $customer_id ) ? '%alg-wc-export-replace-total-spent=' . $customer_id . '%' : '' );
 									break;
 								case 'order-count-period':
-									$row[] = apply_filters( 'alg_wc_export', '', 'customer_from_orders_export_order_count_period', array( 'customer_id' => $customer_id ) );
+									$row[] = ( ! empty( $customer_id ) ? '%alg-wc-export-replace-order-count=' . $customer_id . '%' : '' );
 									break;
 								case 'item-count-period':
-									$row[] = apply_filters( 'alg_wc_export', '', 'customer_from_orders_export_item_count_period', array( 'customer_id' => $customer_id ) );
+									$row[] = ( ! empty( $customer_id ) ? '%alg-wc-export-replace-item-count=' . $customer_id . '%' : '' );
 									break;
 								case 'customer-first-order-date':
-									$row[] = apply_filters( 'alg_wc_export', '', 'customer_from_orders_export_first_order', array( 'customer_id' => $customer_id ) );
+									$row[] = ( ! empty( $customer_id ) ? '%alg-wc-export-replace-first-order=' . $customer_id . '%' : '' );
 									break;
 								default:
 									$_field_id = str_replace( array( 'customer-', '-' ), array( '', '_' ), $field_id );

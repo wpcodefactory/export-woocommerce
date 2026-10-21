@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - AJAX Class
  *
- * @version 2.4.0
+ * @version 2.4.1
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_AJAX' ) ) :
 	/**
 	 * Alg_WC_Export_AJAX class.
 	 *
-	 * @version 2.4.0
+	 * @version 2.4.1
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_AJAX {
@@ -25,7 +25,7 @@ if ( ! class_exists( 'Alg_WC_Export_AJAX' ) ) :
 		/**
 		 * Constructor.
 		 *
-		 * @version 2.1.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 */
 		public function __construct() {
@@ -55,6 +55,63 @@ if ( ! class_exists( 'Alg_WC_Export_AJAX' ) ) :
 				'wp_ajax_nopriv_alg_wc_export_admin_product_change_date_filter',
 				array( $this, 'alg_wc_export_admin_product_change_date_filter' )
 			);
+
+			add_action(
+				'admin_init',
+				array( $this, 'alg_wc_export_tmp_file_downloader' )
+			);
+		}
+
+		/**
+		 * Temporary file downloader.
+		 *
+		 * @version 2.4.1
+		 * @since   2.4.1
+		 */
+		public function alg_wc_export_tmp_file_downloader() {
+			if ( ! isset( $_GET['alg_wc_export_file_download'] ) ) {
+				return;
+			}
+
+			// Check user capabilities and nonce.
+			if (
+				! current_user_can( 'manage_options' ) ||
+				! isset( $_GET['nonce'] ) ||
+				! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['nonce'] ) ), 'alg-wc-export-ajax-nonce' )
+			) {
+				exit;
+			}
+
+			// Get file path.
+			$upload_dir = wp_upload_dir();
+			$dest       = trailingslashit( $upload_dir['basedir'] ) . 'alg_wc_export_temp/';
+			$file_path  = $dest . sanitize_file_name( wp_unslash( $_GET['alg_wc_export_file_download'] ) );
+
+			// Check if file exists and is readable.
+			if (
+				! is_file( $file_path ) ||
+				! is_readable( $file_path )
+			) {
+				wp_die( esc_html__( 'File not found.', 'export-woocommerce' ) );
+			}
+
+			// Set headers for file download.
+			nocache_headers();
+			header( 'Content-Type: application/octet-stream' );
+			header( 'Content-Disposition: attachment; filename="' . basename( $file_path ) . '"' );
+			header( 'Content-Length: ' . filesize( $file_path ) );
+
+			// Continue cleanup even if the browser disconnects.
+			ignore_user_abort( true );
+
+			// Serve the file and ensure cleanup.
+			try {
+				readfile( $file_path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_readfile
+			} finally {
+				wp_delete_file( $file_path );
+			}
+
+			exit;
 		}
 
 		/**

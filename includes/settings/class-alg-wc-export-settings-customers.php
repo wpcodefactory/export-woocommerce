@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Customers Section Settings
  *
- * @version 2.4.0
+ * @version 2.4.1
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers' ) ) :
 	/**
 	 * Alg_WC_Export_Settings_Customers class.
 	 *
-	 * @version 2.4.0
+	 * @version 2.4.1
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_Settings_Customers extends Alg_WC_Export_Settings_Section {
@@ -37,7 +37,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers' ) ) :
 		/**
 		 * Get settings.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 *
 		 * @todo (dev) add "Additional Export Fields"?
@@ -57,6 +57,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers' ) ) :
 			foreach ( $wp_user_roles as $role_key => $role ) {
 				$user_roles[ $role_key ] = $role['name'];
 			}
+
 			// Settings.
 			$settings = array(
 				array(
@@ -80,34 +81,16 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers' ) ) :
 					'type'     => 'multiselect',
 					'options'  => alg_wc_export()->fields_helper->get_customer_export_fields(),
 					'css'      => 'height:300px;min-width:300px;',
-					'desc'     => alg_wc_export()->fields_helper->extra_fields_message(
-						array(
-							__( 'Total Spent (Lifetime)', 'export-woocommerce' ),
-							__( 'Order Count (Lifetime)', 'export-woocommerce' ),
-							__( 'Last Order Date', 'export-woocommerce' ),
-						)
-					),
 				),
 				array(
-					'title'             => __( 'User Roles', 'export-woocommerce' ),
-					'desc_tip'          => __( 'Here you can select multiple user roles to export.', 'export-woocommerce' ) . ' ' .
+					'title'    => __( 'User Roles', 'export-woocommerce' ),
+					'desc_tip' => __( 'Here you can select multiple user roles to export.', 'export-woocommerce' ) . ' ' .
 						__( 'If empty - all user roles will be exported.', 'export-woocommerce' ),
-					'id'                => 'alg_export_customers_user_roles',
-					'default'           => array( 'customer' ),
-					'type'              => 'multiselect',
-					'class'             => 'chosen_select',
-					'options'           => $user_roles,
-					'desc'              => apply_filters(
-						'alg_wc_export',
-						'<p>' .
-						sprintf(
-							'Please upgrade to <a href="%s" target="_blank">Export WooCommerce Pro plugin</a> to change "User Roles" option.',
-							'https://wpfactory.com/item/export-woocommerce/'
-						) .
-						'</p>',
-						'settings'
-					),
-					'custom_attributes' => apply_filters( 'alg_wc_export', array( 'disabled' => 'disabled' ), 'settings' ),
+					'id'       => 'alg_export_customers_user_roles',
+					'default'  => array( 'customer' ),
+					'type'     => 'multiselect',
+					'class'    => 'chosen_select',
+					'options'  => $user_roles,
 				),
 				array(
 					'type' => 'sectionend',

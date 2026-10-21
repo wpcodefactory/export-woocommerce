@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Exporter Products Class
  *
- * @version 2.4.0
+ * @version 2.4.1
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_Products_Exporter' ) ) :
 	/**
 	 * Alg_WC_Export_Products_Exporter class.
 	 *
-	 * @version 2.4.0
+	 * @version 2.4.1
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_Products_Exporter {
@@ -145,7 +145,7 @@ if ( ! class_exists( 'Alg_WC_Export_Products_Exporter' ) ) :
 		/**
 		 * Export products.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 *
 		 * @param object $fields_helper Fields helper object.
@@ -204,8 +204,8 @@ if ( ! class_exists( 'Alg_WC_Export_Products_Exporter' ) ) :
 			}
 
 			// Additional fields.
-			$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_products' );
-			for ( $i = 1; $i <= $total_number; $i++ ) {
+			$total_number_additional_fields = get_option( 'alg_export_products_fields_additional_total_number', 1 );
+			for ( $i = 1; $i <= $total_number_additional_fields; $i++ ) {
 				if ( 'yes' === get_option( 'alg_export_products_fields_additional_enabled_' . $i, 'no' ) ) {
 					$titles[] = get_option( 'alg_export_products_fields_additional_title_' . $i, '' );
 				}
@@ -289,8 +289,7 @@ if ( ! class_exists( 'Alg_WC_Export_Products_Exporter' ) ) :
 					}
 
 					// Additional fields.
-					$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_products' );
-					for ( $i = 1; $i <= $total_number; $i++ ) {
+					for ( $i = 1; $i <= $total_number_additional_fields; $i++ ) {
 						if ( 'yes' === get_option( 'alg_export_products_fields_additional_enabled_' . $i, 'no' ) ) {
 							$additional_field_value = get_option( 'alg_export_products_fields_additional_value_' . $i, '' );
 							if ( '' !== (string) $additional_field_value ) {

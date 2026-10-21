@@ -4,7 +4,7 @@ Tags: woocommerce, export
 Requires at least: 5.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.4.0
+Stable tag: 2.4.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -38,8 +38,10 @@ With this plugin, you can do the following:
 * User capability.
 * Secondary separators.
 
-= Do More with Premium Version =
-When exporting products and/or orders, you can add one additional product and/or order **meta field** to export. Our [Pro version](https://wpfactory.com/item/export-woocommerce/) allows adding unlimited number of additional meta fields.
+= Feedback =
+* We are open to your suggestions and feedback.
+* Visit the [Export WooCommerce plugin page](https://wpfactory.com/item/export-woocommerce/).
+* Thank you for using or trying out one of our plugins!
 
 == Screenshots ==
 
@@ -48,11 +50,6 @@ When exporting products and/or orders, you can add one additional product and/or
 3. Dashboard Page
 4. Product Report Results Page
 
-= Feedback =
-* We are open to your suggestions and feedback.
-* Visit the [Export WooCommerce plugin page](https://wpfactory.com/item/export-woocommerce/).
-* Thank you for using or trying out one of our plugins!
-
 == Installation ==
 
 1. Upload the entire plugin folder to the `/wp-content/plugins/` directory.
@@ -60,6 +57,10 @@ When exporting products and/or orders, you can add one additional product and/or
 3. Start by visiting plugin settings at "WPFactory > Export".
 
 == Changelog ==
+
+= 2.4.1 - 21/10/2026 =
+* Dev - AJAX temporary export files cleanup implemented.
+* Dev - The free plugin version can now handle an unlimited number of additional export meta fields; all user roles; all (extra) export fields.
 
 = 2.4.0 - 15/10/2026 =
 * Fix - AJAX Download - Progress overlay fixed.

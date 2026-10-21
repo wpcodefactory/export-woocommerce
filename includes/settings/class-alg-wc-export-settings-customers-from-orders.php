@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Customers from Orders Section Settings
  *
- * @version 2.4.0
+ * @version 2.4.1
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers_From_Orders' ) ) :
 	/**
 	 * Alg_WC_Export_Settings_Customers_From_Orders class.
 	 *
-	 * @version 2.4.0
+	 * @version 2.4.1
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_Settings_Customers_From_Orders extends Alg_WC_Export_Settings_Section {
@@ -72,26 +72,14 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers_From_Orders' ) ) :
 		/**
 		 * After settings.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 */
 		public function after_settings() {
 			echo (
-				'<button name="save" class="button-primary wc-customers_from_orders-external-save-button" type="button" value="' . esc_attr( __( 'Save changes', 'export-woocommerce' ) ) . '" style="margin-right:10px;">' .
+				'<button name="save" class="button-primary wc-customers_from_orders-external-save-button" type="button" value="' . esc_attr__( 'Save changes', 'export-woocommerce' ) . '" style="margin-right:10px;">' .
 					esc_html__( 'Save changes', 'export-woocommerce' ) .
-				'</button>' .
-				wp_kses_post(
-					apply_filters(
-						'alg_wc_export',
-						'<p>' .
-						sprintf(
-							'Please upgrade to <a href="%s" target="_blank">Export WooCommerce Pro plugin</a> to add more than one additional export field.',
-							'https://wpfactory.com/item/export-woocommerce/'
-						) .
-						'</p>',
-						'settings'
-					)
-				)
+				'</button>'
 			);
 			echo '<button type="button" id="alg-wc-export-preview-btn" class="button-secondary preview-btn" data-limit="5" value="Preview" title="Might be different from actual export!" style="margin-right:10px;">' .
 				esc_html__( 'Preview', 'export-woocommerce' ) .
@@ -132,7 +120,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers_From_Orders' ) ) :
 		/**
 		 * Get settings.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 *
 		 * @todo (v2.4.0) `alg_export_customers_from_orders_fields_end_date`: Datepicker not working properly?
@@ -157,16 +145,6 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers_From_Orders' ) ) :
 					'type'     => 'multiselect',
 					'options'  => alg_wc_export()->fields_helper->get_customer_from_order_export_fields(),
 					'css'      => 'height:300px;min-width:300px;',
-					'desc'     => alg_wc_export()->fields_helper->extra_fields_message(
-						array(
-							__( 'First Order Date', 'export-woocommerce' ),
-							__( 'Total Spent (Lifetime)', 'export-woocommerce' ),
-							__( 'Order Count (Lifetime)', 'export-woocommerce' ),
-							__( 'Total Spent (Period)', 'export-woocommerce' ),
-							__( 'Order Count (Period)', 'export-woocommerce' ),
-							__( 'Item Count (Period)', 'export-woocommerce' ),
-						)
-					),
 				),
 				array(
 					'type' => 'sectionend',
@@ -277,7 +255,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers_From_Orders' ) ) :
 		/**
 		 * Admin customers from orders AJAX download start.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   2.0.10
 		 */
 		public function alg_wc_export_admin_customers_from_orders_ajax_download_start() {
@@ -292,8 +270,15 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers_From_Orders' ) ) :
 			$total_page = 1;
 			$nonce      = sanitize_text_field( wp_unslash( $_POST['nonce'] ) );
 			$dest       = $this->create_temp_folder();
-			$file_name  = $dest['path'] . 'customers_from_orders_csv-' . time() . '-' . $nonce . '.csv';
-			$file_url   = $dest['url'] . 'customers_from_orders_csv-' . time() . '-' . $nonce . '.csv';
+			$_file_name = 'customers_from_orders_csv-' . time() . '-' . $nonce . '.csv';
+			$file_name  = $dest['path'] . $_file_name;
+			$file_url   = add_query_arg(
+				array(
+					'alg_wc_export_file_download' => $_file_name,
+					'nonce'                       => $nonce,
+				),
+				admin_url( 'admin.php?page=wc-settings&tab=alg_wc_export&section=' . $this->id )
+			);
 
 			$args_orders = array(
 				'type'     => 'shop_order',
@@ -409,27 +394,6 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers_From_Orders' ) ) :
 					'progress'     => $progress_completed,
 				),
 				JSON_UNESCAPED_SLASHES
-			);
-		}
-
-		/**
-		 * Create temporary folder.
-		 *
-		 * @version 2.4.0
-		 * @since   2.0.10
-		 */
-		public function create_temp_folder() {
-			$upload_dir  = wp_upload_dir();
-			$destination = $upload_dir['basedir'] . '/alg_wc_export_temp/';
-			$url         = $upload_dir['baseurl'] . '/alg_wc_export_temp/';
-
-			if ( ! file_exists( $destination ) ) {
-				wp_mkdir_p( $destination );
-			}
-
-			return array(
-				'path' => $destination,
-				'url'  => $url,
 			);
 		}
 

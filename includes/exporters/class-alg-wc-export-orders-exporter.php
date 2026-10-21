@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Exporter Orders Class
  *
- * @version 2.4.0
+ * @version 2.4.1
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_Orders_Exporter' ) ) :
 	/**
 	 * Alg_WC_Export_Orders_Exporter class.
 	 *
-	 * @version 2.4.0
+	 * @version 2.4.1
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_Orders_Exporter {
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Alg_WC_Export_Orders_Exporter' ) ) :
 		/**
 		 * Get export orders row.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 *
 		 * @param array    $fields_ids Array of field IDs to export.
@@ -67,6 +67,9 @@ if ( ! class_exists( 'Alg_WC_Export_Orders_Exporter' ) ) :
 		 * @param int      $item_id    Order item ID.
 		 *
 		 * @return array Exported row.
+		 *
+		 * @todo (dev) `backend-order-notes`: Export latest note only.
+		 * @todo (dev) `backend-order-notes`: Export a) private notes only, b) customer notes only.
 		 */
 		public function get_export_orders_row( $fields_ids, $order_id, $order, $items, $item, $item_id ) {
 			$sep2 = get_option( 'alg_export_csv_separator_2_orders', ' / ' );
@@ -190,15 +193,20 @@ if ( ! class_exists( 'Alg_WC_Export_Orders_Exporter' ) ) :
 						$row[] = implode( $sep2, $s_result );
 						break;
 					case 'backend-order-notes':
-						$row[] = apply_filters(
-							'alg_wc_export',
-							'',
-							'order_export_backend_order_notes',
+						$notes = array();
+						remove_filter( 'comments_clauses', array( 'WC_Comments', 'exclude_order_comments' ) );
+						$comments = get_comments(
 							array(
-								'order_id' => $order_id,
-								'sep2'     => $sep2,
+								'post_id' => $order_id,
+								'approve' => 'approve',
+								'type'    => '',
 							)
 						);
+						foreach ( $comments as $comment ) {
+							$notes[] = $comment->comment_content;
+						}
+						add_filter( 'comments_clauses', array( 'WC_Comments', 'exclude_order_comments' ) );
+						$row[] = implode( $sep2, $notes );
 						break;
 					case 'billing-first-name':
 					case 'billing-last-name':
@@ -232,7 +240,7 @@ if ( ! class_exists( 'Alg_WC_Export_Orders_Exporter' ) ) :
 		/**
 		 * Export orders.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 *
 		 * @param Alg_WC_Export_Fields_Helper $fields_helper Fields helper object.
@@ -255,8 +263,8 @@ if ( ! class_exists( 'Alg_WC_Export_Orders_Exporter' ) ) :
 			}
 
 			// Additional Fields.
-			$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_orders' );
-			for ( $i = 1; $i <= $total_number; $i++ ) {
+			$total_number_additional_fields = get_option( 'alg_export_orders_fields_additional_total_number', 1 );
+			for ( $i = 1; $i <= $total_number_additional_fields; $i++ ) {
 				if ( 'yes' === get_option( 'alg_export_orders_fields_additional_enabled_' . $i, 'no' ) ) {
 					$titles[] = get_option( 'alg_export_orders_fields_additional_title_' . $i, '' );
 				}
@@ -330,8 +338,7 @@ if ( ! class_exists( 'Alg_WC_Export_Orders_Exporter' ) ) :
 					$row = $this->get_export_orders_row( $fields_ids, $order_id, $order, $items, null, null );
 
 					// Additional Fields.
-					$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_orders' );
-					for ( $i = 1; $i <= $total_number; $i++ ) {
+					for ( $i = 1; $i <= $total_number_additional_fields; $i++ ) {
 						if ( 'yes' === get_option( 'alg_export_orders_fields_additional_enabled_' . $i, 'no' ) ) {
 							$additional_field_value = get_option( 'alg_export_orders_fields_additional_value_' . $i, '' );
 							if ( '' !== $additional_field_value ) {
@@ -353,7 +360,7 @@ if ( ! class_exists( 'Alg_WC_Export_Orders_Exporter' ) ) :
 		/**
 		 * Export orders items.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 *
 		 * @param Alg_WC_Export_Fields_Helper $fields_helper Fields helper object.
@@ -374,8 +381,8 @@ if ( ! class_exists( 'Alg_WC_Export_Orders_Exporter' ) ) :
 			}
 
 			// Additional Fields.
-			$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_orders_items' );
-			for ( $i = 1; $i <= $total_number; $i++ ) {
+			$total_number_additional_fields = get_option( 'alg_export_orders_items_fields_additional_total_number', 1 );
+			for ( $i = 1; $i <= $total_number_additional_fields; $i++ ) {
 				if ( 'yes' === get_option( 'alg_export_orders_items_fields_additional_enabled_' . $i, 'no' ) ) {
 					$titles[] = get_option( 'alg_export_orders_items_fields_additional_title_' . $i, '' );
 				}
@@ -409,8 +416,7 @@ if ( ! class_exists( 'Alg_WC_Export_Orders_Exporter' ) ) :
 						$row = $this->get_export_orders_row( $fields_ids, $order_id, $order, null, $item, $item_id );
 
 						// Additional Fields.
-						$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_orders_items' );
-						for ( $i = 1; $i <= $total_number; $i++ ) {
+						for ( $i = 1; $i <= $total_number_additional_fields; $i++ ) {
 							if ( 'yes' === get_option( 'alg_export_orders_items_fields_additional_enabled_' . $i, 'no' ) ) {
 								$additional_field_value = get_option( 'alg_export_orders_items_fields_additional_value_' . $i, '' );
 								if ( '' !== $additional_field_value ) {

@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Orders Section Settings
  *
- * @version 2.4.0
+ * @version 2.4.1
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Orders' ) ) :
 	/**
 	 * Alg_WC_Export_Settings_Orders class.
 	 *
-	 * @version 2.4.0
+	 * @version 2.4.1
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_Settings_Orders extends Alg_WC_Export_Settings_Section {
@@ -37,7 +37,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Orders' ) ) :
 		/**
 		 * Get settings.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 */
 		public function get_settings() {
@@ -59,11 +59,6 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Orders' ) ) :
 					'type'     => 'multiselect',
 					'options'  => alg_wc_export()->fields_helper->get_order_export_fields(),
 					'css'      => 'height:300px;min-width:300px;',
-					'desc'     => alg_wc_export()->fields_helper->extra_fields_message(
-						array(
-							__( 'Backend Order Notes', 'export-woocommerce' ),
-						)
-					),
 				),
 				array(
 					'title'             => __( 'Additional Export Orders Meta Fields', 'export-woocommerce' ),
@@ -71,21 +66,16 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Orders' ) ) :
 					'id'                => 'alg_export_orders_fields_additional_total_number',
 					'default'           => 1,
 					'type'              => 'number',
-					'desc'              => ' ' . $this->get_save_button(),
-					'custom_attributes' => apply_filters(
-						'alg_wc_export',
-						array(
-							'step' => '1',
-							'min'  => '1',
-							'max'  => '1',
-						),
-						'settings_array'
+					'desc'              => $this->get_save_button(),
+					'custom_attributes' => array(
+						'step' => '1',
+						'min'  => '1',
 					),
 				),
 			);
 
-			$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_orders' );
-			for ( $i = 1; $i <= $total_number; $i++ ) {
+			$total_number_additional_fields = get_option( 'alg_export_orders_fields_additional_total_number', 1 );
+			for ( $i = 1; $i <= $total_number_additional_fields; $i++ ) {
 				$settings = array_merge(
 					$settings,
 					array(

@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Products Section Settings
  *
- * @version 2.4.0
+ * @version 2.4.1
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Products' ) ) :
 	/**
 	 * Alg_WC_Export_Settings_Products class.
 	 *
-	 * @version 2.4.0
+	 * @version 2.4.1
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_Settings_Products extends Alg_WC_Export_Settings_Section {
@@ -72,26 +72,14 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Products' ) ) :
 		/**
 		 * After settings.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 */
 		public function after_settings() {
 			echo (
-				'<button name="save" class="button-primary wc-product-external-save-button" type="button" value="' . esc_attr( __( 'Save changes', 'export-woocommerce' ) ) . '" style="margin-right:10px;">' .
+				'<button name="save" class="button-primary wc-product-external-save-button" type="button" value="' . esc_attr__( 'Save changes', 'export-woocommerce' ) . '" style="margin-right:10px;">' .
 					esc_html__( 'Save changes', 'export-woocommerce' ) .
-				'</button>' .
-				wp_kses_post(
-					apply_filters(
-						'alg_wc_export',
-						'<p>' .
-						sprintf(
-							'Please upgrade to <a href="%s" target="_blank">Export WooCommerce Pro plugin</a> to add more than one additional export field.',
-							'https://wpfactory.com/item/export-woocommerce/'
-						) .
-						'</p>',
-						'settings'
-					)
-				)
+				'</button>'
 			);
 			echo '<button type="button" id="alg-wc-export-preview-btn" class="button-secondary preview-btn" data-limit="5" value="Preview" title="Might be different from actual export!" style="margin-right:10px;">' .
 				esc_html__( 'Preview', 'export-woocommerce' ) .
@@ -132,13 +120,13 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Products' ) ) :
 		/**
 		 * Get settings.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   1.0.0
 		 *
 		 * @todo (v2.4.0) `alg_export_products_fields_end_date`: Datepicker not working properly?
 		 */
 		public function get_settings() {
-			$settings     = array(
+			$settings = array(
 				array(
 					'title' => __( 'Export Products Options', 'export-woocommerce' ),
 					'type'  => 'title',
@@ -184,19 +172,16 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Products' ) ) :
 					'id'                => 'alg_export_products_fields_additional_total_number',
 					'default'           => 1,
 					'type'              => 'number',
-					'custom_attributes' => apply_filters(
-						'alg_wc_export',
-						array(
-							'step' => '1',
-							'min'  => '1',
-							'max'  => '1',
-						),
-						'settings_array'
+					'desc'              => $this->get_save_button(),
+					'custom_attributes' => array(
+						'step' => '1',
+						'min'  => '1',
 					),
 				),
 			);
-			$total_number = apply_filters( 'alg_wc_export', 1, 'value_export_products' );
-			for ( $i = 1; $i <= $total_number; $i++ ) {
+
+			$total_number_additional_fields = get_option( 'alg_export_products_fields_additional_total_number', 1 );
+			for ( $i = 1; $i <= $total_number_additional_fields; $i++ ) {
 				$settings = array_merge(
 					$settings,
 					array(
@@ -329,7 +314,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Products' ) ) :
 		/**
 		 * Admin product AJAX download start.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.1
 		 * @since   2.0.10
 		 */
 		public function alg_wc_export_admin_product_ajax_download_start() {
@@ -344,8 +329,15 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Products' ) ) :
 			$total_page  = 1;
 			$nonce       = sanitize_text_field( wp_unslash( $_POST['nonce'] ) );
 			$dest        = $this->create_temp_folder();
-			$file_name   = $dest['path'] . 'product_csv-' . time() . '-' . $nonce . '.csv';
-			$file_url    = $dest['url'] . 'product_csv-' . time() . '-' . $nonce . '.csv';
+			$_file_name  = 'product_csv-' . time() . '-' . $nonce . '.csv';
+			$file_name   = $dest['path'] . $_file_name;
+			$file_url    = add_query_arg(
+				array(
+					'alg_wc_export_file_download' => $_file_name,
+					'nonce'                       => $nonce,
+				),
+				admin_url( 'admin.php?page=wc-settings&tab=alg_wc_export&section=' . $this->id )
+			);
 			$count_pages = wp_count_posts( 'product' );
 
 			if ( ! empty( $count_pages ) ) {
@@ -451,27 +443,6 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Products' ) ) :
 					'progress'     => $progress_completed,
 				),
 				JSON_UNESCAPED_SLASHES
-			);
-		}
-
-		/**
-		 * Create temporary folder.
-		 *
-		 * @version 2.4.0
-		 * @since   2.0.10
-		 */
-		public function create_temp_folder() {
-			$upload_dir  = wp_upload_dir();
-			$destination = $upload_dir['basedir'] . '/alg_wc_export_temp/';
-			$url         = $upload_dir['baseurl'] . '/alg_wc_export_temp/';
-
-			if ( ! file_exists( $destination ) ) {
-				wp_mkdir_p( $destination );
-			}
-
-			return array(
-				'path' => $destination,
-				'url'  => $url,
 			);
 		}
 
