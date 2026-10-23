@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Customers from Orders Section Settings
  *
- * @version 2.4.1
+ * @version 2.4.2
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers_From_Orders' ) ) :
 	/**
 	 * Alg_WC_Export_Settings_Customers_From_Orders class.
 	 *
-	 * @version 2.4.1
+	 * @version 2.4.2
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_Settings_Customers_From_Orders extends Alg_WC_Export_Settings_Section {
@@ -322,7 +322,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers_From_Orders' ) ) :
 		/**
 		 * Admin customers from orders AJAX download.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.2
 		 * @since   2.0.10
 		 */
 		public function alg_wc_export_admin_customers_from_orders_ajax_download() {
@@ -358,6 +358,10 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Customers_From_Orders' ) ) :
 			$data      = alg_wc_export()->core->export( $tool_id, false, $current_page, $start, true );
 			$file_name = sanitize_text_field( wp_unslash( $_POST['file_path'] ) );
 			$file_url  = esc_url_raw( wp_unslash( $_POST['file_url'] ) );
+
+			if ( ! $this->validate_temp_folder_path( $file_name ) ) {
+				exit;
+			}
 
 			$data = apply_filters( 'alg_export_data_csv', $data, $tool_id );
 

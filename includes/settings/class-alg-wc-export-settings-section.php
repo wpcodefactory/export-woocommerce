@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Section Settings
  *
- * @version 2.4.1
+ * @version 2.4.2
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Section' ) ) :
 	/**
 	 * Alg_WC_Export_Settings_Section class.
 	 *
-	 * @version 2.4.1
+	 * @version 2.4.2
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_Settings_Section {
@@ -106,6 +106,41 @@ if ( ! class_exists( 'Alg_WC_Export_Settings_Section' ) ) :
 				'path' => $destination,
 				'url'  => $url,
 			);
+		}
+
+		/**
+		 * Validate temporary folder path.
+		 *
+		 * @version 2.4.2
+		 * @since   2.4.2
+		 *
+		 * @param string $file_path File path to validate.
+		 *
+		 * @return bool True if valid, false otherwise.
+		 */
+		public function validate_temp_folder_path( $file_path ) {
+			if (
+				! is_string( $file_path ) ||
+				'' === $file_path
+			) {
+				return false;
+			}
+
+			$upload_dir = wp_upload_dir();
+			if ( ! empty( $upload_dir['error'] ) ) {
+				return false;
+			}
+
+			$temp_folder_path = trailingslashit( $upload_dir['basedir'] ) . 'alg_wc_export_temp/';
+
+			$temp_folder_path = wp_normalize_path( $temp_folder_path );
+			$file_path        = wp_normalize_path( $file_path );
+
+			if ( 0 !== strpos( $file_path, $temp_folder_path ) ) {
+				return false;
+			}
+
+			return true;
 		}
 	}
 
