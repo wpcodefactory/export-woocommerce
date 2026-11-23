@@ -2,16 +2,16 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: Export Products, Orders & Customers for WooCommerce 2.4.2\n"
+"Project-Id-Version: Export Products, Orders & Customers for WooCommerce 2.4.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/export-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-23T20:10:33+00:00\n"
+"POT-Creation-Date: 2026-11-23T12:16:02+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: export-woocommerce\n"
 
 #. Plugin Name of the plugin
@@ -1041,11 +1041,13 @@ msgstr ""
 
 #. translators: %s: default capability.
 #: includes/settings/class-alg-wc-export-settings-general.php:90
+#, php-format
 msgid "Default: %s (administrators)."
 msgstr ""
 
 #. translators: %s: alternative capability.
 #: includes/settings/class-alg-wc-export-settings-general.php:95
+#, php-format
 msgid "Try: %s (administrators & shop managers)."
 msgstr ""
 
@@ -1077,6 +1079,7 @@ msgstr ""
 #: includes/settings/class-alg-wc-export-settings-general.php:125
 #: includes/settings/class-alg-wc-export-settings-general.php:151
 #: includes/settings/class-alg-wc-export-settings-general.php:203
+#, php-format
 msgid "Used in: %s columns."
 msgstr ""
 
@@ -1085,6 +1088,7 @@ msgstr ""
 #: includes/settings/class-alg-wc-export-settings-general.php:165
 #: includes/settings/class-alg-wc-export-settings-general.php:189
 #: includes/settings/class-alg-wc-export-settings-general.php:218
+#, php-format
 msgid "Default: %s"
 msgstr ""
 
@@ -1094,6 +1098,7 @@ msgstr ""
 
 #. translators: %s: column list.
 #: includes/settings/class-alg-wc-export-settings-general.php:179
+#, php-format
 msgid "Used in: %s column."
 msgstr ""
 
