@@ -2,7 +2,7 @@
 /**
  * Export WooCommerce - Core Class
  *
- * @version 2.4.0
+ * @version 2.4.4
  * @since   1.0.0
  *
  * @author WPFactory
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Export_Core' ) ) :
 	/**
 	 * Alg_WC_Export_Core class.
 	 *
-	 * @version 2.4.0
+	 * @version 2.4.4
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Export_Core {
@@ -335,13 +335,18 @@ if ( ! class_exists( 'Alg_WC_Export_Core' ) ) :
 		/**
 		 * Get allowed HTML for `wp_kses()`.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.4
 		 * @since   2.4.0
 		 *
 		 * @return array Allowed HTML tags and attributes.
 		 */
 		public function get_allowed_html() {
 			$allowed_html = wp_kses_allowed_html( 'post' ); // Allowed in the `wp_kses_post()`.
+
+			$allowed_html['form'] = array(
+				'method' => true,
+				'action' => true,
+			);
 
 			$allowed_html['option'] = array(
 				'value'    => true,
@@ -367,7 +372,6 @@ if ( ! class_exists( 'Alg_WC_Export_Core' ) ) :
 				'min'      => true,
 				'max'      => true,
 				'disabled' => true,
-				'onclick'  => true,
 			);
 
 			return $allowed_html;
@@ -400,7 +404,7 @@ if ( ! class_exists( 'Alg_WC_Export_Core' ) ) :
 		/**
 		 * Export date fields.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.4
 		 * @since   1.1.0
 		 */
 		public function export_date_fields() {
@@ -409,13 +413,13 @@ if ( ! class_exists( 'Alg_WC_Export_Core' ) ) :
 			$predefined_ranges  = array();
 
 			$predefined_ranges[] = '<a' .
-			' href="' . esc_url( add_query_arg( 'range', 'all_time', remove_query_arg( array( 'start_date', 'end_date' ) ) ) ) . '"' .
+				' href="' . esc_url( add_query_arg( 'range', 'all_time', remove_query_arg( array( 'start_date', 'end_date' ) ) ) ) . '"' .
 				(
 					(
 						empty( $_GET['start_date'] ) && // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 						empty( $_GET['end_date'] ) && // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 						isset( $_GET['range'] ) && // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-						'all_time' === $_GET['range'] // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+						'all_time' === sanitize_text_field( wp_unslash( $_GET['range'] ) ) // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 					) ?
 					' style="font-weight:bold;color:black;"' :
 					''
@@ -446,9 +450,9 @@ if ( ! class_exists( 'Alg_WC_Export_Core' ) ) :
 			$predefined_ranges = implode( ' | ', $predefined_ranges );
 			$date_input_fields = (
 				'<strong>' . __( 'Custom:', 'export-woocommerce' ) . '</strong> ' .
-				'<input name="start_date" id="start_date" type="text" display="date" value="' . $current_start_date . '">' .
+				'<input name="start_date" id="start_date" type="text" display="date" value="' . esc_attr( $current_start_date ) . '">' .
 				'<strong> - </strong>' .
-				'<input name="end_date" id="end_date" type="text" display="date" value="' . $current_end_date . '">' .
+				'<input name="end_date" id="end_date" type="text" display="date" value="' . esc_attr( $current_end_date ) . '">' .
 				' ' .
 				'<button class="button-primary" name="range" id="range" type="submit" value="custom">' . __( 'Go', 'export-woocommerce' ) . '</button>'
 			);
@@ -462,7 +466,7 @@ if ( ! class_exists( 'Alg_WC_Export_Core' ) ) :
 		/**
 		 * Create export tool.
 		 *
-		 * @version 2.4.0
+		 * @version 2.4.4
 		 * @since   1.0.0
 		 *
 		 * @param string $tool_id    The ID of the export tool.
@@ -474,18 +478,24 @@ if ( ! class_exists( 'Alg_WC_Export_Core' ) ) :
 		 * @todo (dev) `alg_export` and `alg_export_xml` - `$date_args` and `$filter_args` should be updated if changed?
 		 */
 		public function create_export_tool( $tool_id, $tool_title, $tool_desc ) {
-			$html  = '<h1>' . $tool_title . '</h1>';
+			$html = '<h1>' . $tool_title . '</h1>';
+
 			$html .= '<p><em>' . $tool_desc . '</em></p>';
+
 			$html .= '<form action="" method="get">';
+
 			$html .= '<input type="hidden" value="alg-wc-export-tools" name="page">';
 			$html .= '<input type="hidden" value="' . $tool_id . '" name="alg_wc_export_tool">';
-			$html .= '<input type="hidden" value="' . ( isset( $_GET['range'] ) ? sanitize_text_field( wp_unslash( $_GET['range'] ) ) : '' ) . '" name="range">'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$html .= '<input type="hidden" value="' . esc_attr( isset( $_GET['range'] ) ? sanitize_text_field( wp_unslash( $_GET['range'] ) ) : '' ) . '" name="range">'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
 			$html .= '<p>';
+
 			$html .= $this->export_date_fields();
 
 			if ( ! isset( $_GET['range'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				return $html;
 			}
+
 			$html .= alg_wc_export_get_settings_button_html( $tool_id ) . ' ';
 
 			$date_args  = ( isset( $_GET['start_date'] ) ? '&start_date=' . sanitize_text_field( wp_unslash( $_GET['start_date'] ) ) : '' ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -493,13 +503,25 @@ if ( ! class_exists( 'Alg_WC_Export_Core' ) ) :
 
 			$filter_args = ( isset( $_GET['alg_export_filter_all_columns'] ) ? '&alg_export_filter_all_columns=' . sanitize_text_field( wp_unslash( $_GET['alg_export_filter_all_columns'] ) ) : '' ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-			$html .= '<a class="button-primary" href="' . home_url( '/?alg_export=' . $tool_id . $date_args . $filter_args ) . '">' . __( 'Download CSV', 'export-woocommerce' ) . '</a> ';
-			$html .= '<a class="button-primary" href="' . home_url( '/?alg_export_xml=' . $tool_id . $date_args . $filter_args ) . '">' . __( 'Download XML', 'export-woocommerce' ) . '</a>';
-			$html .= '<button style="float:right;margin-right:10px;" class="button-primary" type="submit" name="alg_export_filter" value="' . $tool_id . '">' . __( 'Filter by All Fields', 'export-woocommerce' ) . '</button>';
-			$html .= '<input style="float:right;margin-right:10px;" type="text" name="alg_export_filter_all_columns" value="' . ( isset( $_GET['alg_export_filter_all_columns'] ) ? sanitize_text_field( wp_unslash( $_GET['alg_export_filter_all_columns'] ) ) : '' ) . '">'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$html .= '<a class="button-primary" href="' . esc_url( home_url( '/?alg_export=' . esc_attr( $tool_id . $date_args . $filter_args ) ) ) . '">' .
+				__( 'Download CSV', 'export-woocommerce' ) .
+			'</a> ';
+
+			$html .= '<a class="button-primary" href="' . esc_url( home_url( '/?alg_export_xml=' . esc_attr( $tool_id . $date_args . $filter_args ) ) ) . '">' .
+				__( 'Download XML', 'export-woocommerce' ) .
+			'</a>';
+
+			$html .= '<button style="float:right;margin-right:10px;" class="button-primary" type="submit" name="alg_export_filter" value="' . $tool_id . '">' .
+				__( 'Filter by All Fields', 'export-woocommerce' ) .
+			'</button>';
+			$html .= '<input style="float:right;margin-right:10px;" type="text" name="alg_export_filter_all_columns" value="' . esc_attr( isset( $_GET['alg_export_filter_all_columns'] ) ? sanitize_text_field( wp_unslash( $_GET['alg_export_filter_all_columns'] ) ) : '' ) . '">'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
 			$html .= '</p>';
+
 			$html .= '</form>';
-			$data  = $this->export( $tool_id );
+
+			$data = $this->export( $tool_id );
+
 			$html .= ( is_array( $data ) ) ? alg_wc_export_get_table_html( $data, array( 'table_class' => 'widefat striped' ) ) : $data;
 
 			return $html;
